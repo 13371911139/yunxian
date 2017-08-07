@@ -37144,6 +37144,7 @@
 
 	    function wxConfig(obj) {
 	        console.log('开始执行');
+	        debugger;
 	        wx.config({
 	            debug: true,
 	            appId: obj.appid, // 微信appid
@@ -37153,6 +37154,7 @@
 	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi']
 	        });
 	        wx.ready(function () {
+	            alert('微信校 验 成功');
 	            for (var i in wx.config) {
 	                alert(i + '+++' + wx.config[i] + '+++' + wx.config);
 	            }
