@@ -35370,15 +35370,6 @@
 	    },
 	    onPhoto: function onPhoto(aa, bb) {
 	        alert('执行微信上传功能');
-	        wx.uploadImage({
-	            localId: 'sss'.toString(), // 需要上传的图片的本地ID，由chooseImage接口获得
-	            isShowProgressTips: 1, // 默认为1，显示进度提示
-	            success: function success(res) {
-	                var serverId = res.serverId; // 返回图片的服务器端ID
-	                paramData.push({ "imageType": photoType, "serverId": serverId });
-	            }
-	        });
-
 	        wx.chooseImage({
 	            count: 1, // 默认9
 	            sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
@@ -35395,6 +35386,15 @@
 	                    alert('拍照失败');
 	                }
 	            }).bind(this)
+	        });
+	        return;
+	        wx.uploadImage({
+	            localId: 'sss'.toString(), // 需要上传的图片的本地ID，由chooseImage接口获得
+	            isShowProgressTips: 1, // 默认为1，显示进度提示
+	            success: function success(res) {
+	                var serverId = res.serverId; // 返回图片的服务器端ID
+	                paramData.push({ "imageType": photoType, "serverId": serverId });
+	            }
 	        });
 	    },
 	    _uploadImage: function _uploadImage(localIds, photoType) {
@@ -37150,7 +37150,7 @@
 	            timestamp: obj.timestamp, // 时间戳
 	            nonceStr: obj.noncestr, // 随机数
 	            signature: obj.signature, // 签名,
-	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi']
+	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi', 'checkJsApi', 'previewImage']
 	        });
 	        wx.ready(function () {
 	            alert('当前版本：c2');
