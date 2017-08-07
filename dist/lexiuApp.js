@@ -115768,8 +115768,9 @@
 	        dataType: "json",
 	        type: "post",
 	        success: (function (msg) {
-	            alert('appId' + msg.appId);alert('nonceStr' + msg.nonceStr);
-	            alert('timestamp' + msg.timestamp);alert('signature' + msg.signature);
+	            for (var i in msg) {
+	                alert(i, '+++' + msg[i] + '+++' + msg);
+	            }
 	            wxConfig(msg);
 	            console.log(msg);
 	        }).bind(this),
