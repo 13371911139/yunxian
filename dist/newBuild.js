@@ -37144,7 +37144,7 @@
 
 	    function wxConfig(obj) {
 	        console.log('开始执行');
-	        debugger;
+	        alert('appid:' + obj.appid);alert('signature:' + obj.signature);
 	        wx.config({
 	            debug: true,
 	            appId: obj.appid, // 微信appid
