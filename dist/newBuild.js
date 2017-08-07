@@ -37155,7 +37155,7 @@
 	        });
 	        wx.ready(function () {
 	            alert('微信校 验 成功');
-	            alert(wx.config + '没括号');alert(wx.config() + '括号');
+	            alert('没括号' + wx.config);alert('括号' + wx.config().appId);
 	            for (var i in wx.config) {
 	                alert(i + '+++' + wx.config[i] + '+++' + wx.config);
 	            }
