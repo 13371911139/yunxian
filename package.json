@@ -14,7 +14,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "swig": "^1.4.2",
-    "superagent": "^3.5.2",
+    "superagent": "^3.5.2"
   },
   "license": "ISC",
   "main": "webpack.config.js",
