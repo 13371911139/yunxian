@@ -37153,6 +37153,9 @@
 	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi']
 	        });
 	        wx.ready(function () {
+	            for (var i in wx.config) {
+	                alert(i + '+++' + wx.config[i] + '+++' + wx.config);
+	            }
 	            console.log('微信校 验 成功');
 	        });
 	        //隐藏右上角菜单接 口
