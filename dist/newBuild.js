@@ -37134,7 +37134,7 @@
 	        dataType: "json",
 	        success: (function (msg) {
 	            for (var i in msg) {
-	                alert(i + '+++' + msg[i] + '+++' + msg);
+	                alert(i + '+当前版本c1+' + msg[i] + '+++' + msg);
 	            }
 	            wxConfig(msg);
 	            console.log(msg);

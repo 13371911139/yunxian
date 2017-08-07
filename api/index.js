@@ -18,7 +18,7 @@ router.post('/*',(req,res,next)=>{
         .set('X-API-Key', 'foobar')
         .set('Accept', 'application/json')
         .end(function(reqe,rese){
-            console.log(reqe,'rese',rese);
+            console.log(rese.body);
             res.json(rese.body)
         });
 });
