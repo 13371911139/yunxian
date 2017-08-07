@@ -35408,6 +35408,8 @@
 	            success: function success(res) {
 	                var serverId = res.serverId; // 返回图片的服务器端ID
 	                paramData.push({ "imageType": photoType, "serverId": serverId });
+	                alert('imageType' + photoType);
+	                alert('serverId' + serverId);
 	            }
 	        });
 	    },
