@@ -37129,10 +37129,9 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/lexiugo-app/weixin/evaluation/tmxlogin" + window.location.search,
-	        data: {},
+	        url: "/lexiugo-app/weixin/getSignature",
+	        data: 'url=' + encodeURIComponent(window.location.href),
 	        dataType: "json",
-	        type: "post",
 	        success: (function (msg) {
 	            for (var i in msg) {
 	                alert(i + '+++' + msg[i] + '+++' + msg);
