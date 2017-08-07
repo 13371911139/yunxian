@@ -35369,6 +35369,7 @@
 	        });*/
 	    },
 	    onPhoto: function onPhoto(aa, bb) {
+	        alert('执行微信上传功能');
 	        wx.uploadImage({
 	            localId: 'sss'.toString(), // 需要上传的图片的本地ID，由chooseImage接口获得
 	            isShowProgressTips: 1, // 默认为1，显示进度提示
@@ -37133,9 +37134,6 @@
 	        data: 'url=' + encodeURIComponent(window.location.href),
 	        dataType: "json",
 	        success: (function (msg) {
-	            for (var i in msg) {
-	                alert(i + '+当前版本c1+' + msg[i] + '+++' + msg);
-	            }
 	            wxConfig(msg);
 	            console.log(msg);
 	        }).bind(this),
@@ -37146,7 +37144,6 @@
 
 	    function wxConfig(obj) {
 	        console.log('开始执行');
-	        alert('appid:' + obj.appid);alert('signature:' + obj.signature);
 	        wx.config({
 	            debug: true,
 	            appId: obj.appid, // 微信appid
@@ -37156,9 +37153,7 @@
 	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi']
 	        });
 	        wx.ready(function () {
-	            alert('微信校 验 成功');
-	            alert('没括号' + wx.config);alert('括号' + wx.config().appId);
-	            console.log('微信校 验 成功');
+	            alert('当前版本：c2');
 	        });
 	        //隐藏右上角菜单接 口
 	        wx.hideOptionMenu();
