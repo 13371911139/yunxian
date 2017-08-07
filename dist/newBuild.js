@@ -35254,7 +35254,7 @@
 	        type: "post",
 	        success: (function (msg) {
 	            for (var i in msg) {
-	                alert(i, '+++' + msg[i] + '+++' + msg);
+	                alert(i + '+++' + msg[i] + '+++' + msg);
 	            }
 	            wxConfig(msg);
 	            console.log(msg);
