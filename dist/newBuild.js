@@ -35311,6 +35311,9 @@
 	            data: 'url=' + encodeURIComponent(window.location.href),
 	            dataType: 'jsonp',
 	            success: (function (data) {
+	                for (var i in data) {
+	                    alert(i + '++++++' + data[i]);
+	                }
 	                this.setState({ signature: data });
 	                //this.wxCobfig();
 	            }).bind(this),
@@ -37156,9 +37159,6 @@
 	        wx.ready(function () {
 	            alert('微信校 验 成功');
 	            alert('没括号' + wx.config);alert('括号' + wx.config().appId);
-	            for (var i in wx.config) {
-	                alert(i + '+++' + wx.config[i] + '+++' + wx.config);
-	            }
 	            console.log('微信校 验 成功');
 	        });
 	        //隐藏右上角菜单接 口
