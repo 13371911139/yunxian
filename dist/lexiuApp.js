@@ -115763,7 +115763,7 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/lexiugo-app/weixin/evaluation/tmxlogin?code=051pEw2I0H3Hxk2lr43I0oOv2I0pEw28", //+//window.location.search,
+	        url: "/lexiugo-app/weixin/evaluation/tmxlogin" + window.location.search,
 	        data: {},
 	        dataType: "json",
 	        type: "post",
