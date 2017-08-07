@@ -35312,7 +35312,7 @@
 	            dataType: 'jsonp',
 	            success: (function (data) {
 	                for (var i in data) {
-	                    alert(i + '++++++' + data[i]);
+	                    // alert(i+'++++++'+data[i])
 	                }
 	                this.setState({ signature: data });
 	                //this.wxCobfig();
@@ -37150,8 +37150,8 @@
 	        wx.config({
 	            debug: true,
 	            appId: obj.appid, // 微信appid
-	            timestamp: 1425952357, // 时间戳
-	            nonceStr: 'OMIE75rRCpMq2540', // 随机数
+	            timestamp: obj.timestamp, // 时间戳
+	            nonceStr: obj.nonceStr, // 随机数
 	            signature: obj.signature, // 签名,
 	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi']
 	        });
