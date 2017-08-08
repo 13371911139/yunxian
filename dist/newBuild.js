@@ -35107,7 +35107,7 @@
 	        $xlcNameLi.bind("click", function () {
 	            (0, _jquery2["default"])(".xlcName").val(xlcData[(0, _jquery2["default"])(this).index()].libName);
 	            (0, _jquery2["default"])(".xlcItem").hide();
-	            (0, _jquery2["default"])(".xlcCode").val(xlcData[(0, _jquery2["default"])(this).index()].sysXlcCode);
+	            (0, _jquery2["default"])(".xlcCode").val(xlcData[(0, _jquery2["default"])(this).index()].libId);
 	        });
 	    },
 	    componentDidMount: function componentDidMount() {
@@ -35171,6 +35171,7 @@
 	        };
 	        for (var key in arr) {
 	            if (!this.valueData((0, _jquery2["default"])('input[name=' + key + ']').val(), arr[key].type, arr[key].name)) {
+	                alert((0, _jquery2["default"])('input[name=' + key + ']').val());
 	                return;
 	            };
 	        }
