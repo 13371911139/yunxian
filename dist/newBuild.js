@@ -35053,14 +35053,14 @@
 	/**
 	 * Created by Administrator on 2016/8/26 0026.
 	 */
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
 
 	function _interopRequireDefault(obj) {
-	    return obj && obj.__esModule ? obj : { "default": obj };
+	    return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
 	var _react = __webpack_require__(2);
@@ -35072,12 +35072,12 @@
 	var _jquery2 = _interopRequireDefault(_jquery);
 
 	//import cookie from '../cookieJs';
-	var CaseInfo = _react2["default"].createClass({
-	    displayName: "CaseInfo",
+	var CaseInfo = _react2['default'].createClass({
+	    displayName: 'CaseInfo',
 
 	    getInitialState: function getInitialState() {
 	        return {
-
+	            tmxhavepjType: '', tmxCarType: '',
 	            registPersion: "",
 	            registPersionPhone: "",
 	            modalState: "",
@@ -35102,7 +35102,7 @@
 	        //        cookie.setCookie("reInfo",reInfo.registPersion,reInfo.registPersionPhone,30)
 	        //    }
 	        // this.serverRequest("","http://test.lexiugo.com/lexiugo-app/user/getUserinfo")
-	        _jquery2["default"].ajax({
+	        _jquery2['default'].ajax({
 	            url: "/lexiugo-app/user/getUserinfo?zw=DSY&url=" + window.location.href,
 	            dataType: "json",
 	            data: { zw: 'DSY' },
@@ -35119,7 +35119,7 @@
 	                console.log(this.state.registPersion, 'registPersion');
 	            }).bind(this)
 	        });
-	        _jquery2["default"].ajax({
+	        _jquery2['default'].ajax({
 	            url: "/lexiugo-app/weixin/insurance/getCountTask",
 	            dataType: "json",
 	            type: "post",
@@ -35147,8 +35147,8 @@
 	            tmxCarType: { name: '推车类型' }
 	        };
 	        for (var key in arr) {
-	            if (!this.valueData((0, _jquery2["default"])('input[name=' + key + ']').val(), arr[key].type, arr[key].name)) {
-	                alert((0, _jquery2["default"])('input[name=' + key + ']').val());
+	            if (!this.valueData((0, _jquery2['default'])('input[name=' + key + ']').val(), arr[key].type, arr[key].name)) {
+	                alert((0, _jquery2['default'])('input[name=' + key + ']').val());
 	                return;
 	            };
 	        }
@@ -35172,15 +35172,15 @@
 	            this.setState({modalState:"车牌号尚未填写"})
 	        }else {*/
 	        this.setState({ scmodalState: true });
-	        var dataArr = (0, _jquery2["default"])("#caseInfoForm").serializeArray();
-	        _jquery2["default"].ajax({
+	        var dataArr = (0, _jquery2['default'])("#caseInfoForm").serializeArray();
+	        _jquery2['default'].ajax({
 	            url: "/lexiugo-app/weixin/insurance/basic",
 	            data: dataArr,
 	            dataType: "json",
 	            type: "post",
 	            success: (function (msg) {
 	                this.setState({ scmodalState: false });debugger;
-	                this.props.history.replaceState(this.state.reInfo, "/vehicleInfo?tmxhavepjType=" + (0, _jquery2["default"])('.tmxHavepjType').val() + '&tmxCarType=' + (0, _jquery2["default"])('.tmxCarType').val());
+	                this.props.history.replaceState(this.state.reInfo, "/vehicleInfo?tmxhavepjType=" + (0, _jquery2['default'])('.tmxHavepjType').val() + '&tmxCarType=' + (0, _jquery2['default'])('.tmxCarType').val());
 	            }).bind(this),
 	            error: (function (xhr, status, err) {
 	                this.setState({ scmodalState: false });
@@ -35219,7 +35219,17 @@
 	    toRecord: function toRecord() {
 	        this.props.history.replaceState(null, "/record");
 	    },
+	    changeCheck: function changeCheck(e) {
+	        var newState = {};
+	        newState[e.target.name] = e.target.value;
 
+	        if ((0, _jquery2['default'])('input[name=' + e.target.name + ']').is(':checked')) {
+	            newState[e.target.name] = 1;
+	        } else {
+	            newState[e.target.name] = 0;
+	        }
+	        this.setState(newState);
+	    },
 	    render: function render() {
 
 	        var LinkActiveStyle = {
@@ -35227,11 +35237,11 @@
 	            background: "#F5F5F5"
 	        };
 
-	        return _react2["default"].createElement("div", { className: "caseInfo Rcontainer" }, _react2["default"].createElement("div", { className: "headerInfo" }, _react2["default"].createElement("span", { className: "newBuildBtn", onClick: this.toRecord }, "列表"), "新建推修"), _react2["default"].createElement("div", { className: "menuList" }, _react2["default"].createElement("span", { style: LinkActiveStyle }, "案件信息"), _react2["default"].createElement("span", null, "车辆信息"), _react2["default"].createElement("span", null, "查勘照片")), _react2["default"].createElement("form", { id: "caseInfoForm", name: "caseInfoForm", onSubmit: this.formOnSubmit }, _react2["default"].createElement("table", { border: "0" }, _react2["default"].createElement("tbody", null, _react2["default"].createElement("tr", null, _react2["default"].createElement("td", { className: "tdShort" }, _react2["default"].createElement("input", { className: "form-input", autoComplete: "off", onChange: this.handleChange, name: "registPersion", placeholder: "必填*推修人姓名", type: "text" })), _react2["default"].createElement("td", null, _react2["default"].createElement("label", { htmlFor: "sx" }, "送修"), _react2["default"].createElement("input", { type: "radio", defaultChecked: true, name: "repairType", id: "sx", value: "0" })), _react2["default"].createElement("td", null, _react2["default"].createElement("label", { htmlFor: "fx" }, "返修"), _react2["default"].createElement("input", { type: "radio", name: "repairType", id: "fx", value: "1" }))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", null, _react2["default"].createElement("label", { htmlFor: "sxp" }, "是否有配件"), _react2["default"].createElement("input", { type: "checkbox", defaultChecked: true, name: "tmxHavepjType", "class": "tmxHavepjType", id: "sxp" })), _react2["default"].createElement("td", null, _react2["default"].createElement("label", { htmlFor: "fxs" }, "是否商用车"), _react2["default"].createElement("input", { type: "checkbox", name: "tmxCarType", "class": "tmxCarType", id: "fxs" }))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", { colSpan: "3" }, _react2["default"].createElement("input", { className: "form-input", name: "registPersionPhone", autoComplete: "off", onChange: this.handleChange, placeholder: "必填*推修人电话", type: "tel" }))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", { colSpan: "3" }, _react2["default"].createElement("input", { className: "form-input", name: "reportNo", value: this.state.reportNo, onChange: this.handleChange, placeholder: "必填*报案号", type: "text" }))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", { colSpan: "3" }, _react2["default"].createElement("input", { className: "form-input", name: "lossNo", value: this.state.lossNo, onChange: this.handleChange, placeholder: "必填*定损单号", type: "text" }))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", { colSpan: "3" }, _react2["default"].createElement("input", { className: "form-input", name: "reportMoblePhone", placeholder: "必填*车主电话", type: "tel" }))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", { className: "tdShort" }, _react2["default"].createElement("input", { className: "form-input", name: "reportPersonName", placeholder: "必填*车主姓名", type: "text" })), _react2["default"].createElement("td", null, _react2["default"].createElement("label", { htmlFor: "zc" }, "主车"), _react2["default"].createElement("input", { type: "radio", defaultChecked: true, name: "taskType", id: "zc", value: "0201" })), _react2["default"].createElement("td", null, _react2["default"].createElement("label", { htmlFor: "szc" }, "三者车"), _react2["default"].createElement("input", { type: "radio", name: "taskType", id: "szc", value: "0202" }))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", { colSpan: "3" }, _react2["default"].createElement("input", { className: "form-input", name: "plateNo", placeholder: "必填*车牌号", type: "text" }))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", { style: { textAlign: "right" } }, "估损方式:"), _react2["default"].createElement("td", { colSpan: "2", style: { textAlign: "left" } }, _react2["default"].createElement("input", { type: "radio", defaultChecked: true, name: "lossWay", value: "1", id: "qqwt" }), _react2["default"].createElement("label", { htmlFor: "qqwt" }, "全权委托(开拆)"))), _react2["default"].createElement("tr", null, _react2["default"].createElement("td", null), _react2["default"].createElement("td", { colSpan: "2", style: { textAlign: "left" } }, _react2["default"].createElement("input", { type: "radio", name: "lossWay", value: "2", id: "ddfz" }), _react2["default"].createElement("label", { htmlFor: "ddfz" }, "到店辅助(先别动)"))))), _react2["default"].createElement("button", { className: "publicBtn", type: "submit" }, "提交并下一步")), _react2["default"].createElement("div", { className: "weui_dialog_alert", style: this.state.modalState == "" ? { display: "none" } : { display: "block" } }, _react2["default"].createElement("div", { className: "weui_mask" }), _react2["default"].createElement("div", { className: "weui_dialog" }, _react2["default"].createElement("div", { className: "weui_dialog_hd" }, _react2["default"].createElement("strong", { className: "weui_dialog_title", onClick: this.modalStateChange })), _react2["default"].createElement("div", { className: "weui_dialog_bd" }, this.state.modalState), _react2["default"].createElement("div", { className: "weui_dialog_ft" }, _react2["default"].createElement("a", { className: "weui_btn_dialog primary", onClick: this.modalStateChange }, "确定")))), _react2["default"].createElement("div", { id: "loadingToast", className: "weui_loading_toast", style: this.state.scmodalState ? { display: "block" } : { display: "none" } }, _react2["default"].createElement("div", { className: "weui_mask_transparent" }), _react2["default"].createElement("div", { className: "weui_toast" }, _react2["default"].createElement("div", { className: "weui_loading" }, _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_0" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_1" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_2" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_3" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_4" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_5" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_6" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_7" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_8" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_9" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_10" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_11" })), _react2["default"].createElement("p", { className: "weui_toast_content" }, "数据上传中"))));
+	        return _react2['default'].createElement('div', { className: 'caseInfo Rcontainer' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement('span', { className: 'newBuildBtn', onClick: this.toRecord }, '列表'), '新建推修'), _react2['default'].createElement('div', { className: 'menuList' }, _react2['default'].createElement('span', { style: LinkActiveStyle }, '案件信息'), _react2['default'].createElement('span', null, '车辆信息'), _react2['default'].createElement('span', null, '查勘照片')), _react2['default'].createElement('form', { id: 'caseInfoForm', name: 'caseInfoForm', onSubmit: this.formOnSubmit }, _react2['default'].createElement('table', { border: '0' }, _react2['default'].createElement('tbody', null, _react2['default'].createElement('tr', null, _react2['default'].createElement('td', { className: 'tdShort' }, _react2['default'].createElement('input', { className: 'form-input', autoComplete: 'off', onChange: this.handleChange, name: 'registPersion', placeholder: '必填*推修人姓名', type: 'text' })), _react2['default'].createElement('td', null, _react2['default'].createElement('label', { htmlFor: 'sx' }, '送修'), _react2['default'].createElement('input', { type: 'radio', defaultChecked: true, name: 'repairType', id: 'sx', value: '0' })), _react2['default'].createElement('td', null, _react2['default'].createElement('label', { htmlFor: 'fx' }, '返修'), _react2['default'].createElement('input', { type: 'radio', name: 'repairType', id: 'fx', value: '1' }))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, _react2['default'].createElement('label', { htmlFor: 'sxp' }, '是否有配件'), _react2['default'].createElement('input', { type: 'checkbox', defaultChecked: true, name: 'tmxhavepjType', onChange: this.changeCheck, 'class': 'tmxHavepjType', id: 'sxp', value: this.state.tmxhavepjType })), _react2['default'].createElement('td', null, _react2['default'].createElement('label', { htmlFor: 'fxs' }, '是否商用车'), _react2['default'].createElement('input', { type: 'checkbox', name: 'tmxCarType', onChange: this.changeCheck, 'class': 'tmxCarType', id: 'fxs', value: this.state.tmxCarType }))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', { colSpan: '3' }, _react2['default'].createElement('input', { className: 'form-input', name: 'registPersionPhone', autoComplete: 'off', onChange: this.handleChange, placeholder: '必填*推修人电话', type: 'tel' }))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', { colSpan: '3' }, _react2['default'].createElement('input', { className: 'form-input', name: 'reportNo', value: this.state.reportNo, onChange: this.handleChange, placeholder: '必填*报案号', type: 'text' }))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', { colSpan: '3' }, _react2['default'].createElement('input', { className: 'form-input', name: 'lossNo', value: this.state.lossNo, onChange: this.handleChange, placeholder: '必填*定损单号', type: 'text' }))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', { colSpan: '3' }, _react2['default'].createElement('input', { className: 'form-input', name: 'reportMoblePhone', placeholder: '必填*车主电话', type: 'tel' }))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', { className: 'tdShort' }, _react2['default'].createElement('input', { className: 'form-input', name: 'reportPersonName', placeholder: '必填*车主姓名', type: 'text' })), _react2['default'].createElement('td', null, _react2['default'].createElement('label', { htmlFor: 'zc' }, '主车'), _react2['default'].createElement('input', { type: 'radio', defaultChecked: true, name: 'taskType', id: 'zc', value: '0201' })), _react2['default'].createElement('td', null, _react2['default'].createElement('label', { htmlFor: 'szc' }, '三者车'), _react2['default'].createElement('input', { type: 'radio', name: 'taskType', id: 'szc', value: '0202' }))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', { colSpan: '3' }, _react2['default'].createElement('input', { className: 'form-input', name: 'plateNo', placeholder: '必填*车牌号', type: 'text' }))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', { style: { textAlign: "right" } }, '估损方式:'), _react2['default'].createElement('td', { colSpan: '2', style: { textAlign: "left" } }, _react2['default'].createElement('input', { type: 'radio', defaultChecked: true, name: 'lossWay', value: '1', id: 'qqwt' }), _react2['default'].createElement('label', { htmlFor: 'qqwt' }, '全权委托(开拆)'))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null), _react2['default'].createElement('td', { colSpan: '2', style: { textAlign: "left" } }, _react2['default'].createElement('input', { type: 'radio', name: 'lossWay', value: '2', id: 'ddfz' }), _react2['default'].createElement('label', { htmlFor: 'ddfz' }, '到店辅助(先别动)'))))), _react2['default'].createElement('button', { className: 'publicBtn', type: 'submit' }, '提交并下一步')), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.modalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title', onClick: this.modalStateChange })), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.modalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.modalStateChange }, '确定')))), _react2['default'].createElement('div', { id: 'loadingToast', className: 'weui_loading_toast', style: this.state.scmodalState ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'weui_mask_transparent' }), _react2['default'].createElement('div', { className: 'weui_toast' }, _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('p', { className: 'weui_toast_content' }, '数据上传中'))));
 	    }
 	});
-	exports["default"] = CaseInfo;
-	module.exports = exports["default"];
+	exports['default'] = CaseInfo;
+	module.exports = exports['default'];
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "caseInfo.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
