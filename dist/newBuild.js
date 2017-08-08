@@ -129,23 +129,23 @@
 
 	var _componentsCheckPhotographJs2 = _interopRequireDefault(_componentsCheckPhotographJs);
 
-	var _componentsVehicleInfoJs = __webpack_require__(217);
+	var _componentsVehicleInfoJs = __webpack_require__(218);
 
 	var _componentsVehicleInfoJs2 = _interopRequireDefault(_componentsVehicleInfoJs);
 
-	var _componentsRecordJs = __webpack_require__(218);
+	var _componentsRecordJs = __webpack_require__(219);
 
 	var _componentsRecordJs2 = _interopRequireDefault(_componentsRecordJs);
 
-	var _componentsQueryJs = __webpack_require__(219);
+	var _componentsQueryJs = __webpack_require__(220);
 
 	var _componentsQueryJs2 = _interopRequireDefault(_componentsQueryJs);
 
-	var _componentsDetailsJs = __webpack_require__(221);
+	var _componentsDetailsJs = __webpack_require__(222);
 
 	var _componentsDetailsJs2 = _interopRequireDefault(_componentsDetailsJs);
 
-	var _rem_ = __webpack_require__(222);
+	var _rem_ = __webpack_require__(223);
 
 	var _rem_2 = _interopRequireDefault(_rem_);
 
@@ -153,13 +153,9 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
+	__webpack_require__(224);
 	//require('../css/weui.css')
 
-	var _configWXConfig = __webpack_require__(223);
-
-	var _configWXConfig2 = _interopRequireDefault(_configWXConfig);
-
-	__webpack_require__(224);
 	var history = (0, _history.useBasename)(_history.createHashHistory)({
 	    queryKey: "_key",
 	    basename: '/app'
@@ -210,12 +206,16 @@
 	    //            break;
 	    //    }
 	    //},
+	    ParentComponent: function ParentComponent(props) {
+	        return props.children;
+	    },
 	    render: function render() {
+
 	        return _react2['default'].createElement('div', { className: 'appRouter' }, _react2['default'].createElement('div', { className: 'routerContainer' }, this.props.children));
 	    }
 	});
 
-	_reactDom2['default'].render(_react2['default'].createElement(AppRouter, null), document.getElementById("appWrapper"));
+	_reactDom2['default'].render(_react2['default'].createElement(AppRouter, { a: 'jj' }), document.getElementById("appWrapper"));
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "index.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
@@ -35160,6 +35160,7 @@
 	            registPersion: { name: '推修人姓名', type: 'def' },
 	            registPersionPhone: { name: '推修人电话', type: 'phone' },
 	            xlcName: { name: '修理厂名称' },
+	            xlcCode: { name: '修理厂id' },
 	            reportNo: { name: '报案号' },
 	            lossNo: { name: '定损单号' },
 	            reportMoblePhone: { name: '车主电话', type: 'phone' },
@@ -35270,14 +35271,14 @@
 	/**
 	 * Created by Administrator on 2016/8/26 0026.
 	 */
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	    value: true
 	});
 
 	function _interopRequireDefault(obj) {
-	    return obj && obj.__esModule ? obj : { "default": obj };
+	    return obj && obj.__esModule ? obj : { 'default': obj };
 	}
 
 	var _react = __webpack_require__(2);
@@ -35288,15 +35289,19 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _configWxFun = __webpack_require__(216);
+	var _configWXConfig = __webpack_require__(216);
+
+	var _configWXConfig2 = _interopRequireDefault(_configWXConfig);
+
+	var _configWxFun = __webpack_require__(217);
 
 	var _configWxFun2 = _interopRequireDefault(_configWxFun);
 
 	var paramData = new Array();
 	module.exports = paramData;
 
-	var CheckPhotograph = _react2["default"].createClass({
-	    displayName: "CheckPhotograph",
+	var CheckPhotograph = _react2['default'].createClass({
+	    displayName: 'CheckPhotograph',
 
 	    getInitialState: function getInitialState() {
 	        return {
@@ -35312,7 +35317,7 @@
 	        };
 	    },
 	    componentWillMount: function componentWillMount() {
-	        _jquery2["default"].ajax({
+	        _jquery2['default'].ajax({
 	            url: "/lexiugo-app/weixin/getSignature",
 	            data: 'url=' + encodeURIComponent(window.location.href),
 	            dataType: 'jsonp',
@@ -35423,7 +35428,7 @@
 	            color: "#1E7BE3",
 	            background: "#F5F5F5"
 	        };
-	        return _react2["default"].createElement("div", { className: "checkPhotograph Rcontainer" }, _react2["default"].createElement("div", { className: "headerInfo" }, _react2["default"].createElement("span", { className: "newuildbtn", onClick: this.toRecord }, "列表"), "新建推修"), _react2["default"].createElement("div", { className: "menuList" }, _react2["default"].createElement("span", null, "案件信息"), _react2["default"].createElement("span", null, "车辆信息"), _react2["default"].createElement("span", { style: LinkActiveStyle }, "查勘照片")), _react2["default"].createElement("div", { className: "panel" }, _react2["default"].createElement("div", { className: "panel-heading" }, "车损照片"), _react2["default"].createElement("div", { className: "panel-body clearfix" }, _react2["default"].createElement("div", { id: "survey_1", className: "picUpload", onClick: this.onPhoto.bind(this, "survey_1", "survey_5") }, _react2["default"].createElement("img", { src: this.state.survey_1, style: this.state.survey_1 == "" ? { display: "none" } : { display: "block" } }), _react2["default"].createElement("span", { className: "iconfont" }, ""), _react2["default"].createElement("p", null, "左前照片")), _react2["default"].createElement("div", { id: "survey_2", className: "picUpload", onClick: this.onPhoto.bind(this, "survey_2", "survey_5") }, _react2["default"].createElement("img", { src: this.state.survey_2, style: this.state.survey_2 == "" ? { display: "none" } : { display: "block" } }), _react2["default"].createElement("span", { className: "iconfont" }, ""), _react2["default"].createElement("p", null, "右前照片")), _react2["default"].createElement("div", { id: "survey_3", className: "picUpload", onClick: this.onPhoto.bind(this, "survey_3", "survey_5") }, _react2["default"].createElement("img", { src: this.state.survey_3, style: this.state.survey_3 == "" ? { display: "none" } : { display: "block" } }), _react2["default"].createElement("span", { className: "iconfont" }, ""), _react2["default"].createElement("p", null, "左后照片")), _react2["default"].createElement("div", { id: "survey_4", className: "picUpload", onClick: this.onPhoto.bind(this, "survey_4", "survey_5") }, _react2["default"].createElement("img", { src: this.state.survey_4, style: this.state.survey_4 == "" ? { display: "none" } : { display: "block" } }), _react2["default"].createElement("span", { className: "iconfont" }, ""), _react2["default"].createElement("p", null, "右后照片")))), _react2["default"].createElement("div", { className: "panel" }, _react2["default"].createElement("div", { className: "panel-heading" }, "证件照片"), _react2["default"].createElement("div", { className: "panel-body clearfix" }, _react2["default"].createElement("div", { id: "survey_5", className: "picUpload", onClick: this.onPhoto.bind(this, "survey_5", "survey_3") }, _react2["default"].createElement("img", { src: this.state.survey_5, style: this.state.survey_5 == "" ? { display: "none" } : { display: "block" } }), _react2["default"].createElement("span", { className: "iconfont" }, ""), _react2["default"].createElement("p", null, "行驶证正本")), _react2["default"].createElement("div", { id: "survey_6", className: "picUpload", onClick: this.onPhoto.bind(this, "survey_6", "vin") }, _react2["default"].createElement("img", { src: this.state.survey_6, style: this.state.survey_6 == "" ? { display: "none" } : { display: "block" } }), _react2["default"].createElement("span", { className: "iconfont" }, ""), _react2["default"].createElement("p", null, "VIN照片"))), _react2["default"].createElement("div", { className: "panel-footer" }, "·   请上传完整的清晰的各位置照片")), _react2["default"].createElement("button", { className: "publicBtn", onClick: this.submitClient }, "确认并推修"), _react2["default"].createElement("div", { className: "weui_dialog_alert", style: this.state.modalState == "" ? { display: "none" } : { display: "block" } }, _react2["default"].createElement("div", { className: "weui_mask" }), _react2["default"].createElement("div", { className: "weui_dialog" }, _react2["default"].createElement("div", { className: "weui_dialog_hd" }, _react2["default"].createElement("strong", { className: "weui_dialog_title" })), _react2["default"].createElement("div", { className: "weui_dialog_bd" }, this.state.modalState), _react2["default"].createElement("div", { className: "weui_dialog_ft" }, _react2["default"].createElement("a", { className: "weui_btn_dialog primary", onClick: this.modalStateChange }, "确定")))), _react2["default"].createElement("div", { id: "loadingToast", className: "weui_loading_toast", style: this.state.scmodalState ? { display: "block" } : { display: "none" } }, _react2["default"].createElement("div", { className: "weui_mask_transparent" }), _react2["default"].createElement("div", { className: "weui_toast" }, _react2["default"].createElement("div", { className: "weui_loading" }, _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_0" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_1" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_2" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_3" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_4" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_5" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_6" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_7" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_8" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_9" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_10" }), _react2["default"].createElement("div", { className: "weui_loading_leaf weui_loading_leaf_11" })), _react2["default"].createElement("p", { className: "weui_toast_content" }, "数据上传中"))));
+	        return _react2['default'].createElement('div', { className: 'checkPhotograph Rcontainer' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement('span', { className: 'newuildbtn', onClick: this.toRecord }, '列表'), '新建推修'), _react2['default'].createElement('div', { className: 'menuList' }, _react2['default'].createElement('span', null, '案件信息'), _react2['default'].createElement('span', null, '车辆信息'), _react2['default'].createElement('span', { style: LinkActiveStyle }, '查勘照片')), _react2['default'].createElement('div', { className: 'panel' }, _react2['default'].createElement('div', { className: 'panel-heading' }, '车损照片'), _react2['default'].createElement('div', { className: 'panel-body clearfix' }, _react2['default'].createElement('div', { id: 'survey_1', className: 'picUpload', onClick: this.onPhoto.bind(this, "survey_1", "survey_5") }, _react2['default'].createElement('img', { src: this.state.survey_1, style: this.state.survey_1 == "" ? { display: "none" } : { display: "block" } }), _react2['default'].createElement('span', { className: 'iconfont' }, ''), _react2['default'].createElement('p', null, '左前照片')), _react2['default'].createElement('div', { id: 'survey_2', className: 'picUpload', onClick: this.onPhoto.bind(this, "survey_2", "survey_5") }, _react2['default'].createElement('img', { src: this.state.survey_2, style: this.state.survey_2 == "" ? { display: "none" } : { display: "block" } }), _react2['default'].createElement('span', { className: 'iconfont' }, ''), _react2['default'].createElement('p', null, '右前照片')), _react2['default'].createElement('div', { id: 'survey_3', className: 'picUpload', onClick: this.onPhoto.bind(this, "survey_3", "survey_5") }, _react2['default'].createElement('img', { src: this.state.survey_3, style: this.state.survey_3 == "" ? { display: "none" } : { display: "block" } }), _react2['default'].createElement('span', { className: 'iconfont' }, ''), _react2['default'].createElement('p', null, '左后照片')), _react2['default'].createElement('div', { id: 'survey_4', className: 'picUpload', onClick: this.onPhoto.bind(this, "survey_4", "survey_5") }, _react2['default'].createElement('img', { src: this.state.survey_4, style: this.state.survey_4 == "" ? { display: "none" } : { display: "block" } }), _react2['default'].createElement('span', { className: 'iconfont' }, ''), _react2['default'].createElement('p', null, '右后照片')))), _react2['default'].createElement('div', { className: 'panel' }, _react2['default'].createElement('div', { className: 'panel-heading' }, '证件照片'), _react2['default'].createElement('div', { className: 'panel-body clearfix' }, _react2['default'].createElement('div', { id: 'survey_5', className: 'picUpload', onClick: this.onPhoto.bind(this, "survey_5", "survey_3") }, _react2['default'].createElement('img', { src: this.state.survey_5, style: this.state.survey_5 == "" ? { display: "none" } : { display: "block" } }), _react2['default'].createElement('span', { className: 'iconfont' }, ''), _react2['default'].createElement('p', null, '行驶证正本')), _react2['default'].createElement('div', { id: 'survey_6', className: 'picUpload', onClick: this.onPhoto.bind(this, "survey_6", "vin") }, _react2['default'].createElement('img', { src: this.state.survey_6, style: this.state.survey_6 == "" ? { display: "none" } : { display: "block" } }), _react2['default'].createElement('span', { className: 'iconfont' }, ''), _react2['default'].createElement('p', null, 'VIN照片'))), _react2['default'].createElement('div', { className: 'panel-footer' }, '·   请上传完整的清晰的各位置照片')), _react2['default'].createElement('button', { className: 'publicBtn', onClick: this.submitClient }, '确认并推修'), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.modalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title' })), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.modalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.modalStateChange }, '确定')))), _react2['default'].createElement('div', { id: 'loadingToast', className: 'weui_loading_toast', style: this.state.scmodalState ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'weui_mask_transparent' }), _react2['default'].createElement('div', { className: 'weui_toast' }, _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('p', { className: 'weui_toast_content' }, '数据上传中'))));
 	    },
 	    modalStateChange: function modalStateChange() {
 	        if (this.state.modalState == "推修请求成功") {
@@ -35433,7 +35438,7 @@
 	    },
 	    submitClient: function submitClient() {
 	        this.setState({ scmodalState: true });
-	        _jquery2["default"].ajax({
+	        _jquery2['default'].ajax({
 	            url: "/lexiugo-app/weixin/insurance/push",
 	            data: this.paramUrl(),
 	            dataType: 'json',
@@ -35466,14 +35471,68 @@
 	        return uri.join("&");
 	    }
 	});
-	exports["default"] = CheckPhotograph;
-	module.exports = exports["default"];
+	exports['default'] = CheckPhotograph;
+	module.exports = exports['default'];
 	/*<input type="file" accept="image/*" capture="camera"/>*/
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "checkPhotograph.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
 /* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	'use strict';
+
+	function _interopRequireDefault(obj) {
+	    return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jquery = __webpack_require__(213);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	(0, _jquery2['default'])(function () {
+	    _jquery2['default'].ajax({
+	        url: "/lexiugo-app/weixin/getSignature",
+	        data: 'url=' + encodeURIComponent(window.location.href),
+	        dataType: "json",
+	        success: (function (msg) {
+	            wxConfig(msg);
+	            console.log(msg);
+	        }).bind(this),
+	        error: (function (xhr, status, err) {
+	            //console.error(this.props.url, status, err.toString());
+	        }).bind(this)
+	    });
+
+	    function wxConfig(obj) {
+	        console.log('开始执行');
+	        wx.config({
+	            debug: true,
+	            appId: obj.appid, // 微信appid
+	            timestamp: obj.timestamp, // 时间戳
+	            nonceStr: obj.noncestr, // 随机数
+	            signature: obj.signature, // 签名,
+	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi', 'checkJsApi', 'previewImage']
+	        });
+	        wx.ready(function () {
+	            alert('当前版本：c3');
+	        });
+	        //隐藏右上角菜单接 口
+	        wx.hideOptionMenu();
+	    }
+	});
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "WXConfig.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ }),
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35509,7 +35568,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "wxFun.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
-/* 217 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35715,7 +35774,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "vehicleInfo.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
-/* 218 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -35986,7 +36045,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "record.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
-/* 219 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -36012,7 +36071,7 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _reactMobileDatepicker = __webpack_require__(220);
+	var _reactMobileDatepicker = __webpack_require__(221);
 
 	var _reactMobileDatepicker2 = _interopRequireDefault(_reactMobileDatepicker);
 
@@ -36160,7 +36219,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "query.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
-/* 220 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	(function (global, factory) {
@@ -37054,7 +37113,7 @@
 
 
 /***/ }),
-/* 221 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37125,7 +37184,7 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "details.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
-/* 222 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -37151,60 +37210,6 @@
 	})(document, window);
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "rem_.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ }),
-/* 223 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	'use strict';
-
-	function _interopRequireDefault(obj) {
-	    return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _jquery = __webpack_require__(213);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	(0, _jquery2['default'])(function () {
-	    _jquery2['default'].ajax({
-	        url: "/lexiugo-app/weixin/getSignature",
-	        data: 'url=' + encodeURIComponent(window.location.href),
-	        dataType: "json",
-	        success: (function (msg) {
-	            wxConfig(msg);
-	            console.log(msg);
-	        }).bind(this),
-	        error: (function (xhr, status, err) {
-	            //console.error(this.props.url, status, err.toString());
-	        }).bind(this)
-	    });
-
-	    function wxConfig(obj) {
-	        console.log('开始执行');
-	        wx.config({
-	            debug: true,
-	            appId: obj.appid, // 微信appid
-	            timestamp: obj.timestamp, // 时间戳
-	            nonceStr: obj.noncestr, // 随机数
-	            signature: obj.signature, // 签名,
-	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi', 'checkJsApi', 'previewImage']
-	        });
-	        wx.ready(function () {
-	            alert('当前版本：c3');
-	        });
-	        //隐藏右上角菜单接 口
-	        wx.hideOptionMenu();
-	    }
-	});
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "WXConfig.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
 /* 224 */
