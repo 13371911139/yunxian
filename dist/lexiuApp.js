@@ -153,15 +153,15 @@
 
 	var _componentsCheck_detail2 = _interopRequireDefault(_componentsCheck_detail);
 
-	var _componentsCheck_details = __webpack_require__(673);
+	var _componentsCheck_details = __webpack_require__(674);
 
 	var _componentsCheck_details2 = _interopRequireDefault(_componentsCheck_details);
 
-	var _componentsReceive_detail = __webpack_require__(674);
+	var _componentsReceive_detail = __webpack_require__(675);
 
 	var _componentsReceive_detail2 = _interopRequireDefault(_componentsReceive_detail);
 
-	var _componentsService_detail = __webpack_require__(675);
+	var _componentsService_detail = __webpack_require__(676);
 
 	var _componentsService_detail2 = _interopRequireDefault(_componentsService_detail);
 
@@ -113413,7 +113413,9 @@
 
 	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
 
-	//import weixinpic from '../weixnphoto/weixinpic'
+	var _weixnphotoWeixinpic = __webpack_require__(673);
+
+	var _weixnphotoWeixinpic2 = _interopRequireDefault(_weixnphotoWeixinpic);
 
 	var Survey = _react2['default'].createClass({
 		displayName: 'Survey',
@@ -113441,11 +113443,11 @@
 			} //修改this.state.receGiveUP控制模态框内容区出现接车部分或者放弃部分
 			if (a == "uploadPhoto") {
 				var idata = this.props.location.state;
-				var survey13 = weixinpic.getsessionOrcookieforup(idata.id, "survey_1");
-				var survey23 = weixinpic.getsessionOrcookieforup(idata.id, "survey_2");
-				var survey33 = weixinpic.getsessionOrcookieforup(idata.id, "survey_3");
-				var survey43 = weixinpic.getsessionOrcookieforup(idata.id, "survey_4");
-				var survey53 = weixinpic.getsessionOrcookieforup(idata.id, "survey_5");
+				var survey13 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "survey_1");
+				var survey23 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "survey_2");
+				var survey33 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "survey_3");
+				var survey43 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "survey_4");
+				var survey53 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "survey_5");
 				if (survey13.length == 0 && survey23 == 0 && survey33 == 0 && survey43 == 0 && survey53 == 0) {
 					this.setState({ receGiveUP: "4" });
 					this.setState({ ResponseMessage: "暂无新照片" });
@@ -113505,31 +113507,31 @@
 		theCache: function theCache() {
 			var idata = this.props.location.state;
 			var retarr = [];
-			retarr = weixinpic.getsessionOrcookie(idata.id, "survey_1");
+			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_1");
 			if (retarr.length == 0) {
 				this.setState({ survey1: "0" });
 			} else {
 				this.setState({ survey1: retarr });
 			};
-			retarr = weixinpic.getsessionOrcookie(idata.id, "survey_2");
+			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_2");
 			if (retarr.length == 0) {
 				this.setState({ survey2: "0" });
 			} else {
 				this.setState({ survey2: retarr });
 			}
-			retarr = weixinpic.getsessionOrcookie(idata.id, "survey_3");
+			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_3");
 			if (retarr.length == 0) {
 				this.setState({ survey3: "0" });
 			} else {
 				this.setState({ survey3: retarr });
 			}
-			retarr = weixinpic.getsessionOrcookie(idata.id, "survey_4");
+			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_4");
 			if (retarr.length == 0) {
 				this.setState({ survey4: "0" });
 			} else {
 				this.setState({ survey4: retarr });
 			}
-			retarr = weixinpic.getsessionOrcookie(idata.id, "survey_5");
+			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_5");
 			if (retarr.length == 0) {
 				this.setState({ survey5: "0" });
 			} else {
@@ -113563,7 +113565,7 @@
 				reportNo: idata.reportno,
 				n: 1
 			};
-			weixinpic.upload(data1);
+			_weixnphotoWeixinpic2['default'].upload(data1);
 			this.modalState();
 			this.modalState2("one");
 			var survey11 = this.state.survey1;
@@ -113575,11 +113577,11 @@
 			choicet = setInterval((function () {
 				var msg = localStorage.getItem("msg");
 				if (msg == 1) {
-					var survey12 = weixinpic.getsessionOrcookie(idata.id, "survey_1");
-					var survey22 = weixinpic.getsessionOrcookie(idata.id, "survey_2");
-					var survey32 = weixinpic.getsessionOrcookie(idata.id, "survey_3");
-					var survey42 = weixinpic.getsessionOrcookie(idata.id, "survey_4");
-					var survey52 = weixinpic.getsessionOrcookie(idata.id, "survey_5");
+					var survey12 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_1");
+					var survey22 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_2");
+					var survey32 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_3");
+					var survey42 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_4");
+					var survey52 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_5");
 					if (survey12.length > 0) {
 						var survey13 = survey11[0];
 						var survey14 = survey12[0];
@@ -113687,36 +113689,36 @@
 							ty: ty
 						};
 						//调用拍照
-						weixinpic.photoImage(data);
+						_weixnphotoWeixinpic2['default'].photoImage(data);
 						var choicet;
 						choicet = setInterval((function () {
 							var idata = this.props.location.state;
 							if (e == 1) {
-								var survey11 = weixinpic.getsessionOrcookie(idata.id, "survey_1");
+								var survey11 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_1");
 								if (survey11.length == 1) {
 									clearInterval(choicet);
 									this.theCache();
 								}
 							} else if (e == 2) {
-								var survey11 = weixinpic.getsessionOrcookie(idata.id, "survey_2");
+								var survey11 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_2");
 								if (survey11.length == 1) {
 									clearInterval(choicet);
 									this.theCache();
 								}
 							} else if (e == 3) {
-								var survey11 = weixinpic.getsessionOrcookie(idata.id, "survey_3");
+								var survey11 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_3");
 								if (survey11.length == 1) {
 									clearInterval(choicet);
 									this.theCache();
 								}
 							} else if (e == 4) {
-								var survey11 = weixinpic.getsessionOrcookie(idata.id, "survey_4");
+								var survey11 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_4");
 								if (survey11.length == 1) {
 									clearInterval(choicet);
 									this.theCache();
 								}
 							} else if (e >= 5) {
-								var survey11 = weixinpic.getsessionOrcookie(idata.id, "survey_5");
+								var survey11 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "survey_5");
 								var survey12 = this.state.survey5;
 								if (survey12 == "0") {
 									if (survey11.length > 0) {
@@ -113876,870 +113878,6 @@
 
 /***/ }),
 /* 673 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	/**
-	 * Created by Administrator on 2016/7/23 0023.
-	 * APP查勘详情
-	 */
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _jquery = __webpack_require__(236);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _commonComponentCommon = __webpack_require__(234);
-
-	var _commonComponentCookieJs = __webpack_require__(238);
-
-	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
-
-	var Details = _react2['default'].createClass({
-		displayName: 'Details',
-
-		datailClick: function datailClick() {
-			var detailsData = this.props.location.state;
-			this.props.history.replaceState(detailsData, "/check_detail");
-		},
-		render: function render() {
-			var data = this.props.location.state;
-			var cname = data.send_car_person;
-			if (cname == "" || cname == null) {
-				cname = data.customername;
-			}
-			var zzbh = data.zzbh;
-			var comname = data.inscompanyname;
-			return _react2['default'].createElement('div', { className: 'item_details_single' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.datailClick }), _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: '', name: '接车信息' })), _react2['default'].createElement('div', { className: 'detailsDiv' }, _react2['default'].createElement('div', { className: 'headerMin' }, '报案信息'), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '保险公司：', _react2['default'].createElement('span', { className: 'rightSpan' }, comname)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '报案号：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.reportno)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '任务时间：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.inRepairTimeString)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '金额状态：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.repair_Money_State == "0" ? "预估状态" : "最终状态")), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '维修金额：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.repair_Moneny)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '推修类型：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.push_TYPE == "0" ? "送修" : "返修"))), _react2['default'].createElement('div', { className: 'detailsDiv' }, _react2['default'].createElement('div', { className: 'headerMin' }, '车辆信息'), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '车牌号码：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.plateno)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '车型名称：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.cxmc)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '客户姓名：', _react2['default'].createElement('span', { className: 'rightSpan' }, cname)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '联系方式：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.telephone))));
-		}
-	});
-
-	exports['default'] = Details;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "check_details.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ }),
-/* 674 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	/**
-	 * Created by Administrator on 2016/7/23 0023.
-	 * APP维修
-	 */
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _jquery = __webpack_require__(236);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _commonComponentCommon = __webpack_require__(234);
-
-	var _commonComponentCookieJs = __webpack_require__(238);
-
-	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
-
-	var Receive_detail = _react2['default'].createClass({
-		displayName: 'Receive_detail',
-
-		getInitialState: function getInitialState() {
-			return {
-				dis: false,
-				receGiveUP: "0",
-				phoneType: true
-			};
-		},
-		//请求
-		loadCommentsFromServer: function loadCommentsFromServer(data) {
-			this.serverRequest = _jquery2['default'].ajax({
-				url: "/lexiugo-app/weixin/AfterMarketLoginServlet",
-				data: data,
-				//contentType: "application/javascript",
-				dataType: "json",
-				//jsonp: "callback",
-				type: "post",
-				success: (function (msg) {
-					if (msg.data.ResponseMessage == "放弃成功") {
-						this.setState({ ResponseMessage: "放弃成功" });
-					} else if (msg.data.ResponseCode == "0000") {
-						this.setState({ ResponseMessage: "接车成功" });
-					} else if (msg.data.ResponseCode == "0010") {
-						this.setState({ ResponseMessage: "接车失败" });
-					} else if (msg.data.ResponseCode == "0018") {
-						this.setState({ ResponseMessage: "放弃失败" });
-					}
-					console.log(this.state.ResponseMessage);
-					this.modalState("sucOrfai");
-				}).bind(this),
-				error: (function (xhr, status, err) {
-					console.error(this.props.url, status, err.toString());
-				}).bind(this)
-			});
-		},
-		//文本框值改变调用
-		handleChange: function handleChange(e) {
-			var newState = {};
-			newState[e.target.name] = e.target.value;
-			this.setState(newState);
-		},
-		//接车确认  调用
-		PickClick: function PickClick() {
-			var data = {
-				sendType: "0002",
-				taskId: this.props.location.state.id
-			};
-			this.loadCommentsFromServer(data);
-			this.modalState();
-		},
-		//放弃接车确认  调用
-		giveClick: function giveClick() {
-			var data = {
-				sendType: "0003",
-				abandonReason: this.state.val,
-				taskId: this.props.location.state.id
-			};
-			this.loadCommentsFromServer(data);
-			this.modalState();
-		},
-		//详情调用
-		receiveClick: function receiveClick() {
-			var detailsData = this.props.location.state;
-			this.props.history.replaceState(detailsData, "/receive_details");
-		},
-		//返回接车
-		returnreceiveClick: function returnreceiveClick() {
-			this.props.history.replaceState(null, "/receive");
-		},
-		//初始化渲染执行之后立刻调用
-		componentDidMount: function componentDidMount() {
-			var n = _commonComponentCookieJs2['default'].getCookie("userInfo");
-			var u = navigator.userAgent;
-			if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
-				//安卓手机
-				this.setState({ phoneType: true });
-			} else if (u.indexOf('iPhone') > -1) {
-				//苹果手机
-				this.setState({ phoneType: false });
-			}
-		},
-		//控制模态框
-		modalState: function modalState(a) {
-			//修改this.state.dis控制模态框出现消失
-			if (!this.state.dis) {
-				this.setState({ dis: true });
-			} else {
-				this.setState({ dis: false });
-			} //修改this.state.receGiveUP控制模态框内容区出现接车部分或者放弃部分
-			if (a == "receive") {
-				this.setState({ receGiveUP: "1" });
-			} else if (a == "giveUp") {
-				this.setState({ receGiveUP: "2" });
-			} else if (a == "sucOrfai") {
-				this.setState({ receGiveUP: "3" });
-			} else {}
-		},
-		render: function render() {
-			var _this = this;
-
-			var idata = this.props.location.state;
-			console.log(idata);
-			var zzbh = idata.zzbh;
-			var cname = idata.send_car_person;
-			if (cname == "" || cname == null) {
-				cname = idata.customername;
-			}
-			var comname = idata.inscompanyname;
-			var insuranceLogoBg = "";
-			switch (zzbh) {
-				case "CCIC":
-					insuranceLogoBg = "insLogoCcic";
-					break;
-				case "CIC":
-					insuranceLogoBg = "insLogoCic";
-					break;
-				case "YGBX":
-					insuranceLogoBg = "insLogoYgbx";
-					break;
-				case "PICC":
-					insuranceLogoBg = "insLogoPicc";
-					break;
-				default:
-					insuranceLogoBg = "";
-			}
-			return _react2['default'].createElement('div', { className: 'item_survey_single' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.returnreceiveClick }), _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: '', name: '接车信息' })), _react2['default'].createElement('p', { className: 'insurceInfo clearfix' }, _react2['default'].createElement('span', { className: 'insurceLogo', id: insuranceLogoBg }), _react2['default'].createElement('span', { className: '' }, comname), _react2['default'].createElement('span', { className: 'detail', onClick: this.receiveClick }, '详情 >')), _react2['default'].createElement('p', { className: 'detailLabel' }, _react2['default'].createElement('label', { className: 'customerName' }, cname), _react2['default'].createElement('label', null, idata.telephone), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, idata.plateno), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, idata.cxmc)), _react2['default'].createElement('p', { className: 'telSms' }, _react2['default'].createElement('a', { href: "tel:" + idata.telephone }, _react2['default'].createElement('span', { className: 'takePhone' }), '打电话'), _react2['default'].createElement('a', { className: 'androidSms', style: this.state.phoneType ? { display: "inline-block" } : { display: "none" }, href: "sms:" + idata.telephone + '?body=尊敬的' + idata.customername + '您好！您的车牌号为' + idata.plateno + '的车辆已经接车。请继续关注维修状态。' }, _react2['default'].createElement('span', { className: 'shortMessage' }), '发短信'), _react2['default'].createElement('a', { className: 'iPhoneSms', style: this.state.phoneType ? { display: "none" } : { display: "inline-block" }, href: "sms:" + idata.telephone + '&body=尊敬的' + idata.customername + '您好！您的车牌号为' + idata.plateno + '的车辆已经接车。请继续关注维修状态。' }, _react2['default'].createElement('span', { className: 'shortMessage' }), '发短信')), _react2['default'].createElement('div', { className: 'btnGroup' }, _react2['default'].createElement('button', { type: 'button', className: 'deflBtn', onClick: function onClick() {
-					return _this.modalState("giveUp");
-				} }, '放弃'), _react2['default'].createElement('button', { type: 'button', className: 'blueBtn', onClick: function onClick() {
-					return _this.modalState("receive");
-				} }, '接车')), _react2['default'].createElement('div', { className: 'modalBox', style: this.state.dis ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'receiveCar', style: this.state.receGiveUP == "1" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '确定接车吗？'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { classID: 'btnSure', className: 'btn btnS', onClick: this.PickClick }, '确认'))), _react2['default'].createElement('div', { className: 'giveUpCar', style: this.state.receGiveUP == "2" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '放弃接车'), _react2['default'].createElement('div', null, '你确定要放弃接车吗？请选择放弃原因'), _react2['default'].createElement('div', null, _react2['default'].createElement('form', { className: 'giveUpForm', onChange: this.handleChange }, _react2['default'].createElement('input', { type: 'radio', id: 'rad1', name: 'val', value: '1' }), _react2['default'].createElement('label', { htmlFor: 'rad1' }, '撤案'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad2', name: 'val', value: '2' }), _react2['default'].createElement('label', { htmlFor: 'rad2' }, '无法修理'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad3', name: 'val', value: '3' }), _react2['default'].createElement('label', { htmlFor: 'rad3' }, '电话错误'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad4', name: 'val', value: '4' }), _react2['default'].createElement('label', { htmlFor: 'rad4' }, '他厂修理'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad5', name: 'val', value: '5' }), _react2['default'].createElement('label', { htmlFor: 'rad5' }, '其他'), _react2['default'].createElement('br', null))), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.giveClick }, '确认'))), _react2['default'].createElement('div', { className: 'sucOrfai', style: this.state.receGiveUP == "3" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, this.state.ResponseMessage), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.returnreceiveClick }, '确认')))), _react2['default'].createElement(_commonComponentCommon.ModalBg, { dis: this.state.dis }));
-		}
-	});
-	exports['default'] = Receive_detail;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "receive_detail.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ }),
-/* 675 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
-
-	/**
-	 * Created by Administrator on 2016/7/23 0023.
-	 * APP维修
-	 */
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _jquery = __webpack_require__(236);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _commonComponentCommon = __webpack_require__(234);
-
-	var _commonComponentCookieJs = __webpack_require__(238);
-
-	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
-
-	var _weixnphotoWeixinpic = __webpack_require__(676);
-
-	var _weixnphotoWeixinpic2 = _interopRequireDefault(_weixnphotoWeixinpic);
-
-	var Service_detail = _react2['default'].createClass({
-		displayName: 'Service_detail',
-
-		getInitialState: function getInitialState() {
-			return {
-				dis: false,
-				receGiveUP: "0",
-				standShrinkage: false,
-				paintShrinkage: false,
-				endShrinkage: false,
-				toBan: false,
-				butt: "0",
-				upl: false
-			};
-		},
-		//控制模态框
-		modalState: function modalState(a) {
-			var scrollHeight = (0, _jquery2['default'])(window).scrollTop();
-			(0, _jquery2['default'])('.modalBox').css({
-				"top": scrollHeight + 150 + "px"
-			});
-			console.log(scrollHeight);
-			//修改this.state.dis控制模态框出现消失
-			if (!this.state.dis) {
-				this.setState({ dis: true });
-			} else {
-				this.setState({ dis: false });
-			} //修改this.state.receGiveUP控制模态框内容区
-			this.setState({ toBan: false });
-			if (a == "uploadPhoto") {
-				this.setState({ receGiveUP: "1" });
-			} else if (a == "sucOrfai") {
-				this.setState({ receGiveUP: "2" });
-			} else if (a == "butStand") {
-				this.setState({ receGiveUP: "3" });
-			} else if (a == "butPaint") {
-				this.setState({ receGiveUP: "4" });
-			} else if (a == "butEnd") {
-				this.setState({ receGiveUP: "5" });
-			} else if (a == "queding") {
-				this.setState({ receGiveUP: "6" });
-			} else {}
-		},
-		//控制模态框2
-		modalState2: function modalState2(a) {
-			var scrollHeight = (0, _jquery2['default'])(window).scrollTop();
-			(0, _jquery2['default'])('.modalBox').css({
-				"top": scrollHeight + 150 + "px"
-			});
-			//修改this.state.dis控制模态框出现消失
-			if (a == "one") {
-				this.setState({ upl: true });
-			} else {
-				this.setState({ upl: false });
-			}
-		},
-		//详情
-		serviceClick: function serviceClick() {
-			var detailsData = this.props.location.state;
-			this.props.history.replaceState(detailsData, "/service_details");
-		},
-		//返回维修
-		returnServiceClick: function returnServiceClick() {
-			this.props.history.replaceState(null, "/service");
-		},
-		//初始化渲染执行之后立刻调用
-		componentDidMount: function componentDidMount() {
-			var n = _commonComponentCookieJs2['default'].getCookie("userInfo");
-			this.taskprogress();
-			localStorage.setItem("msg", "3"); //存
-		},
-		taskprogress: function taskprogress() {
-			var idata = this.props.location.state;
-			if (idata.taskprogress >= 5) {
-				this.setState({ endShrinkage: true });
-				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
-				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
-				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60a;");
-			} else if (idata.taskprogress == 4) {
-				this.setState({ paintShrinkage: true });
-				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
-				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60a;");
-				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
-			} else {
-				this.setState({ standShrinkage: true });
-				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60a;");
-				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
-				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
-			}
-		},
-		//维修待命显示控制
-		standShrinkage: function standShrinkage() {
-			if (!this.state.standShrinkage) {
-				this.setState({ standShrinkage: true });
-				this.setState({ endShrinkage: false });
-				this.setState({ paintShrinkage: false });
-				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60a;");
-				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
-				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
-			} else {
-				this.setState({ standShrinkage: false });
-				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
-			}
-		},
-		//钣金喷漆显示控制
-		paintShrinkage: function paintShrinkage() {
-			if (!this.state.paintShrinkage) {
-				this.setState({ paintShrinkage: true });
-				this.setState({ standShrinkage: false });
-				this.setState({ endShrinkage: false });
-				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60a;");
-				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
-				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
-			} else {
-				this.setState({ paintShrinkage: false });
-				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
-			}
-		},
-		//维修结束显示控制
-		endShrinkage: function endShrinkage() {
-			if (!this.state.endShrinkage) {
-				this.setState({ endShrinkage: true });
-				this.setState({ standShrinkage: false });
-				this.setState({ paintShrinkage: false });
-				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60a;");
-				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
-				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
-			} else {
-				this.setState({ endShrinkage: false });
-				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
-			}
-		},
-		//维修待命完成
-		butStand: function butStand() {
-			var idata = this.props.location.state;
-			var s1 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "repair_1");
-			if (s1.length > 0) {
-				var data = {
-					taskId: idata.id,
-					taskProgress: "3",
-					reportNo: idata.reportno,
-					n: 2
-				};
-				this.modalState();
-				this.toUpload();
-				_weixnphotoWeixinpic2['default'].upload(data);
-				this.modalState2("one");
-			} else {
-				this.setState({ receGiveUP: "0" });
-				this.setState({ toBan: true });
-			}
-		},
-		//钣金喷漆完成
-		butPaint: function butPaint() {
-			var idata = this.props.location.state;
-			var s2 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "repair_2");
-			if (s2.length > 0) {
-				var data = {
-					taskId: idata.id,
-					taskProgress: "4",
-					reportNo: idata.reportno,
-					n: 2
-				};
-				this.modalState();
-				this.toUpload();
-				_weixnphotoWeixinpic2['default'].upload(data);
-				this.modalState2("one");
-			} else {
-				this.setState({ receGiveUP: "0" });
-				this.setState({ toBan: true });
-			}
-		},
-		//维修结束完成
-		butEnd: function butEnd() {
-			var idata = this.props.location.state;
-			var s3 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "repair_3");
-			if (s3.length > 0) {
-				var data = {
-					taskId: idata.id,
-					taskProgress: "5",
-					reportNo: idata.reportno,
-					n: 2
-				};
-				this.modalState();
-				this.toUpload();
-				_weixnphotoWeixinpic2['default'].upload(data);
-				this.modalState2("one");
-			} else {
-				this.setState({ receGiveUP: "0" });
-				this.setState({ toBan: true });
-			}
-		},
-		toUpload: function toUpload() {
-			var idata = this.props.location.state;
-			var repair11 = this.state.repair1;
-			var repair21 = this.state.repair2;
-			var repair31 = this.state.repair3;
-			var choicet;
-			choicet = setInterval((function () {
-				var msg = localStorage.getItem("msg");
-				if (msg == 1) {
-					var repair12 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_1");
-					var repair22 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_2");
-					var repair32 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_3");
-					if (repair12.length > 0) {
-						for (var i = 0; i < repair11.length; i++) {
-							var repair13 = repair11[i];
-							for (var j = 0; j < repair12.length; j++) {
-								var repair14 = repair12[j];
-								if (repair13.localid == repair14.localid) {
-									if (repair13.flag != repair14.flag) {
-										clearInterval(choicet);
-										this.modalState2("one1");
-										this.setState({ ResponseMessage: "上传照片成功" });
-										this.setState({ dis: false });
-										this.modalState("queding");
-										localStorage.setItem("msg", "3"); //存
-										this.theCache();
-										this.setState({ standShrinkage: false });
-										this.setState({ paintShrinkage: true });
-										(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
-										(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60a;");
-									}
-								}
-							}
-						}
-					}
-					if (repair22.length > 0) {
-						for (var i = 0; i < repair21.length; i++) {
-							var repair23 = repair21[i];
-							for (var j = 0; j < repair22.length; j++) {
-								var repair24 = repair22[j];
-								if (repair23.localid == repair24.localid) {
-									if (repair23.flag != repair24.flag) {
-										clearInterval(choicet);
-										this.modalState2("one1");
-										this.setState({ ResponseMessage: "上传照片成功" });
-										this.setState({ dis: false });
-										this.modalState("queding");
-										localStorage.setItem("msg", "3"); //存
-										this.theCache();
-										this.setState({ paintShrinkage: false });
-										this.setState({ endShrinkage: true });
-										(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
-										(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60a;");
-									}
-								}
-							}
-						}
-					}
-					if (repair32.length > 0) {
-						for (var i = 0; i < repair31.length; i++) {
-							var repair33 = repair31[i];
-							for (var j = 0; j < repair32.length; j++) {
-								var repair34 = repair32[j];
-								if (repair33.localid == repair34.localid) {
-									if (repair33.flag != repair34.flag) {
-										clearInterval(choicet);
-										this.modalState2("one1");
-										this.setState({ ResponseMessage: "上传照片成功" });
-										this.setState({ dis: false });
-										this.modalState("queding");
-										localStorage.setItem("msg", "3"); //存
-										this.theCache();
-										this.setState({ endShrinkage: false });
-										(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
-									}
-								}
-							}
-						}
-					}
-				} else if (msg == 0) {
-					clearInterval(choicet);
-					this.modalState2("one1");
-					this.setState({ ResponseMessage: "上传照片失败" });
-					this.modalState("queding");
-					localStorage.setItem("msg", "3"); //存
-				}
-			}).bind(this), 500);
-		},
-		queClick: function queClick() {
-			this.modalState();
-		},
-		//初始化渲染执行之前立刻调用  获取缓存
-		componentWillMount: function componentWillMount() {
-			this.theCache();
-		},
-		theCache: function theCache() {
-			var idata = this.props.location.state;
-			this.setState({ butt: "1" });
-			var retarr = [];
-			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_1");
-			if (retarr.length == 0) {
-				this.setState({ repair1: "0" });
-			} else {
-				this.setState({ repair1: retarr });
-			};
-			this.toButt(retarr);
-			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_2");
-			if (retarr.length == 0) {
-				this.setState({ repair2: "0" });
-			} else {
-				this.setState({ repair2: retarr });
-			}
-			this.toButt(retarr);
-			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_3");
-			if (retarr.length == 0) {
-				this.setState({ repair3: "0" });
-			} else {
-				this.setState({ repair3: retarr });
-			}
-			this.toButt(retarr);
-		},
-		toButt: function toButt(retarr) {
-			if (retarr.length > 0) {
-				for (var i = 0; i < retarr.length; i++) {
-					var repair = retarr[i];
-					if (repair.flag == 0) {
-						this.setState({ butt: "2" });
-					}
-				}
-			}
-		},
-		//点击图片调用
-		imageCilck: function imageCilck(a) {
-			if (a.indexOf("stand") > -1) {
-				var e = a.substring(5);
-				var sss = (0, _jquery2['default'])(".ServiceAccording");
-				for (var i = 0; i < sss.length; i++) {
-					if (i == e - 1) {
-						var srcs = sss.eq(i).attr("id");
-						if (srcs) {
-							var data = {
-								taskid: this.props.location.state.id,
-								ty: 6
-							};
-							//调用拍照
-							_weixnphotoWeixinpic2['default'].photoImage(data);
-							var choicet;
-							choicet = setInterval((function () {
-								var idata = this.props.location.state;
-								var retarr11 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_1");
-								var retarr12 = this.state.repair1;
-								if (retarr12 == "0") {
-									if (retarr11.length > 0) {
-										clearInterval(choicet);
-										this.theCache();
-									}
-								} else if (retarr11.length != retarr12.length) {
-									clearInterval(choicet);
-									this.theCache();
-								}
-							}).bind(this), 200);
-						} else {
-							srcs = sss.eq(i).attr("src");
-							var data = {
-								idata: this.props.location.state,
-								localid: srcs,
-								ty: 6
-							};
-							this.props.history.replaceState(data, "/service_image");
-						}
-					}
-				}
-			}
-			if (a.indexOf("paint") > -1) {
-				var e = a.substring(5);
-				var sss = (0, _jquery2['default'])(".paintAccording");
-				for (var i = 0; i < sss.length; i++) {
-					if (i == e - 1) {
-						var srcs = sss.eq(i).attr("id");
-						if (srcs) {
-							var data = {
-								taskid: this.props.location.state.id,
-								ty: 7
-							};
-							//调用拍照
-							_weixnphotoWeixinpic2['default'].photoImage(data);
-							var choicet;
-							choicet = setInterval((function () {
-								var idata = this.props.location.state;
-								var retarr21 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_2");
-								var retarr22 = this.state.repair2;
-								if (retarr22 == "0") {
-									if (retarr21.length > 0) {
-										clearInterval(choicet);
-										this.theCache();
-									}
-								} else if (retarr21.length != retarr22.length) {
-									clearInterval(choicet);
-									this.theCache();
-								}
-							}).bind(this), 200);
-						} else {
-							srcs = sss.eq(i).attr("src");
-							var data = {
-								idata: this.props.location.state,
-								localid: srcs,
-								ty: 7
-							};
-							this.props.history.replaceState(data, "/service_image");
-						}
-					}
-				}
-			}
-			if (a.indexOf("end") > -1) {
-				var e = a.substring(3);
-				var sss = (0, _jquery2['default'])(".endAccording");
-				for (var i = 0; i < sss.length; i++) {
-					if (i == e - 1) {
-						var srcs = sss.eq(i).attr("id");
-						if (srcs) {
-							var data = {
-								taskid: this.props.location.state.id,
-								ty: 8
-							};
-							//调用拍照
-							_weixnphotoWeixinpic2['default'].photoImage(data);
-							var choicet;
-							choicet = setInterval((function () {
-								var idata = this.props.location.state;
-								var retarr31 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_3");
-								var retarr32 = this.state.repair3;
-								if (retarr32 == "0") {
-									if (retarr31.length > 0) {
-										clearInterval(choicet);
-										this.theCache();
-									}
-								} else if (retarr31.length != retarr32.length) {
-									clearInterval(choicet);
-									this.theCache();
-								}
-							}).bind(this), 200);
-						} else {
-							srcs = sss.eq(i).attr("src");
-							var data = {
-								idata: this.props.location.state,
-								localid: srcs,
-								ty: 8
-							};
-							this.props.history.replaceState(data, "/service_image");
-						}
-					}
-				}
-			}
-		},
-		//渲染之后绑定事件
-		componentDidUpdate: function componentDidUpdate() {
-			var a = this;
-			var s1 = (0, _jquery2['default'])(".imageAccordi");
-			for (var i = 0; i < s1.length; i++) {
-				s1.eq(i).unbind();
-				s1.eq(i).bind("click", function () {
-					var inde = (0, _jquery2['default'])(this).index() + 1;
-					var aaa = "stand" + inde;
-					a.imageCilck(aaa);
-				});
-			}
-			var s2 = (0, _jquery2['default'])(".paintAccordi");
-			for (var i = 0; i < s2.length; i++) {
-				s2.eq(i).unbind();
-				s2.eq(i).bind("click", function () {
-					var inde = (0, _jquery2['default'])(this).index() + 1;
-					var aaa = "paint" + inde;
-					a.imageCilck(aaa);
-				});
-			}
-			var s3 = (0, _jquery2['default'])(".endAccordi");
-			for (var i = 0; i < s3.length; i++) {
-				s3.eq(i).unbind();
-				s3.eq(i).bind("click", function () {
-					var inde = (0, _jquery2['default'])(this).index() + 1;
-					var aaa = "end" + inde;
-					a.imageCilck(aaa);
-				});
-			}
-		},
-		toUploadPhoto: function toUploadPhoto() {
-			var idata = this.props.location.state;
-			var data = {
-				taskId: idata.id,
-				taskProgress: "6",
-				reportNo: idata.reportno,
-				n: 2
-			};
-			this.toUpload();
-			_weixnphotoWeixinpic2['default'].upload(data);
-			this.modalState2("one");
-		},
-		//确认结束
-		endClick: function endClick() {
-			var idata = this.props.location.state;
-			this.modalState();
-			var data = {
-				sendType: "0004",
-				taskId: idata.id
-			};
-			_jquery2['default'].ajax({
-				url: "/lexiugo-app/weixin/AfterMarketLoginServlet",
-				data: data,
-				//		      contentType: "application/javascript",
-				dataType: "json",
-				//	          jsonp: "callback",
-				type: "post",
-				success: (function (msg) {
-					if (msg.data.ResponseCode == "0000") {
-						this.setState({ ResponseMessage: "维修结束成功" });
-					} else {
-						this.setState({ ResponseMessage: "维修结束失败" });
-					}
-					this.modalState("sucOrfai");
-				}).bind(this),
-				error: (function (xhr, status, err) {
-					console.error(this.props.url, status, err.toString());
-				}).bind(this)
-			});
-		},
-		render: function render() {
-			var _this = this;
-
-			var standList = [];
-			var paintList = [];
-			var endList = [];
-			var imageList = [];
-			var idata = this.props.location.state;
-			console.log(idata);
-			var standLists = this.state.repair1;
-			if (standLists == "0") {
-				standList.push(_react2['default'].createElement('div', { className: 'imageAccordi', key: '66666666666666666' }, _react2['default'].createElement('div', { className: 'ServiceAccording', id: 'repair1' })));
-			} else {
-				imageList = this.state.repair1;
-				for (var i = 0; i < imageList.length; i++) {
-					var image = imageList[i];
-					if (image.flag == 1) {
-						standList.push(_react2['default'].createElement('div', { className: 'imageAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'ServiceAccording', src: image.localid }), _react2['default'].createElement('div', { className: 'imageRelative' }, _react2['default'].createElement('div', { className: 'imageService' }))));
-					} else {
-						standList.push(_react2['default'].createElement('div', { className: 'imageAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'ServiceAccording', src: image.localid })));
-					}
-					if (i == imageList.length - 1) {
-						standList.push(_react2['default'].createElement('div', { className: 'imageAccordi', key: '21657468746532545174854164' }, _react2['default'].createElement('div', { className: 'ServiceAccording', id: 100 + i })));
-					}
-				}
-			}
-			var paintLists = this.state.repair2;
-			if (paintLists == "0") {
-				paintList.push(_react2['default'].createElement('div', { className: 'paintAccordi', key: '77777777777777777' }, _react2['default'].createElement('div', { className: 'paintAccording', id: 'repair2' })));
-			} else {
-				imageList = this.state.repair2;
-				console.log(imageList);
-				for (var i = 0; i < imageList.length; i++) {
-					var image = imageList[i];
-					if (image.flag == 1) {
-						paintList.push(_react2['default'].createElement('div', { className: 'paintAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'paintAccording', src: image.localid }), _react2['default'].createElement('div', { className: 'imageRelative' }, _react2['default'].createElement('div', { className: 'imageService' }))));
-					} else {
-						paintList.push(_react2['default'].createElement('div', { className: 'paintAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'paintAccording', src: image.localid })));
-					}
-					if (i == imageList.length - 1) {
-						paintList.push(_react2['default'].createElement('div', { className: 'paintAccordi', key: '2165746874653525415174854164' }, _react2['default'].createElement('div', { className: 'paintAccording', id: 200 + i })));
-					}
-				}
-			}
-			var endLists = this.state.repair3;
-			if (endLists == "0") {
-				endList.push(_react2['default'].createElement('div', { className: 'endAccordi', key: '8888888888888888' }, _react2['default'].createElement('div', { className: 'endAccording', id: 'repair3' })));
-			} else {
-				imageList = this.state.repair3;
-				for (var i = 0; i < imageList.length; i++) {
-					var image = imageList[i];
-					if (image.flag == 1) {
-						endList.push(_react2['default'].createElement('div', { className: 'endAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'endAccording', src: image.localid }), _react2['default'].createElement('div', { className: 'imageRelative' }, _react2['default'].createElement('div', { className: 'imageService' }))));
-					} else {
-						endList.push(_react2['default'].createElement('div', { className: 'endAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'endAccording', src: image.localid })));
-					}
-					if (i == imageList.length - 1) {
-						endList.push(_react2['default'].createElement('div', { className: 'endAccordi', key: '2165746872514546535174854164' }, _react2['default'].createElement('div', { className: 'endAccording', id: 300 + i })));
-					}
-				}
-			}
-			return _react2['default'].createElement('div', { className: 'item_survey_single' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.returnServiceClick }), _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: '', name: '维修状况' })), _react2['default'].createElement('p', { className: 'insurceInfo clearfix' }, _react2['default'].createElement('span', { className: '' }, idata.plateno), _react2['default'].createElement('span', { className: 'detail', onClick: this.serviceClick }, '详情 >')), _react2['default'].createElement('div', { className: 'checkDiv' }, _react2['default'].createElement('div', { className: 'imageDiv iconPoint1' }, _react2['default'].createElement('div', { onClick: this.standShrinkage, style: { display: 'inline-block' } }, _react2['default'].createElement('span', { className: 'checkPoint' }), _react2['default'].createElement('span', { className: 'checkFont' }, '维修待命'), _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '' })), _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btnService', onClick: function onClick() {
-					return _this.modalState("butStand");
-				} }, '完成'))), _react2['default'].createElement('div', { className: 'imageAccord', style: this.state.standShrinkage ? { display: "block" } : { display: "none" } }, standList), _react2['default'].createElement('div', null, _react2['default'].createElement('div', { className: 'imageDiv iconPoint2' }, _react2['default'].createElement('div', { onClick: this.paintShrinkage, style: { display: 'inline-block' } }, _react2['default'].createElement('span', { className: 'checkPoint' }), _react2['default'].createElement('span', { className: 'checkFont' }, '钣金喷漆'), _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '' })), _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btnService', onClick: function onClick() {
-					return _this.modalState("butPaint");
-				} }, '完成'))), _react2['default'].createElement('div', { className: 'imageAccord', style: this.state.paintShrinkage ? { display: "block" } : { display: "none" } }, paintList), _react2['default'].createElement('div', null, _react2['default'].createElement('div', { className: 'imageDiv iconPoint3' }, _react2['default'].createElement('div', { onClick: this.endShrinkage, style: { display: 'inline-block' } }, _react2['default'].createElement('span', { className: 'checkPoint' }), _react2['default'].createElement('span', { className: 'checkFont' }, '维修结束'), _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '' })), _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btnService', onClick: function onClick() {
-					return _this.modalState("butEnd");
-				} }, '完成'))), _react2['default'].createElement('div', { className: 'imageAccord', style: this.state.endShrinkage ? { display: "block" } : { display: "none" } }, endList), _react2['default'].createElement('div', { className: 'btnGroup', style: this.state.butt == "1" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('button', { type: 'button', className: 'blueBtn', onClick: function onClick() {
-					return _this.modalState("uploadPhoto");
-				} }, '维修结束')), _react2['default'].createElement('div', { className: 'btnGroup', style: this.state.butt == "2" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('button', { type: 'button', className: 'blueBtn', onClick: this.toUploadPhoto }, '上传照片')), _react2['default'].createElement('div', { className: 'modalBox', style: this.state.dis ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'endCar', style: this.state.receGiveUP == "1" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '温馨提醒'), _react2['default'].createElement('div', null, '亲！照片都拍好了吗？是否确认结束维修？'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btn btnC', onClick: this.modalState }, '还想拍照'), _react2['default'].createElement('button', { classID: 'btnSure', className: 'btn btnS', onClick: this.endClick }, '确认结束'))), _react2['default'].createElement('div', { className: 'sucOrfai', style: this.state.receGiveUP == "2" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, this.state.ResponseMessage), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.returnServiceClick }, '确认'))), _react2['default'].createElement('div', { className: 'butStand', style: this.state.receGiveUP == "3" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '请您确认是否完成'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.butStand }, '确认'))), _react2['default'].createElement('div', { className: 'butPaint', style: this.state.receGiveUP == "4" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '请您确认是否完成'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.butPaint }, '确认'))), _react2['default'].createElement('div', { className: 'butEnd', style: this.state.receGiveUP == "5" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '请您确认是否完成'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.butEnd }, '确认'))), _react2['default'].createElement('div', { className: 'aaa', style: this.state.toBan ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '至少上传一张照片'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.modalState }, '确认'))), _react2['default'].createElement('div', { className: 'queding', style: this.state.receGiveUP == "6" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, this.state.ResponseMessage), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.queClick }, '确认')))), _react2['default'].createElement(_commonComponentCommon.ModalBg, { dis: this.state.dis }), _react2['default'].createElement('div', { className: 'modalBox', style: this.state.upl ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'upl' }, _react2['default'].createElement('div', { className: 'modalContent' }, '温馨提醒'), _react2['default'].createElement('div', { className: 'modalContent' }, '照片上传中，请勿关闭退出!'), _react2['default'].createElement('div', { className: 'modalContent' }, '照片上传完成此窗口将自动关闭！'))), _react2['default'].createElement(_commonComponentCommon.ModalBg, { dis: this.state.upl }));
-		}
-	});
-
-	exports['default'] = Service_detail;
-	module.exports = exports['default'];
-
-	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "service_detail.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
-
-/***/ }),
-/* 676 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
@@ -115359,6 +114497,870 @@
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "weixinpic.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
 /***/ }),
+/* 674 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	/**
+	 * Created by Administrator on 2016/7/23 0023.
+	 * APP查勘详情
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jquery = __webpack_require__(236);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _commonComponentCommon = __webpack_require__(234);
+
+	var _commonComponentCookieJs = __webpack_require__(238);
+
+	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
+
+	var Details = _react2['default'].createClass({
+		displayName: 'Details',
+
+		datailClick: function datailClick() {
+			var detailsData = this.props.location.state;
+			this.props.history.replaceState(detailsData, "/check_detail");
+		},
+		render: function render() {
+			var data = this.props.location.state;
+			var cname = data.send_car_person;
+			if (cname == "" || cname == null) {
+				cname = data.customername;
+			}
+			var zzbh = data.zzbh;
+			var comname = data.inscompanyname;
+			return _react2['default'].createElement('div', { className: 'item_details_single' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.datailClick }), _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: '', name: '接车信息' })), _react2['default'].createElement('div', { className: 'detailsDiv' }, _react2['default'].createElement('div', { className: 'headerMin' }, '报案信息'), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '保险公司：', _react2['default'].createElement('span', { className: 'rightSpan' }, comname)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '报案号：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.reportno)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '任务时间：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.inRepairTimeString)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '金额状态：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.repair_Money_State == "0" ? "预估状态" : "最终状态")), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '维修金额：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.repair_Moneny)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '推修类型：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.push_TYPE == "0" ? "送修" : "返修"))), _react2['default'].createElement('div', { className: 'detailsDiv' }, _react2['default'].createElement('div', { className: 'headerMin' }, '车辆信息'), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '车牌号码：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.plateno)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '车型名称：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.cxmc)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '客户姓名：', _react2['default'].createElement('span', { className: 'rightSpan' }, cname)), _react2['default'].createElement('div', { className: 'detailsDiv2' }, '联系方式：', _react2['default'].createElement('span', { className: 'rightSpan' }, data.telephone))));
+		}
+	});
+
+	exports['default'] = Details;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "check_details.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ }),
+/* 675 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	/**
+	 * Created by Administrator on 2016/7/23 0023.
+	 * APP维修
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jquery = __webpack_require__(236);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _commonComponentCommon = __webpack_require__(234);
+
+	var _commonComponentCookieJs = __webpack_require__(238);
+
+	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
+
+	var Receive_detail = _react2['default'].createClass({
+		displayName: 'Receive_detail',
+
+		getInitialState: function getInitialState() {
+			return {
+				dis: false,
+				receGiveUP: "0",
+				phoneType: true
+			};
+		},
+		//请求
+		loadCommentsFromServer: function loadCommentsFromServer(data) {
+			this.serverRequest = _jquery2['default'].ajax({
+				url: "/lexiugo-app/weixin/AfterMarketLoginServlet",
+				data: data,
+				//contentType: "application/javascript",
+				dataType: "json",
+				//jsonp: "callback",
+				type: "post",
+				success: (function (msg) {
+					if (msg.data.ResponseMessage == "放弃成功") {
+						this.setState({ ResponseMessage: "放弃成功" });
+					} else if (msg.data.ResponseCode == "0000") {
+						this.setState({ ResponseMessage: "接车成功" });
+					} else if (msg.data.ResponseCode == "0010") {
+						this.setState({ ResponseMessage: "接车失败" });
+					} else if (msg.data.ResponseCode == "0018") {
+						this.setState({ ResponseMessage: "放弃失败" });
+					}
+					console.log(this.state.ResponseMessage);
+					this.modalState("sucOrfai");
+				}).bind(this),
+				error: (function (xhr, status, err) {
+					console.error(this.props.url, status, err.toString());
+				}).bind(this)
+			});
+		},
+		//文本框值改变调用
+		handleChange: function handleChange(e) {
+			var newState = {};
+			newState[e.target.name] = e.target.value;
+			this.setState(newState);
+		},
+		//接车确认  调用
+		PickClick: function PickClick() {
+			var data = {
+				sendType: "0002",
+				taskId: this.props.location.state.id
+			};
+			this.loadCommentsFromServer(data);
+			this.modalState();
+		},
+		//放弃接车确认  调用
+		giveClick: function giveClick() {
+			var data = {
+				sendType: "0003",
+				abandonReason: this.state.val,
+				taskId: this.props.location.state.id
+			};
+			this.loadCommentsFromServer(data);
+			this.modalState();
+		},
+		//详情调用
+		receiveClick: function receiveClick() {
+			var detailsData = this.props.location.state;
+			this.props.history.replaceState(detailsData, "/receive_details");
+		},
+		//返回接车
+		returnreceiveClick: function returnreceiveClick() {
+			this.props.history.replaceState(null, "/receive");
+		},
+		//初始化渲染执行之后立刻调用
+		componentDidMount: function componentDidMount() {
+			var n = _commonComponentCookieJs2['default'].getCookie("userInfo");
+			var u = navigator.userAgent;
+			if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+				//安卓手机
+				this.setState({ phoneType: true });
+			} else if (u.indexOf('iPhone') > -1) {
+				//苹果手机
+				this.setState({ phoneType: false });
+			}
+		},
+		//控制模态框
+		modalState: function modalState(a) {
+			//修改this.state.dis控制模态框出现消失
+			if (!this.state.dis) {
+				this.setState({ dis: true });
+			} else {
+				this.setState({ dis: false });
+			} //修改this.state.receGiveUP控制模态框内容区出现接车部分或者放弃部分
+			if (a == "receive") {
+				this.setState({ receGiveUP: "1" });
+			} else if (a == "giveUp") {
+				this.setState({ receGiveUP: "2" });
+			} else if (a == "sucOrfai") {
+				this.setState({ receGiveUP: "3" });
+			} else {}
+		},
+		render: function render() {
+			var _this = this;
+
+			var idata = this.props.location.state;
+			console.log(idata);
+			var zzbh = idata.zzbh;
+			var cname = idata.send_car_person;
+			if (cname == "" || cname == null) {
+				cname = idata.customername;
+			}
+			var comname = idata.inscompanyname;
+			var insuranceLogoBg = "";
+			switch (zzbh) {
+				case "CCIC":
+					insuranceLogoBg = "insLogoCcic";
+					break;
+				case "CIC":
+					insuranceLogoBg = "insLogoCic";
+					break;
+				case "YGBX":
+					insuranceLogoBg = "insLogoYgbx";
+					break;
+				case "PICC":
+					insuranceLogoBg = "insLogoPicc";
+					break;
+				default:
+					insuranceLogoBg = "";
+			}
+			return _react2['default'].createElement('div', { className: 'item_survey_single' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.returnreceiveClick }), _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: '', name: '接车信息' })), _react2['default'].createElement('p', { className: 'insurceInfo clearfix' }, _react2['default'].createElement('span', { className: 'insurceLogo', id: insuranceLogoBg }), _react2['default'].createElement('span', { className: '' }, comname), _react2['default'].createElement('span', { className: 'detail', onClick: this.receiveClick }, '详情 >')), _react2['default'].createElement('p', { className: 'detailLabel' }, _react2['default'].createElement('label', { className: 'customerName' }, cname), _react2['default'].createElement('label', null, idata.telephone), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, idata.plateno), _react2['default'].createElement('br', null), _react2['default'].createElement('label', null, idata.cxmc)), _react2['default'].createElement('p', { className: 'telSms' }, _react2['default'].createElement('a', { href: "tel:" + idata.telephone }, _react2['default'].createElement('span', { className: 'takePhone' }), '打电话'), _react2['default'].createElement('a', { className: 'androidSms', style: this.state.phoneType ? { display: "inline-block" } : { display: "none" }, href: "sms:" + idata.telephone + '?body=尊敬的' + idata.customername + '您好！您的车牌号为' + idata.plateno + '的车辆已经接车。请继续关注维修状态。' }, _react2['default'].createElement('span', { className: 'shortMessage' }), '发短信'), _react2['default'].createElement('a', { className: 'iPhoneSms', style: this.state.phoneType ? { display: "none" } : { display: "inline-block" }, href: "sms:" + idata.telephone + '&body=尊敬的' + idata.customername + '您好！您的车牌号为' + idata.plateno + '的车辆已经接车。请继续关注维修状态。' }, _react2['default'].createElement('span', { className: 'shortMessage' }), '发短信')), _react2['default'].createElement('div', { className: 'btnGroup' }, _react2['default'].createElement('button', { type: 'button', className: 'deflBtn', onClick: function onClick() {
+					return _this.modalState("giveUp");
+				} }, '放弃'), _react2['default'].createElement('button', { type: 'button', className: 'blueBtn', onClick: function onClick() {
+					return _this.modalState("receive");
+				} }, '接车')), _react2['default'].createElement('div', { className: 'modalBox', style: this.state.dis ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'receiveCar', style: this.state.receGiveUP == "1" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '确定接车吗？'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { classID: 'btnSure', className: 'btn btnS', onClick: this.PickClick }, '确认'))), _react2['default'].createElement('div', { className: 'giveUpCar', style: this.state.receGiveUP == "2" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '放弃接车'), _react2['default'].createElement('div', null, '你确定要放弃接车吗？请选择放弃原因'), _react2['default'].createElement('div', null, _react2['default'].createElement('form', { className: 'giveUpForm', onChange: this.handleChange }, _react2['default'].createElement('input', { type: 'radio', id: 'rad1', name: 'val', value: '1' }), _react2['default'].createElement('label', { htmlFor: 'rad1' }, '撤案'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad2', name: 'val', value: '2' }), _react2['default'].createElement('label', { htmlFor: 'rad2' }, '无法修理'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad3', name: 'val', value: '3' }), _react2['default'].createElement('label', { htmlFor: 'rad3' }, '电话错误'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad4', name: 'val', value: '4' }), _react2['default'].createElement('label', { htmlFor: 'rad4' }, '他厂修理'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad5', name: 'val', value: '5' }), _react2['default'].createElement('label', { htmlFor: 'rad5' }, '其他'), _react2['default'].createElement('br', null))), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.giveClick }, '确认'))), _react2['default'].createElement('div', { className: 'sucOrfai', style: this.state.receGiveUP == "3" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, this.state.ResponseMessage), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.returnreceiveClick }, '确认')))), _react2['default'].createElement(_commonComponentCommon.ModalBg, { dis: this.state.dis }));
+		}
+	});
+	exports['default'] = Receive_detail;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "receive_detail.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ }),
+/* 676 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
+
+	/**
+	 * Created by Administrator on 2016/7/23 0023.
+	 * APP维修
+	 */
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { 'default': obj };
+	}
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _jquery = __webpack_require__(236);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _commonComponentCommon = __webpack_require__(234);
+
+	var _commonComponentCookieJs = __webpack_require__(238);
+
+	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
+
+	var _weixnphotoWeixinpic = __webpack_require__(673);
+
+	var _weixnphotoWeixinpic2 = _interopRequireDefault(_weixnphotoWeixinpic);
+
+	var Service_detail = _react2['default'].createClass({
+		displayName: 'Service_detail',
+
+		getInitialState: function getInitialState() {
+			return {
+				dis: false,
+				receGiveUP: "0",
+				standShrinkage: false,
+				paintShrinkage: false,
+				endShrinkage: false,
+				toBan: false,
+				butt: "0",
+				upl: false
+			};
+		},
+		//控制模态框
+		modalState: function modalState(a) {
+			var scrollHeight = (0, _jquery2['default'])(window).scrollTop();
+			(0, _jquery2['default'])('.modalBox').css({
+				"top": scrollHeight + 150 + "px"
+			});
+			console.log(scrollHeight);
+			//修改this.state.dis控制模态框出现消失
+			if (!this.state.dis) {
+				this.setState({ dis: true });
+			} else {
+				this.setState({ dis: false });
+			} //修改this.state.receGiveUP控制模态框内容区
+			this.setState({ toBan: false });
+			if (a == "uploadPhoto") {
+				this.setState({ receGiveUP: "1" });
+			} else if (a == "sucOrfai") {
+				this.setState({ receGiveUP: "2" });
+			} else if (a == "butStand") {
+				this.setState({ receGiveUP: "3" });
+			} else if (a == "butPaint") {
+				this.setState({ receGiveUP: "4" });
+			} else if (a == "butEnd") {
+				this.setState({ receGiveUP: "5" });
+			} else if (a == "queding") {
+				this.setState({ receGiveUP: "6" });
+			} else {}
+		},
+		//控制模态框2
+		modalState2: function modalState2(a) {
+			var scrollHeight = (0, _jquery2['default'])(window).scrollTop();
+			(0, _jquery2['default'])('.modalBox').css({
+				"top": scrollHeight + 150 + "px"
+			});
+			//修改this.state.dis控制模态框出现消失
+			if (a == "one") {
+				this.setState({ upl: true });
+			} else {
+				this.setState({ upl: false });
+			}
+		},
+		//详情
+		serviceClick: function serviceClick() {
+			var detailsData = this.props.location.state;
+			this.props.history.replaceState(detailsData, "/service_details");
+		},
+		//返回维修
+		returnServiceClick: function returnServiceClick() {
+			this.props.history.replaceState(null, "/service");
+		},
+		//初始化渲染执行之后立刻调用
+		componentDidMount: function componentDidMount() {
+			var n = _commonComponentCookieJs2['default'].getCookie("userInfo");
+			this.taskprogress();
+			localStorage.setItem("msg", "3"); //存
+		},
+		taskprogress: function taskprogress() {
+			var idata = this.props.location.state;
+			if (idata.taskprogress >= 5) {
+				this.setState({ endShrinkage: true });
+				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
+				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
+				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60a;");
+			} else if (idata.taskprogress == 4) {
+				this.setState({ paintShrinkage: true });
+				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
+				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60a;");
+				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
+			} else {
+				this.setState({ standShrinkage: true });
+				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60a;");
+				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
+				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
+			}
+		},
+		//维修待命显示控制
+		standShrinkage: function standShrinkage() {
+			if (!this.state.standShrinkage) {
+				this.setState({ standShrinkage: true });
+				this.setState({ endShrinkage: false });
+				this.setState({ paintShrinkage: false });
+				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60a;");
+				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
+				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
+			} else {
+				this.setState({ standShrinkage: false });
+				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
+			}
+		},
+		//钣金喷漆显示控制
+		paintShrinkage: function paintShrinkage() {
+			if (!this.state.paintShrinkage) {
+				this.setState({ paintShrinkage: true });
+				this.setState({ standShrinkage: false });
+				this.setState({ endShrinkage: false });
+				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60a;");
+				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
+				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
+			} else {
+				this.setState({ paintShrinkage: false });
+				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
+			}
+		},
+		//维修结束显示控制
+		endShrinkage: function endShrinkage() {
+			if (!this.state.endShrinkage) {
+				this.setState({ endShrinkage: true });
+				this.setState({ standShrinkage: false });
+				this.setState({ paintShrinkage: false });
+				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60a;");
+				(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
+				(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
+			} else {
+				this.setState({ endShrinkage: false });
+				(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
+			}
+		},
+		//维修待命完成
+		butStand: function butStand() {
+			var idata = this.props.location.state;
+			var s1 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "repair_1");
+			if (s1.length > 0) {
+				var data = {
+					taskId: idata.id,
+					taskProgress: "3",
+					reportNo: idata.reportno,
+					n: 2
+				};
+				this.modalState();
+				this.toUpload();
+				_weixnphotoWeixinpic2['default'].upload(data);
+				this.modalState2("one");
+			} else {
+				this.setState({ receGiveUP: "0" });
+				this.setState({ toBan: true });
+			}
+		},
+		//钣金喷漆完成
+		butPaint: function butPaint() {
+			var idata = this.props.location.state;
+			var s2 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "repair_2");
+			if (s2.length > 0) {
+				var data = {
+					taskId: idata.id,
+					taskProgress: "4",
+					reportNo: idata.reportno,
+					n: 2
+				};
+				this.modalState();
+				this.toUpload();
+				_weixnphotoWeixinpic2['default'].upload(data);
+				this.modalState2("one");
+			} else {
+				this.setState({ receGiveUP: "0" });
+				this.setState({ toBan: true });
+			}
+		},
+		//维修结束完成
+		butEnd: function butEnd() {
+			var idata = this.props.location.state;
+			var s3 = _weixnphotoWeixinpic2['default'].getsessionOrcookieforup(idata.id, "repair_3");
+			if (s3.length > 0) {
+				var data = {
+					taskId: idata.id,
+					taskProgress: "5",
+					reportNo: idata.reportno,
+					n: 2
+				};
+				this.modalState();
+				this.toUpload();
+				_weixnphotoWeixinpic2['default'].upload(data);
+				this.modalState2("one");
+			} else {
+				this.setState({ receGiveUP: "0" });
+				this.setState({ toBan: true });
+			}
+		},
+		toUpload: function toUpload() {
+			var idata = this.props.location.state;
+			var repair11 = this.state.repair1;
+			var repair21 = this.state.repair2;
+			var repair31 = this.state.repair3;
+			var choicet;
+			choicet = setInterval((function () {
+				var msg = localStorage.getItem("msg");
+				if (msg == 1) {
+					var repair12 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_1");
+					var repair22 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_2");
+					var repair32 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_3");
+					if (repair12.length > 0) {
+						for (var i = 0; i < repair11.length; i++) {
+							var repair13 = repair11[i];
+							for (var j = 0; j < repair12.length; j++) {
+								var repair14 = repair12[j];
+								if (repair13.localid == repair14.localid) {
+									if (repair13.flag != repair14.flag) {
+										clearInterval(choicet);
+										this.modalState2("one1");
+										this.setState({ ResponseMessage: "上传照片成功" });
+										this.setState({ dis: false });
+										this.modalState("queding");
+										localStorage.setItem("msg", "3"); //存
+										this.theCache();
+										this.setState({ standShrinkage: false });
+										this.setState({ paintShrinkage: true });
+										(0, _jquery2['default'])('.iconPoint1 .iconfont').html("&#xe60b;");
+										(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60a;");
+									}
+								}
+							}
+						}
+					}
+					if (repair22.length > 0) {
+						for (var i = 0; i < repair21.length; i++) {
+							var repair23 = repair21[i];
+							for (var j = 0; j < repair22.length; j++) {
+								var repair24 = repair22[j];
+								if (repair23.localid == repair24.localid) {
+									if (repair23.flag != repair24.flag) {
+										clearInterval(choicet);
+										this.modalState2("one1");
+										this.setState({ ResponseMessage: "上传照片成功" });
+										this.setState({ dis: false });
+										this.modalState("queding");
+										localStorage.setItem("msg", "3"); //存
+										this.theCache();
+										this.setState({ paintShrinkage: false });
+										this.setState({ endShrinkage: true });
+										(0, _jquery2['default'])('.iconPoint2 .iconfont').html("&#xe60b;");
+										(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60a;");
+									}
+								}
+							}
+						}
+					}
+					if (repair32.length > 0) {
+						for (var i = 0; i < repair31.length; i++) {
+							var repair33 = repair31[i];
+							for (var j = 0; j < repair32.length; j++) {
+								var repair34 = repair32[j];
+								if (repair33.localid == repair34.localid) {
+									if (repair33.flag != repair34.flag) {
+										clearInterval(choicet);
+										this.modalState2("one1");
+										this.setState({ ResponseMessage: "上传照片成功" });
+										this.setState({ dis: false });
+										this.modalState("queding");
+										localStorage.setItem("msg", "3"); //存
+										this.theCache();
+										this.setState({ endShrinkage: false });
+										(0, _jquery2['default'])('.iconPoint3 .iconfont').html("&#xe60b;");
+									}
+								}
+							}
+						}
+					}
+				} else if (msg == 0) {
+					clearInterval(choicet);
+					this.modalState2("one1");
+					this.setState({ ResponseMessage: "上传照片失败" });
+					this.modalState("queding");
+					localStorage.setItem("msg", "3"); //存
+				}
+			}).bind(this), 500);
+		},
+		queClick: function queClick() {
+			this.modalState();
+		},
+		//初始化渲染执行之前立刻调用  获取缓存
+		componentWillMount: function componentWillMount() {
+			this.theCache();
+		},
+		theCache: function theCache() {
+			var idata = this.props.location.state;
+			this.setState({ butt: "1" });
+			var retarr = [];
+			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_1");
+			if (retarr.length == 0) {
+				this.setState({ repair1: "0" });
+			} else {
+				this.setState({ repair1: retarr });
+			};
+			this.toButt(retarr);
+			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_2");
+			if (retarr.length == 0) {
+				this.setState({ repair2: "0" });
+			} else {
+				this.setState({ repair2: retarr });
+			}
+			this.toButt(retarr);
+			retarr = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_3");
+			if (retarr.length == 0) {
+				this.setState({ repair3: "0" });
+			} else {
+				this.setState({ repair3: retarr });
+			}
+			this.toButt(retarr);
+		},
+		toButt: function toButt(retarr) {
+			if (retarr.length > 0) {
+				for (var i = 0; i < retarr.length; i++) {
+					var repair = retarr[i];
+					if (repair.flag == 0) {
+						this.setState({ butt: "2" });
+					}
+				}
+			}
+		},
+		//点击图片调用
+		imageCilck: function imageCilck(a) {
+			if (a.indexOf("stand") > -1) {
+				var e = a.substring(5);
+				var sss = (0, _jquery2['default'])(".ServiceAccording");
+				for (var i = 0; i < sss.length; i++) {
+					if (i == e - 1) {
+						var srcs = sss.eq(i).attr("id");
+						if (srcs) {
+							var data = {
+								taskid: this.props.location.state.id,
+								ty: 6
+							};
+							//调用拍照
+							_weixnphotoWeixinpic2['default'].photoImage(data);
+							var choicet;
+							choicet = setInterval((function () {
+								var idata = this.props.location.state;
+								var retarr11 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_1");
+								var retarr12 = this.state.repair1;
+								if (retarr12 == "0") {
+									if (retarr11.length > 0) {
+										clearInterval(choicet);
+										this.theCache();
+									}
+								} else if (retarr11.length != retarr12.length) {
+									clearInterval(choicet);
+									this.theCache();
+								}
+							}).bind(this), 200);
+						} else {
+							srcs = sss.eq(i).attr("src");
+							var data = {
+								idata: this.props.location.state,
+								localid: srcs,
+								ty: 6
+							};
+							this.props.history.replaceState(data, "/service_image");
+						}
+					}
+				}
+			}
+			if (a.indexOf("paint") > -1) {
+				var e = a.substring(5);
+				var sss = (0, _jquery2['default'])(".paintAccording");
+				for (var i = 0; i < sss.length; i++) {
+					if (i == e - 1) {
+						var srcs = sss.eq(i).attr("id");
+						if (srcs) {
+							var data = {
+								taskid: this.props.location.state.id,
+								ty: 7
+							};
+							//调用拍照
+							_weixnphotoWeixinpic2['default'].photoImage(data);
+							var choicet;
+							choicet = setInterval((function () {
+								var idata = this.props.location.state;
+								var retarr21 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_2");
+								var retarr22 = this.state.repair2;
+								if (retarr22 == "0") {
+									if (retarr21.length > 0) {
+										clearInterval(choicet);
+										this.theCache();
+									}
+								} else if (retarr21.length != retarr22.length) {
+									clearInterval(choicet);
+									this.theCache();
+								}
+							}).bind(this), 200);
+						} else {
+							srcs = sss.eq(i).attr("src");
+							var data = {
+								idata: this.props.location.state,
+								localid: srcs,
+								ty: 7
+							};
+							this.props.history.replaceState(data, "/service_image");
+						}
+					}
+				}
+			}
+			if (a.indexOf("end") > -1) {
+				var e = a.substring(3);
+				var sss = (0, _jquery2['default'])(".endAccording");
+				for (var i = 0; i < sss.length; i++) {
+					if (i == e - 1) {
+						var srcs = sss.eq(i).attr("id");
+						if (srcs) {
+							var data = {
+								taskid: this.props.location.state.id,
+								ty: 8
+							};
+							//调用拍照
+							_weixnphotoWeixinpic2['default'].photoImage(data);
+							var choicet;
+							choicet = setInterval((function () {
+								var idata = this.props.location.state;
+								var retarr31 = _weixnphotoWeixinpic2['default'].getsessionOrcookie(idata.id, "repair_3");
+								var retarr32 = this.state.repair3;
+								if (retarr32 == "0") {
+									if (retarr31.length > 0) {
+										clearInterval(choicet);
+										this.theCache();
+									}
+								} else if (retarr31.length != retarr32.length) {
+									clearInterval(choicet);
+									this.theCache();
+								}
+							}).bind(this), 200);
+						} else {
+							srcs = sss.eq(i).attr("src");
+							var data = {
+								idata: this.props.location.state,
+								localid: srcs,
+								ty: 8
+							};
+							this.props.history.replaceState(data, "/service_image");
+						}
+					}
+				}
+			}
+		},
+		//渲染之后绑定事件
+		componentDidUpdate: function componentDidUpdate() {
+			var a = this;
+			var s1 = (0, _jquery2['default'])(".imageAccordi");
+			for (var i = 0; i < s1.length; i++) {
+				s1.eq(i).unbind();
+				s1.eq(i).bind("click", function () {
+					var inde = (0, _jquery2['default'])(this).index() + 1;
+					var aaa = "stand" + inde;
+					a.imageCilck(aaa);
+				});
+			}
+			var s2 = (0, _jquery2['default'])(".paintAccordi");
+			for (var i = 0; i < s2.length; i++) {
+				s2.eq(i).unbind();
+				s2.eq(i).bind("click", function () {
+					var inde = (0, _jquery2['default'])(this).index() + 1;
+					var aaa = "paint" + inde;
+					a.imageCilck(aaa);
+				});
+			}
+			var s3 = (0, _jquery2['default'])(".endAccordi");
+			for (var i = 0; i < s3.length; i++) {
+				s3.eq(i).unbind();
+				s3.eq(i).bind("click", function () {
+					var inde = (0, _jquery2['default'])(this).index() + 1;
+					var aaa = "end" + inde;
+					a.imageCilck(aaa);
+				});
+			}
+		},
+		toUploadPhoto: function toUploadPhoto() {
+			var idata = this.props.location.state;
+			var data = {
+				taskId: idata.id,
+				taskProgress: "6",
+				reportNo: idata.reportno,
+				n: 2
+			};
+			this.toUpload();
+			_weixnphotoWeixinpic2['default'].upload(data);
+			this.modalState2("one");
+		},
+		//确认结束
+		endClick: function endClick() {
+			var idata = this.props.location.state;
+			this.modalState();
+			var data = {
+				sendType: "0004",
+				taskId: idata.id
+			};
+			_jquery2['default'].ajax({
+				url: "/lexiugo-app/weixin/AfterMarketLoginServlet",
+				data: data,
+				//		      contentType: "application/javascript",
+				dataType: "json",
+				//	          jsonp: "callback",
+				type: "post",
+				success: (function (msg) {
+					if (msg.data.ResponseCode == "0000") {
+						this.setState({ ResponseMessage: "维修结束成功" });
+					} else {
+						this.setState({ ResponseMessage: "维修结束失败" });
+					}
+					this.modalState("sucOrfai");
+				}).bind(this),
+				error: (function (xhr, status, err) {
+					console.error(this.props.url, status, err.toString());
+				}).bind(this)
+			});
+		},
+		render: function render() {
+			var _this = this;
+
+			var standList = [];
+			var paintList = [];
+			var endList = [];
+			var imageList = [];
+			var idata = this.props.location.state;
+			console.log(idata);
+			var standLists = this.state.repair1;
+			if (standLists == "0") {
+				standList.push(_react2['default'].createElement('div', { className: 'imageAccordi', key: '66666666666666666' }, _react2['default'].createElement('div', { className: 'ServiceAccording', id: 'repair1' })));
+			} else {
+				imageList = this.state.repair1;
+				for (var i = 0; i < imageList.length; i++) {
+					var image = imageList[i];
+					if (image.flag == 1) {
+						standList.push(_react2['default'].createElement('div', { className: 'imageAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'ServiceAccording', src: image.localid }), _react2['default'].createElement('div', { className: 'imageRelative' }, _react2['default'].createElement('div', { className: 'imageService' }))));
+					} else {
+						standList.push(_react2['default'].createElement('div', { className: 'imageAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'ServiceAccording', src: image.localid })));
+					}
+					if (i == imageList.length - 1) {
+						standList.push(_react2['default'].createElement('div', { className: 'imageAccordi', key: '21657468746532545174854164' }, _react2['default'].createElement('div', { className: 'ServiceAccording', id: 100 + i })));
+					}
+				}
+			}
+			var paintLists = this.state.repair2;
+			if (paintLists == "0") {
+				paintList.push(_react2['default'].createElement('div', { className: 'paintAccordi', key: '77777777777777777' }, _react2['default'].createElement('div', { className: 'paintAccording', id: 'repair2' })));
+			} else {
+				imageList = this.state.repair2;
+				console.log(imageList);
+				for (var i = 0; i < imageList.length; i++) {
+					var image = imageList[i];
+					if (image.flag == 1) {
+						paintList.push(_react2['default'].createElement('div', { className: 'paintAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'paintAccording', src: image.localid }), _react2['default'].createElement('div', { className: 'imageRelative' }, _react2['default'].createElement('div', { className: 'imageService' }))));
+					} else {
+						paintList.push(_react2['default'].createElement('div', { className: 'paintAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'paintAccording', src: image.localid })));
+					}
+					if (i == imageList.length - 1) {
+						paintList.push(_react2['default'].createElement('div', { className: 'paintAccordi', key: '2165746874653525415174854164' }, _react2['default'].createElement('div', { className: 'paintAccording', id: 200 + i })));
+					}
+				}
+			}
+			var endLists = this.state.repair3;
+			if (endLists == "0") {
+				endList.push(_react2['default'].createElement('div', { className: 'endAccordi', key: '8888888888888888' }, _react2['default'].createElement('div', { className: 'endAccording', id: 'repair3' })));
+			} else {
+				imageList = this.state.repair3;
+				for (var i = 0; i < imageList.length; i++) {
+					var image = imageList[i];
+					if (image.flag == 1) {
+						endList.push(_react2['default'].createElement('div', { className: 'endAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'endAccording', src: image.localid }), _react2['default'].createElement('div', { className: 'imageRelative' }, _react2['default'].createElement('div', { className: 'imageService' }))));
+					} else {
+						endList.push(_react2['default'].createElement('div', { className: 'endAccordi', key: image.localid }, _react2['default'].createElement('img', { className: 'endAccording', src: image.localid })));
+					}
+					if (i == imageList.length - 1) {
+						endList.push(_react2['default'].createElement('div', { className: 'endAccordi', key: '2165746872514546535174854164' }, _react2['default'].createElement('div', { className: 'endAccording', id: 300 + i })));
+					}
+				}
+			}
+			return _react2['default'].createElement('div', { className: 'item_survey_single' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.returnServiceClick }), _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: '', name: '维修状况' })), _react2['default'].createElement('p', { className: 'insurceInfo clearfix' }, _react2['default'].createElement('span', { className: '' }, idata.plateno), _react2['default'].createElement('span', { className: 'detail', onClick: this.serviceClick }, '详情 >')), _react2['default'].createElement('div', { className: 'checkDiv' }, _react2['default'].createElement('div', { className: 'imageDiv iconPoint1' }, _react2['default'].createElement('div', { onClick: this.standShrinkage, style: { display: 'inline-block' } }, _react2['default'].createElement('span', { className: 'checkPoint' }), _react2['default'].createElement('span', { className: 'checkFont' }, '维修待命'), _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '' })), _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btnService', onClick: function onClick() {
+					return _this.modalState("butStand");
+				} }, '完成'))), _react2['default'].createElement('div', { className: 'imageAccord', style: this.state.standShrinkage ? { display: "block" } : { display: "none" } }, standList), _react2['default'].createElement('div', null, _react2['default'].createElement('div', { className: 'imageDiv iconPoint2' }, _react2['default'].createElement('div', { onClick: this.paintShrinkage, style: { display: 'inline-block' } }, _react2['default'].createElement('span', { className: 'checkPoint' }), _react2['default'].createElement('span', { className: 'checkFont' }, '钣金喷漆'), _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '' })), _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btnService', onClick: function onClick() {
+					return _this.modalState("butPaint");
+				} }, '完成'))), _react2['default'].createElement('div', { className: 'imageAccord', style: this.state.paintShrinkage ? { display: "block" } : { display: "none" } }, paintList), _react2['default'].createElement('div', null, _react2['default'].createElement('div', { className: 'imageDiv iconPoint3' }, _react2['default'].createElement('div', { onClick: this.endShrinkage, style: { display: 'inline-block' } }, _react2['default'].createElement('span', { className: 'checkPoint' }), _react2['default'].createElement('span', { className: 'checkFont' }, '维修结束'), _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '' })), _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btnService', onClick: function onClick() {
+					return _this.modalState("butEnd");
+				} }, '完成'))), _react2['default'].createElement('div', { className: 'imageAccord', style: this.state.endShrinkage ? { display: "block" } : { display: "none" } }, endList), _react2['default'].createElement('div', { className: 'btnGroup', style: this.state.butt == "1" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('button', { type: 'button', className: 'blueBtn', onClick: function onClick() {
+					return _this.modalState("uploadPhoto");
+				} }, '维修结束')), _react2['default'].createElement('div', { className: 'btnGroup', style: this.state.butt == "2" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('button', { type: 'button', className: 'blueBtn', onClick: this.toUploadPhoto }, '上传照片')), _react2['default'].createElement('div', { className: 'modalBox', style: this.state.dis ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'endCar', style: this.state.receGiveUP == "1" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '温馨提醒'), _react2['default'].createElement('div', null, '亲！照片都拍好了吗？是否确认结束维修？'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btn btnC', onClick: this.modalState }, '还想拍照'), _react2['default'].createElement('button', { classID: 'btnSure', className: 'btn btnS', onClick: this.endClick }, '确认结束'))), _react2['default'].createElement('div', { className: 'sucOrfai', style: this.state.receGiveUP == "2" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, this.state.ResponseMessage), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.returnServiceClick }, '确认'))), _react2['default'].createElement('div', { className: 'butStand', style: this.state.receGiveUP == "3" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '请您确认是否完成'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.butStand }, '确认'))), _react2['default'].createElement('div', { className: 'butPaint', style: this.state.receGiveUP == "4" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '请您确认是否完成'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.butPaint }, '确认'))), _react2['default'].createElement('div', { className: 'butEnd', style: this.state.receGiveUP == "5" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '请您确认是否完成'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.butEnd }, '确认'))), _react2['default'].createElement('div', { className: 'aaa', style: this.state.toBan ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '至少上传一张照片'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.modalState }, '确认'))), _react2['default'].createElement('div', { className: 'queding', style: this.state.receGiveUP == "6" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, this.state.ResponseMessage), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.queClick }, '确认')))), _react2['default'].createElement(_commonComponentCommon.ModalBg, { dis: this.state.dis }), _react2['default'].createElement('div', { className: 'modalBox', style: this.state.upl ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'upl' }, _react2['default'].createElement('div', { className: 'modalContent' }, '温馨提醒'), _react2['default'].createElement('div', { className: 'modalContent' }, '照片上传中，请勿关闭退出!'), _react2['default'].createElement('div', { className: 'modalContent' }, '照片上传完成此窗口将自动关闭！'))), _react2['default'].createElement(_commonComponentCommon.ModalBg, { dis: this.state.upl }));
+		}
+	});
+
+	exports['default'] = Service_detail;
+	module.exports = exports['default'];
+
+	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "service_detail.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
+
+/***/ }),
 /* 677 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -115510,7 +115512,7 @@
 
 	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
 
-	var _weixnphotoWeixinpic = __webpack_require__(676);
+	var _weixnphotoWeixinpic = __webpack_require__(673);
 
 	var _weixnphotoWeixinpic2 = _interopRequireDefault(_weixnphotoWeixinpic);
 
@@ -115606,7 +115608,7 @@
 
 	var _commonComponentCookieJs2 = _interopRequireDefault(_commonComponentCookieJs);
 
-	var _weixnphotoWeixinpic = __webpack_require__(676);
+	var _weixnphotoWeixinpic = __webpack_require__(673);
 
 	var _weixnphotoWeixinpic2 = _interopRequireDefault(_weixnphotoWeixinpic);
 
