@@ -36123,14 +36123,10 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/lexiugo-app/weixin/evaluation/tmxlogin" + window.location.search,
-	        data: {},
+	        url: "/lexiugo-app/weixin/getSignature",
+	        data: 'url=' + encodeURIComponent(window.location.href),
 	        dataType: "json",
-	        type: "post",
 	        success: (function (msg) {
-	            for (var i in msg) {
-	                alert(i + '+++' + msg[i] + '+++' + msg);
-	            }
 	            wxConfig(msg);
 	            console.log(msg);
 	        }).bind(this),
@@ -36144,23 +36140,18 @@
 	        wx.config({
 	            debug: true,
 	            appId: obj.appid, // 微信appid
-	            timestamp: 1425952357, // 时间戳
-	            nonceStr: 'OMIE75rRCpMq2540', // 随机数
+	            timestamp: obj.timestamp, // 时间戳
+	            nonceStr: obj.noncestr, // 随机数
 	            signature: obj.signature, // 签名,
-	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi']
+	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi', 'checkJsApi', 'previewImage', 'scanQRCode']
 	        });
 	        wx.ready(function () {
-	            console.log('微信校 验 成功');
+	            alert('当前版本：c3');
 	        });
 	        //隐藏右上角菜单接 口
 	        wx.hideOptionMenu();
 	    }
 	});
-	var wxFun = {
-	    alerts: function alerts() {
-	        alert();
-	    }
-	};
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "WXConfig.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
@@ -36609,7 +36600,7 @@
 	    _createClass(AppRouter, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2['default'].createElement(_reactRouter.Router, { history: history }, _react2['default'].createElement(_reactRouter.Route, { path: '/', component: App }, _react2['default'].createElement(_reactRouter.IndexRoute, { component: _componentsRepairDetails2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'login', component: _componentsLogin2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'message_login', component: _componentsMessage_login2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'repairRecord', component: _componentsRepairRecord2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'repairDiscuss', component: _componentsRepairDiscuss2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'repairDetails', component: _componentsRepairDetails2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'leCheHelp', component: _componentsLeCheHelp2['default'] })));
+	            return _react2['default'].createElement(_reactRouter.Router, { history: history }, _react2['default'].createElement(_reactRouter.Route, { path: '/', component: App }, _react2['default'].createElement(_reactRouter.IndexRoute, { component: _componentsLogin2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'login', component: _componentsLogin2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'message_login', component: _componentsMessage_login2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'repairRecord', component: _componentsRepairRecord2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'repairDiscuss', component: _componentsRepairDiscuss2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'repairDetails', component: _componentsRepairDetails2['default'] }), _react2['default'].createElement(_reactRouter.Route, { path: 'leCheHelp', component: _componentsLeCheHelp2['default'] })));
 	        }
 	    }]);
 
@@ -36708,17 +36699,17 @@
 		componentWillMount: function componentWillMount() {
 			var locationPathName = this.props.location.pathname;
 			if (locationPathName == "/") {
-				weixinpic.tolocalStorage();
-				var flag = localStorage.getItem("flag");
-				if (flag == 1) {
-					var plateNo = localStorage.getItem("plateNo");
-					this.props.history.replaceState(plateNo, "/repairRecord");
-				}
+				/*weixinpic.tolocalStorage();
+	   var flag = localStorage.getItem("flag");
+	   if(flag == 1){
+	   	var plateNo = localStorage.getItem("plateNo");
+	   	this.props.history.replaceState(plateNo,"/repairRecord");
+	   }*/
 			} else if (locationPathName == "/login") {
-				//console.log("重新登录，请填写账号信息")
-				localStorage.setItem("flag", "0");
-				localStorage.setItem("plateNo", "");
-			}
+					//console.log("重新登录，请填写账号信息")
+					localStorage.setItem("flag", "0");
+					localStorage.setItem("plateNo", "");
+				}
 		},
 		render: function render() {
 			return _react2['default'].createElement('div', { className: 'login Rcontainer' }, _react2['default'].createElement('div', { className: 'Rheader' }, _react2['default'].createElement('span', null, '维修详情')), _react2['default'].createElement('div', { className: 'promptInfo commPadding' }, _react2['default'].createElement('h3', null, ' ', _react2['default'].createElement('span', { className: 'iconfont' }, ''), ' 未绑定提示：'), _react2['default'].createElement('p', null, '您好，您还未绑定爱车信息，绑定后才可准确提供服务！', _react2['default'].createElement('br', null), '绑定方式有：', _react2['default'].createElement('br', null), '1：扫描定损员PAD生成二维码进行绑定', _react2['default'].createElement('br', null), '2：手工录入信息绑定', _react2['default'].createElement('br', null), _react2['default'].createElement('br', null), '主要服务有：', _react2['default'].createElement('br', null), '1：车辆维修历史查看', _react2['default'].createElement('br', null), '2：维修进度实时查看', _react2['default'].createElement('br', null), '3：车辆维修照片查看', _react2['default'].createElement('br', null), '4：车主评价', _react2['default'].createElement('br', null), _react2['default'].createElement('br', null), ' 看完了，还等什么？', _react2['default'].createElement('br', null), ' 赶快给爱车绑定吧，让它享受我们为它制定的服务！')), _react2['default'].createElement('div', { className: 'loginBtnGroup' }, _react2['default'].createElement('button', { className: '', onClick: this.scanQRCode }, _react2['default'].createElement('span', { className: 'iconfont' }, ''), ' 扫一扫绑定'), _react2['default'].createElement('button', { className: '', onClick: this.queryMessage }, '手动输入')), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.modalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title', onClick: this.modalStateChange })), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.modalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.modalStateChange }, '确定')))));

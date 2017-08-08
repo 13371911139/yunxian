@@ -115763,14 +115763,10 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/lexiugo-app/weixin/evaluation/tmxlogin" + window.location.search,
-	        data: {},
+	        url: "/lexiugo-app/weixin/getSignature",
+	        data: 'url=' + encodeURIComponent(window.location.href),
 	        dataType: "json",
-	        type: "post",
 	        success: (function (msg) {
-	            for (var i in msg) {
-	                alert(i + '+++' + msg[i] + '+++' + msg);
-	            }
 	            wxConfig(msg);
 	            console.log(msg);
 	        }).bind(this),
@@ -115784,23 +115780,18 @@
 	        wx.config({
 	            debug: true,
 	            appId: obj.appid, // 微信appid
-	            timestamp: 1425952357, // 时间戳
-	            nonceStr: 'OMIE75rRCpMq2540', // 随机数
+	            timestamp: obj.timestamp, // 时间戳
+	            nonceStr: obj.noncestr, // 随机数
 	            signature: obj.signature, // 签名,
-	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi']
+	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi', 'checkJsApi', 'previewImage', 'scanQRCode']
 	        });
 	        wx.ready(function () {
-	            console.log('微信校 验 成功');
+	            alert('当前版本：c3');
 	        });
 	        //隐藏右上角菜单接 口
 	        wx.hideOptionMenu();
 	    }
 	});
-	var wxFun = {
-	    alerts: function alerts() {
-	        alert();
-	    }
-	};
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "WXConfig.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
