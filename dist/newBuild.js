@@ -35713,9 +35713,10 @@
 	        this.setState({ xlcData: data });
 	        var brandName = (0, _jquery2["default"])('input[name=brandName]').val();
 	        var tmxhavepjType = this.props.location.query.tmxhavepjType;
+	        var tmxCarType = this.props.location.query.tmxCarType;
 	        this.serverRequest = _jquery2["default"].ajax({
 	            url: "/lexiugo-app/weixin/insurance/getXlc",
-	            data: { val: data, brandName: brandName, tmxhavepjType: tmxhavepjType },
+	            data: { val: data, brandName: brandName, tmxhavepjType: 1, tmxCarType: 0 },
 	            dataType: "json",
 	            type: "post",
 	            success: (function (msg) {
