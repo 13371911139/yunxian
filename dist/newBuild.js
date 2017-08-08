@@ -35697,12 +35697,11 @@
 	        } else if ((0, _jquery2["default"])("select[name='groupId']").val() == "") {
 	            this.setState({ btModalState: "车组尚未选择" });
 	        } else if ((0, _jquery2["default"])("select[name='xlcName']").val() == "") {
-	            xlcCode;
 	            this.setState({ btModalState: "请选择修车厂" });
 	        } else if ((0, _jquery2["default"])("select[name='xlcCode']").val() == "") {
 	            this.setState({ btModalState: "请选择修车厂" });
 	        } else if ((0, _jquery2["default"])("select[name='vin']").val() == "") {
-	            this.setState({ btModalState: "请填写车辆vin码" });
+	            this.setState({ btModalState: "请填写车辆VIN码" });
 	        } else if ((0, _jquery2["default"])("select[name='vehicleId']").val() == "") {
 	            this.setState({ btModalState: "车型" });
 	        } else {
