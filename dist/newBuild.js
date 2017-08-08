@@ -35705,6 +35705,9 @@
 	        } else if ((0, _jquery2["default"])("select[name='vehicleId']").val() == "") {
 	            this.setState({ btModalState: "车型" });
 	        } else {
+	            alert((0, _jquery2["default"])("select[name='vin']").val());
+	            alert((0, _jquery2["default"])("select[name='xlcCode']").val());
+	            alert((0, _jquery2["default"])("select[name='xlcName']").val());
 	            this.setState({ scmodalState: true });
 	            var dataArr = (0, _jquery2["default"])("#vehicleForm").serializeArray();
 	            return;
