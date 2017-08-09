@@ -32,7 +32,7 @@ app.get('/server',(req,res,next)=>{
     }
     res.render('index',{dataList:dataList});
 })
-//app.use('/lexiugo-app',require('./api'));
+//app.use('/lexiugo-app',require('./api'))  ;
 
 
 
