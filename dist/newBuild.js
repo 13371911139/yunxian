@@ -35248,7 +35248,7 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/weixin/evaluation/tmxlogin" + window.location.search,
+	        url: "/lexiugo-app/weixin/evaluation/tmxlogin" + window.location.search,
 	        dataType: "json",
 	        success: (function (msg) {
 	            wxConfig(msg);
