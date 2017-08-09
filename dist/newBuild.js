@@ -35253,6 +35253,9 @@
 	        dataType: "json",
 	        success: (function (msg) {
 	            wxConfig(msg);
+	            for (var i in msg) {
+	                alert(msg[i] + '+++' + i);
+	            }
 	            console.log(msg);
 	        }).bind(this),
 	        error: (function (xhr, status, err) {
