@@ -35022,7 +35022,7 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/weixin/evaluation/tmxlogin",
+	        url: "/weixin/evaluation/tmxlogin?aa=bb&" + window.location.search,
 	        data: 'url=' + encodeURIComponent(window.location.search),
 	        dataType: "json",
 	        success: (function (msg) {
