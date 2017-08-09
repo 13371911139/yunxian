@@ -35248,8 +35248,7 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/weixin/evaluation/tmxlogin",
-	        data: 'url=' + encodeURIComponent(window.location.href),
+	        url: "/weixin/evaluation/tmxlogin" + window.location.search,
 	        dataType: "json",
 	        success: (function (msg) {
 	            wxConfig(msg);
