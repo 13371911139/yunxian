@@ -36142,8 +36142,8 @@
 	        wx.config({
 	            debug: true,
 	            appId: obj.appid, // 微信appid
-	            timestamp: obj.timestamp, // 时间戳
-	            nonceStr: obj.noncestr, // 随机数
+	            timestamp: 1425952357, // 时间戳
+	            nonceStr: 'OMIE75rRCpMq2540', // 随机数
 	            signature: obj.signature, // 签名,
 	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi', 'checkJsApi', 'previewImage', 'scanQRCode']
 	        });
