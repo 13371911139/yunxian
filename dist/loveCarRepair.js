@@ -36576,13 +36576,9 @@
 
 	var _rem_2 = _interopRequireDefault(_rem_);
 
+	__webpack_require__(715);
 	//require('../css/weui.min.css');
 
-	var _configWXConfig = __webpack_require__(682);
-
-	var _configWXConfig2 = _interopRequireDefault(_configWXConfig);
-
-	__webpack_require__(715);
 	var history = (0, _history.useBasename)(_history.createHashHistory)({
 	    queryKey: "_key",
 	    basename: '/app'
@@ -36645,6 +36641,10 @@
 	var _jquery = __webpack_require__(236);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _configWXConfig = __webpack_require__(682);
+
+	var _configWXConfig2 = _interopRequireDefault(_configWXConfig);
 
 	var Login = _react2['default'].createClass({
 		displayName: 'Login',
@@ -37013,107 +37013,28 @@
 	    },
 	    componentDidUpdate: function componentDidUpdate() {
 	        var recordList = this.state.recordList,
-	            $recordListLi = (0, _jquery2['default'])(".recordList"),
+	            $recordListLi = (0, _jquery2['default'])(".recordList li"),
 	            this_ = this;
 	        $recordListLi.bind("click", function () {
-	            //var taskId = recordList[$(this).index()].id;
-	            //localStorage.setItem("taskId", taskId);
+	            var taskId = recordList[(0, _jquery2['default'])(this).index()].id;
+	            localStorage.setItem("taskId", taskId);
 	            this_.props.history.replaceState(null, "/repairDetails");
 	        });
 	    },
 	    render: function render() {
-	        var _this = this;
-
 	        var recordArr = [],
 	            recordList = this.state.recordList,
 	            czInfo = this.state.czInfo;
 	        for (var i = 0; i < recordList.length; i++) {
 	            var item = recordList[i];
-	            recordArr.push(_react2['default'].createElement('li', { key: i }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '保险公司：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, item.inscompanyname))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '报案号：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, item.reportno))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '送修时间：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, item.pushtime))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '状态：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, item.stateStr))))), _react2['default'].createElement('span', { className: 'checkDetails' }, '查看详1情 ', _react2['default'].createElement('em', { className: 'iconfont' }, ''))));
+	            recordArr.push(_react2['default'].createElement('li', { key: i }, _react2['default'].createElement('table', null, _react2['default'].createElement('tbody', null, _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '保险公司：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, item.inscompanyname))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '报案号：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, item.reportno))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '送修时间：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, item.pushtime))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '状态：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, item.stateStr))))), _react2['default'].createElement('span', { className: 'checkDetails' }, '查看详情 ', _react2['default'].createElement('em', { className: 'iconfont' }, ''))));
 	        }
 
-	        return _react2['default'].createElement('div', { className: 'repairRecord Rcontainer' }, _react2['default'].createElement('div', { className: 'Rheader' }, _react2['default'].createElement('span', { className: 'headerBtn', onClick: this.toLogin }, _react2['default'].createElement('em', { className: 'iconfont' }, '')), _react2['default'].createElement('span', null, '维修详情'), _react2['default'].createElement('span', { className: 'headerBtn', onClick: this.Unbundling }, _react2['default'].createElement('em', { className: 'iconfont' }, ''), '解绑')), _react2['default'].createElement('div', { className: 'repairRecordBox' }, _react2['default'].createElement('div', { className: 'headDetail' }, _react2['default'].createElement('ul', { className: 'recordUl' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车主姓名:'), _react2['default'].createElement('span', null, czInfo.customername != null ? czInfo.customername : czInfo.sendCarPerson)), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车牌号:'), _react2['default'].createElement('span', null, czInfo != "" ? czInfo.plateno : "")), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车型:'), _react2['default'].createElement('span', null, czInfo != "" ? czInfo.cxmc : "")), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, 'VIN码:'), _react2['default'].createElement('span', null, czInfo != "" ? czInfo.vincode : ""))))), _react2['default'].createElement('h4', null, '我的维修单'), _react2['default'].createElement('div', { className: 'order' }, _react2['default'].createElement('ul', { className: 'recordUl' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '报案号:'), _react2['default'].createElement('span', null, '23233')), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '维修金额:'), _react2['default'].createElement('span', null, '23233')), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '修理厂名称:'), _react2['default'].createElement('span', null, '珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝')), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '修理厂地址:'), _react2['default'].createElement('span', null, '珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝珠宝')), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '维修进度:'), _react2['default'].createElement('span', null, '23233'))), _react2['default'].createElement('div', { className: 'buttonStyle' }, _react2['default'].createElement('input', { type: 'button', onClick: function onClick() {
-	                _this.props.history.replaceState(null, "/leCheHelp");
-	            }, value: '选择推修' }), _react2['default'].createElement('input', { type: 'button', className: 'recordList', value: '查看详情' }))));
+	        return _react2['default'].createElement('div', { className: 'repairRecord Rcontainer' }, _react2['default'].createElement('div', { className: 'Rheader' }, _react2['default'].createElement('span', { className: 'headerBtn', onClick: this.toLogin }, _react2['default'].createElement('em', { className: 'iconfont' }, '')), _react2['default'].createElement('span', null, '维修情况'), _react2['default'].createElement('span', { className: 'headerBtn', onClick: this.Unbundling }, _react2['default'].createElement('em', { className: 'iconfont' }, ''), '解绑')), _react2['default'].createElement('div', { className: 'carOwnerInfo commPadding' }, _react2['default'].createElement('p', { className: 'titleInfo clearfix' }, _react2['default'].createElement('span', { className: 'czxx titleImg' }), _react2['default'].createElement('span', { className: 'titleContext' }, '车主信息')), _react2['default'].createElement('div', { className: 'infoTable' }, _react2['default'].createElement('table', { border: '0' }, _react2['default'].createElement('tbody', null, _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '车主姓名：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, czInfo.customername != null ? czInfo.customername : czInfo.sendCarPerson))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '车牌号：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, czInfo != "" ? czInfo.plateno : ""))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '车型：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, czInfo != "" ? czInfo.cxmc : ""))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, 'VIN码：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, czInfo != "" ? czInfo.vincode : ""))))))), _react2['default'].createElement('div', { className: 'repairRecord commPadding' }, _react2['default'].createElement('p', { className: 'titleInfo clearfix' }, _react2['default'].createElement('span', { className: 'wxjl titleImg' }), _react2['default'].createElement('span', { className: 'titleContext' }, '维修记录')), _react2['default'].createElement('div', { className: 'infoTable' }, _react2['default'].createElement('ul', { className: 'recordList' }, recordArr)), _react2['default'].createElement('div', { className: 'loadMore', onClick: this.loadMore, style: this.state.liNum < 5 ? { display: "none" } : { display: "block" } }, '点击加载更多')), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.tsmodalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title' }, '提示信息')), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.tsmodalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.tsmodalStateChange }, '好')))), _react2['default'].createElement('div', { id: 'loadingToast', className: 'weui_loading_toast', style: this.state.loadmodalState ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'weui_mask_transparent' }), _react2['default'].createElement('div', { className: 'weui_toast' }, _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('p', { className: 'weui_toast_content' }, '数据加载中'))));
 	    }
 	});
 	exports['default'] = RepairRecord;
 	module.exports = exports['default'];
-	/*
-	               <div className="carOwnerInfo commPadding">
-	                   <p className="titleInfo clearfix">
-	                       <span className="czxx titleImg"></span>
-	                       <span className="titleContext">车主信息</span>
-	                   </p>
-	                   <div className="infoTable">
-	                       <table border="0">
-	                           <tbody>
-	                               <tr>
-	                                   <td>车主姓名：</td>
-	                                   <td><span>{czInfo.customername!=null?czInfo.customername:czInfo.sendCarPerson}</span></td>
-	                               </tr>
-	                               <tr>
-	                                   <td>车牌号：</td>
-	                                   <td><span>{czInfo!=""?czInfo.plateno:""}</span></td>
-	                               </tr>
-	                               <tr>
-	                                   <td>车型：</td>
-	                                   <td><span>{czInfo!=""?czInfo.cxmc:""}</span></td>
-	                               </tr>
-	                               <tr>
-	                                   <td>VIN码：</td>
-	                                   <td><span>{czInfo!=""?czInfo.vincode:""}</span></td>
-	                               </tr>
-	                           </tbody>
-	                       </table>
-	                   </div>
-	               </div>
-	               <div className="repairRecord commPadding">
-	                   <p className="titleInfo clearfix">
-	                       <span className="wxjl titleImg"></span>
-	                       <span className="titleContext">维修记录</span>
-	                   </p>
-	                   <div className="infoTable">
-	                       <ul className="recordList">
-	                           {recordArr}
-	                       </ul>
-	                   </div>
-	                   <div className="loadMore" onClick={this.loadMore} style={this.state.liNum<5?{display:"none"}:{display:"block"}}>
-	                       点击加载更多
-	                   </div>
-	               </div>
-
-	               <div className="weui_dialog_alert" style={this.state.tsmodalState==""?{display:"none"}:{display:"block"}}>
-	                   <div className="weui_mask"></div>
-	                   <div className="weui_dialog">
-	                       <div className="weui_dialog_hd"><strong className="weui_dialog_title"  onClick={this.modalStateChange}></strong></div>
-	                       <div className="weui_dialog_bd">{this.state.tsmodalState}</div>
-	                       <div className="weui_dialog_ft">
-	                           <a className="weui_btn_dialog primary" onClick={this.tsmodalStateChange}>好</a>
-	                       </div>
-	                   </div>
-	               </div>
-	               <div id="loadingToast" className="weui_loading_toast" style={this.state.loadmodalState?{display:"block"}:{display:"none"}}>
-	                   <div className="weui_mask_transparent"></div>
-	                   <div className="weui_toast">
-	                       <div className="weui_loading">
-	                           <div className="weui_loading_leaf weui_loading_leaf_0"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_1"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_2"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_3"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_4"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_5"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_6"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_7"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_8"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_9"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_10"></div>
-	                           <div className="weui_loading_leaf weui_loading_leaf_11"></div>
-	                       </div>
-	                       <p className="weui_toast_content">数据加载中</p>
-	                   </div>
-	               </div>
-	               */
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "repairRecord.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
@@ -37272,206 +37193,13 @@
 																	imgDspicList.push(_react2['default'].createElement('li', null, _react2['default'].createElement('img', { className: 'imgSrc', src: "/lexiugo/jyshowPhoto/getUrl.do?photoUrl=" + dspic.picturename })));
 													}
 									}
-									return _react2['default'].createElement('div', { className: 'repairDetails Rcontainer' }, _react2['default'].createElement('div', { className: 'Rheader' }, _react2['default'].createElement('span', { className: 'headerBtn', onClick: this.toLogin }, _react2['default'].createElement('em', { className: 'iconfont' }, '')), _react2['default'].createElement('span', null, '维修详情')), _react2['default'].createElement('p', { className: 'headDetail' }, _react2['default'].createElement('span', null, '待确定')), _react2['default'].createElement('div', { className: 'order' }, _react2['default'].createElement('ul', { className: 'recordUl' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '报案号:'), _react2['default'].createElement('span', null, '23233')), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '维修金额:'), _react2['default'].createElement('span', null, '23233')), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '修理厂名称:'), _react2['default'].createElement('span', null, '23233')), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '修理厂地址:'), _react2['default'].createElement('span', null, '23233')), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '维修进度:'), _react2['default'].createElement('span', null, '23233')))), _react2['default'].createElement('div', { className: 'order speedOfProgress' }, _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, _react2['default'].createElement('div', null, _react2['default'].createElement('span', { className: 'dian' })), _react2['default'].createElement('div', null, _react2['default'].createElement('h5', null, '您的车辆信息已经发送俱乐部'), _react2['default'].createElement('p', null, _react2['default'].createElement('span', null, '2017-07-21'), _react2['default'].createElement('span', null, '19:55:55')))), _react2['default'].createElement('li', null, _react2['default'].createElement('div', null, _react2['default'].createElement('span', { className: 'dian old' })), _react2['default'].createElement('div', null, _react2['default'].createElement('h5', null, '您的车辆信息已经发送俱乐部'), _react2['default'].createElement('p', null, _react2['default'].createElement('span', null, '2017-07-21'), _react2['default'].createElement('span', null, '19:55:55')))), _react2['default'].createElement('li', null, _react2['default'].createElement('div', null, _react2['default'].createElement('span', { className: 'dian old' })), _react2['default'].createElement('div', null, _react2['default'].createElement('h5', null, '您的车辆信息已经发送俱乐部'), _react2['default'].createElement('p', null, _react2['default'].createElement('span', null, '2017-07-21'), _react2['default'].createElement('span', null, '19:55:55')))))));
+									return _react2['default'].createElement('div', { className: 'repairDetails Rcontainer' }, _react2['default'].createElement('div', { className: 'Rheader' }, _react2['default'].createElement('span', { className: 'headerBtn', onClick: this.toLogin }, _react2['default'].createElement('em', { className: 'iconfont' }, '')), _react2['default'].createElement('span', null, '维修详情')), _react2['default'].createElement('div', { className: 'repairInfo commPadding' }, _react2['default'].createElement('p', { className: 'titleInfo clearfix' }, _react2['default'].createElement('span', { className: 'wxxx titleImg' }), _react2['default'].createElement('span', { className: 'titleContext' }, '维修信息'), _react2['default'].createElement('span', { className: 'detailsToggle', ref: 'detailsToggle' }, '展开 ', _react2['default'].createElement('em', { className: 'iconfont' }, ''))), _react2['default'].createElement('div', { className: 'infoTable detailsArea', ref: 'detailsArea' }, _react2['default'].createElement('table', { border: '0' }, _react2['default'].createElement('tbody', null, _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '报案号：'), _react2['default'].createElement('td', null, response.ReportNo)), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '维修金额：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, response.RepairMoneny), '元')), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '修理厂名称：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, response.XlcName))), _react2['default'].createElement('tr', null, _react2['default'].createElement('td', null, '修理厂地址：'), _react2['default'].createElement('td', null, _react2['default'].createElement('span', null, response.XlcAddr))))))), _react2['default'].createElement('div', { className: 'repairProgess commPadding' }, _react2['default'].createElement('p', { className: 'titleInfo clearfix' }, _react2['default'].createElement('span', { className: 'wxjd titleImg' }), _react2['default'].createElement('span', { className: 'titleContext' }, '维修进度'), _react2['default'].createElement('span', { className: 'detailsToggle', ref: 'detailsToggle' }, '展开 ', _react2['default'].createElement('em', { className: 'iconfont' }, ''))), _react2['default'].createElement('div', { className: 'detailsArea progessDetails' }, _react2['default'].createElement('ul', null, _react2['default'].createElement('li', { style: response.fla >= 1 ? { display: "flex" } : { display: "none" } }, _react2['default'].createElement('em', { className: 'progessIcon iconfont' }, ''), _react2['default'].createElement('div', { className: 'progessItem clearfix' }, _react2['default'].createElement('p', { className: 'progessInfo' }, '您的车辆信息已经发送到修理厂，等待修理厂确认'), _react2['default'].createElement('p', { className: 'progessTime' }, response.PushTimeMdms))), _react2['default'].createElement('li', { style: response.fla >= 2 ? { display: "flex" } : { display: "none" } }, _react2['default'].createElement('em', { className: 'progessIcon iconfont' }, ''), _react2['default'].createElement('div', { className: 'progessItem clearfix' }, _react2['default'].createElement('p', { className: 'progessInfo' }, '接车'), _react2['default'].createElement('p', { className: 'progessTime' }, response.EnterTime))), _react2['default'].createElement('li', { style: response.fla >= 3 ? { display: "flex" } : { display: "none" } }, _react2['default'].createElement('em', { className: 'progessIcon iconfont' }, ''), _react2['default'].createElement('div', { className: 'progessItem clearfix' }, _react2['default'].createElement('p', { className: 'progessInfo' }, '维修待命'), _react2['default'].createElement('p', { className: 'progessTime' }, response.WaitRepairTime), _react2['default'].createElement('ul', { className: 'progessImg clearfix', style: this.state.imgShowAll ? { overflow: "hidden" } : { overflow: "visible" } }, ImgList), _react2['default'].createElement('div', { className: 'showHide', style: response.ImgCount > 3 ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('span', { className: 'showAll', style: this.state.imgShowAll ? { display: "inline-block" } : { display: "none" }, onClick: this.imgShowAll }, '全部'), _react2['default'].createElement('span', { className: 'showAll', style: this.state.imgShowAll ? { display: "none" } : { display: "inline-block" }, onClick: this.imgHideAll }, '收起')))), _react2['default'].createElement('li', { style: response.fla >= 4 ? { display: "flex" } : { display: "none" } }, _react2['default'].createElement('em', { className: 'progessIcon iconfont' }, ''), _react2['default'].createElement('div', { className: 'progessItem clearfix' }, _react2['default'].createElement('p', { className: 'progessInfo' }, '钣金喷漆'), _react2['default'].createElement('p', { className: 'progessTime' }, response.SheetMetaTime), _react2['default'].createElement('ul', { className: 'progessImg clearfix', style: this.state.imgShowAll1 ? { overflow: "hidden" } : { overflow: "visible" } }, imgPaintList), _react2['default'].createElement('div', { className: 'showHide', style: response.imgPaintCount > 3 ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('span', { className: 'showAll', style: this.state.imgShowAll1 ? { display: "inline-block" } : { display: "none" }, onClick: this.imgShowAll1 }, '全部'), _react2['default'].createElement('span', { className: 'showAll', style: this.state.imgShowAll1 ? { display: "none" } : { display: "inline-block" }, onClick: this.imgHideAll1 }, '收起')))), _react2['default'].createElement('li', { style: response.fla >= 5 ? { display: "flex" } : { display: "none" } }, _react2['default'].createElement('em', { className: 'progessIcon iconfont' }, ''), _react2['default'].createElement('div', { className: 'progessItem clearfix' }, _react2['default'].createElement('p', { className: 'progessInfo' }, '维修完毕'), _react2['default'].createElement('p', { className: 'progessTime' }, response.OverRepairTime), _react2['default'].createElement('ul', { className: 'progessImg clearfix', style: this.state.imgShowAll2 ? { overflow: "hidden" } : { overflow: "visible" } }, imgDspicList), _react2['default'].createElement('div', { className: 'showHide', style: response.imgDspicCount > 3 ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('span', { className: 'showAll', style: this.state.imgShowAll2 ? { display: "inline-block" } : { display: "none" }, onClick: this.imgShowAll2 }, '全部'), _react2['default'].createElement('span', { className: 'showAll', style: this.state.imgShowAll2 ? { display: "none" } : { display: "inline-block" }, onClick: this.imgHideAll2 }, '收起'))))))), _react2['default'].createElement('div', { className: '', style: response.fla == 6 ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('button', { className: 'publicBtn', onClick: this.evalClick }, '确认取车并评价')), _react2['default'].createElement('div', { className: 'discussContext commPadding', style: response.fla == 7 ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('p', { className: 'titleInfo clearfix' }, _react2['default'].createElement('span', { className: 'titleContext' }, '评价内容'), _react2['default'].createElement('span', { className: 'detailsToggle', ref: 'detailsToggle' }, '展开 ', _react2['default'].createElement('em', { className: 'iconfont' }, ''))), _react2['default'].createElement('div', { className: 'detailsArea' }, _react2['default'].createElement('div', { className: 'infoTable spanLi' }, _react2['default'].createElement('ul', { className: 'discussList' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', { className: 'bxgs titleImgs' }), _react2['default'].createElement('span', { className: 'liSpan' }, '保险公司服务评价'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { disabled: true, allowHalf: true, value: parseFloat(response.BxEvaluation) }))))), _react2['default'].createElement('div', { className: 'infoTable' }, _react2['default'].createElement('ul', { className: 'discussList' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', { className: 'pjnr titleImgs' }), _react2['default'].createElement('span', { className: 'liSpan' }, '修理厂服务评价'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { disabled: true, allowHalf: true, value: parseFloat(response.XlcEvaluation) }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '服务体验'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { disabled: true, allowHalf: true, value: parseFloat(response.RepairServer) }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '维修速度'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { disabled: true, allowHalf: true, value: parseFloat(response.RepairAging) }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '专业技能'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { disabled: true, allowHalf: true, value: parseFloat(response.RepairQuality) })))), _react2['default'].createElement('div', { className: 'disscussText' }, response.CustomerRemark, _react2['default'].createElement('p', { className: 'disscussTime' }, response.crectTime))))), _react2['default'].createElement('div', { className: 'weui-gallery' }, _react2['default'].createElement('span', { className: 'iconfontRight iconfont' }, ''), _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('span', { className: 'weui-gallery__img', style: { backgroundImage: "url(" + this.state.GalleryPic + ")" } })), _react2['default'].createElement('div', { id: 'loadingToast', className: 'weui_loading_toast', style: this.state.loadmodalState ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'weui_mask_transparent' }), _react2['default'].createElement('div', { className: 'weui_toast' }, _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('p', { className: 'weui_toast_content' }, '数据加载中'))));
 					}
 	});
 	exports['default'] = RepairDetails;
 
 	//<input id="input-id" type="number" class="rating" min="0" max="5" step="0.5" data-size="lg" />
 	module.exports = exports['default'];
-	/*
-	              <div className="repairInfo commPadding">
-	                  <p className="titleInfo clearfix">
-	                      <span className="wxxx titleImg"></span>
-	                      <span className="titleContext">维修信息</span>
-	                      <span className="detailsToggle" ref="detailsToggle">展开 <em className="iconfont">&#xe60b;</em></span>
-	                  </p>
-	                  <div className="infoTable detailsArea" ref="detailsArea">
-	                      <table border="0">
-	                          <tbody>
-	                          <tr>
-	                              <td>报案号：</td>
-	                              <td>{response.ReportNo}</td>
-	                          </tr>
-	                          <tr>
-	                              <td>维修金额：</td>
-	                              <td><span>{response.RepairMoneny}</span>元</td>
-	                          </tr>
-	                          <tr>
-	                              <td>修理厂名称：</td>
-	                              <td><span>{response.XlcName}</span></td>
-	                          </tr>
-	                          <tr>
-	                              <td>修理厂地址：</td>
-	                              <td><span>{response.XlcAddr}</span></td>
-	                          </tr>
-	                          </tbody>
-	                      </table>
-	                  </div>
-	              </div>
-	              <div className="repairProgess commPadding">
-	                  <p className="titleInfo clearfix">
-	                      <span className="wxjd titleImg"></span>
-	                      <span className="titleContext">维修进度</span>
-	                      <span className="detailsToggle" ref="detailsToggle">展开 <em className="iconfont">&#xe60b;</em></span>
-	                  </p>
-	                  <div className="detailsArea progessDetails">
-	                      <ul>
-	                          <li style={response.fla>=1?{display:"flex"}:{display:"none"}}>
-	                              <em className="progessIcon iconfont">&#xe615;</em>
-	                              <div className="progessItem clearfix">
-	                                  <p className="progessInfo">您的车辆信息已经发送到修理厂，等待修理厂确认</p>
-	                                  <p className="progessTime">{response.PushTimeMdms}</p>
-	                              </div>
-	                          </li>
-	                          <li style={response.fla>=2?{display:"flex"}:{display:"none"}}>
-	                              <em className="progessIcon iconfont">&#xe615;</em>
-	                              <div className="progessItem clearfix">
-	                                  <p className="progessInfo">接车</p>
-	                                  <p className="progessTime">{response.EnterTime}</p>
-	                              </div>
-	                          </li>
-	                          <li style={response.fla>=3?{display:"flex"}:{display:"none"}}>
-	                              <em className="progessIcon iconfont">&#xe615;</em>
-	                              <div className="progessItem clearfix">
-	                                  <p className="progessInfo">维修待命</p>
-	                                  <p className="progessTime">{response.WaitRepairTime}</p>
-	                                  <ul className="progessImg clearfix" style={this.state.imgShowAll?{overflow:"hidden"}:{overflow:"visible"}}>
-	                                      {ImgList}
-	                                  </ul>
-	                                  <div className="showHide" style={response.ImgCount > 3?{display:"block"}:{display:"none"}}>
-	                                      <span className="showAll" style={this.state.imgShowAll?{display:"inline-block"}:{display:"none"}} onClick={this.imgShowAll}>全部</span>
-	                                      <span className="showAll" style={this.state.imgShowAll?{display:"none"}:{display:"inline-block"}} onClick={this.imgHideAll}>收起</span>
-	                                  </div>
-	                              </div>
-	                          </li>
-	                          <li style={response.fla>=4?{display:"flex"}:{display:"none"}}>
-	                              <em className="progessIcon iconfont">&#xe615;</em>
-	                              <div className="progessItem clearfix">
-	                                  <p className="progessInfo">钣金喷漆</p>
-	                                  <p className="progessTime">{response.SheetMetaTime}</p>
-	                                  <ul className="progessImg clearfix" style={this.state.imgShowAll1?{overflow:"hidden"}:{overflow:"visible"}}>
-	                                {imgPaintList}
-	                            </ul>
-	                            <div className="showHide" style={response.imgPaintCount > 3?{display:"block"}:{display:"none"}}>
-	                                <span className="showAll" style={this.state.imgShowAll1?{display:"inline-block"}:{display:"none"}} onClick={this.imgShowAll1}>全部</span>
-	                                <span className="showAll" style={this.state.imgShowAll1?{display:"none"}:{display:"inline-block"}} onClick={this.imgHideAll1}>收起</span>
-	                            </div>
-	                              </div>
-	                          </li>
-	                          <li style={response.fla>=5?{display:"flex"}:{display:"none"}}>
-	                              <em className="progessIcon iconfont">&#xe615;</em>
-	                              <div className="progessItem clearfix">
-	                                  <p className="progessInfo">维修完毕</p>
-	                                  <p className="progessTime">{response.OverRepairTime}</p>
-	                                  <ul className="progessImg clearfix" style={this.state.imgShowAll2?{overflow:"hidden"}:{overflow:"visible"}}>
-	                                {imgDspicList}
-	                            </ul>
-	                            <div className="showHide" style={response.imgDspicCount > 3?{display:"block"}:{display:"none"}}>
-	                                <span className="showAll" style={this.state.imgShowAll2?{display:"inline-block"}:{display:"none"}} onClick={this.imgShowAll2}>全部</span>
-	                                <span className="showAll" style={this.state.imgShowAll2?{display:"none"}:{display:"inline-block"}} onClick={this.imgHideAll2}>收起</span>
-	                            </div>
-	                              </div>
-	                          </li>
-	                      </ul>
-	                  </div>
-	              </div>
-	              <div className="" style={response.fla==6?{display:"block"}:{display:"none"}}>
-	                  <button className="publicBtn" onClick={this.evalClick}>确认取车并评价</button>
-	              </div>
-	              <div className="discussContext commPadding" style={response.fla==7?{display:"block"}:{display:"none"}}>
-	                  <p className="titleInfo clearfix">
-	                      <span className="titleContext">评价内容</span>
-	                      <span className="detailsToggle" ref="detailsToggle">展开 <em className="iconfont">&#xe60b;</em></span>
-	                  </p>
-	                  <div className="detailsArea">
-	                   <div className="infoTable spanLi">
-	                   	<ul className="discussList">
-	                    	<li>
-		                        <span className="bxgs titleImgs"></span>
-		                        <span className="liSpan">保险公司服务评价</span>
-		                        <span>
-		                            <Rate disabled allowHalf value={parseFloat(response.BxEvaluation)} />
-		                        </span>
-		                    </li>
-	                   	</ul>
-	                   </div>
-	                   <div className="infoTable">
-	                       <ul className="discussList">
-	                           <li>
-	                            <span className="pjnr titleImgs"></span>
-	                            <span className="liSpan">修理厂服务评价</span>
-	                               <span>
-	                                   <Rate disabled allowHalf value={parseFloat(response.XlcEvaluation)}  />
-	                               </span>
-	                           </li>
-	                           <li>
-	                               <span>服务体验</span>
-	                               <span>
-	                                   <Rate disabled allowHalf value={parseFloat(response.RepairServer)}  />
-	                               </span>
-	                           </li>
-	                           <li>
-	                               <span>维修速度</span>
-	                               <span>
-	                                   <Rate disabled allowHalf value={parseFloat(response.RepairAging)}  />
-	                               </span>
-	                           </li>
-	                           <li>
-	                               <span>专业技能</span>
-	                               <span>
-	                                   <Rate disabled allowHalf value={parseFloat(response.RepairQuality)}  />
-	                               </span>
-	                           </li>
-	                       </ul>
-	                       <div className="disscussText">
-	                       	{response.CustomerRemark}
-	                           <p className="disscussTime">{response.crectTime}</p>
-	                       </div>
-	                   </div>
-	                   </div>
-	              </div>
-	              <div className="weui-gallery">
-	              	
-	              		<span className="iconfontRight iconfont">&#xe614;</span>
-	              	
-	               <div className="weui_loading">
-	                   <div className="weui_loading_leaf weui_loading_leaf_0"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_1"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_2"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_3"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_4"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_5"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_6"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_7"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_8"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_9"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_10"></div>
-	                   <div className="weui_loading_leaf weui_loading_leaf_11"></div>
-	               </div>
-	               <span className="weui-gallery__img" style={{backgroundImage:"url("+this.state.GalleryPic+")"}}>
-	               </span>
-	           </div>
-	           <div id="loadingToast" className="weui_loading_toast" style={this.state.loadmodalState?{display:"block"}:{display:"none"}}>
-	               <div className="weui_mask_transparent"></div>
-	               <div className="weui_toast">
-	                   <div className="weui_loading">
-	                       <div className="weui_loading_leaf weui_loading_leaf_0"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_1"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_2"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_3"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_4"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_5"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_6"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_7"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_8"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_9"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_10"></div>
-	                       <div className="weui_loading_leaf weui_loading_leaf_11"></div>
-	                   </div>
-	                   <p className="weui_toast_content">数据加载中</p>
-	               </div>
-	           </div>*/
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "repairDetails.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
@@ -38128,7 +37856,7 @@
 	        }
 	    },
 	    render: function render() {
-	        return _react2['default'].createElement('div', { className: 'repairDiscuss Rcontainer' }, _react2['default'].createElement('div', { className: 'Rheader' }, _react2['default'].createElement('span', { className: 'headerBtn', onClick: this.toLogin }, _react2['default'].createElement('em', { className: 'iconfont' }, '')), _react2['default'].createElement('span', null, '发表评论')), _react2['default'].createElement('div', { className: 'discussContext commPadding' }, _react2['default'].createElement('div', { className: 'infoTable detailsArea spanLi' }, _react2['default'].createElement('ul', { className: 'discussList' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', { className: 'bxgs titleImgs' }), _react2['default'].createElement('span', { className: 'liSpan' }, '保险公司服务评价'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.bxEvaluation), onChange: this.onChange.bind(this, "bxEvaluation") }))))), _react2['default'].createElement('div', { className: 'infoTable detailsArea' }, _react2['default'].createElement('ul', { className: 'discussList ' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', { className: 'pjnr titleImgs' }), _react2['default'].createElement('span', { className: 'liSpan' }, '修理厂服务评价'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.xlcEvaluation), onChange: this.onChange.bind(this, "xlcEvaluation") }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '服务体验'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.repairServer), onChange: this.onChange.bind(this, "repairServer") }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '维修速度'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.repairAging), onChange: this.onChange.bind(this, "repairAging") }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '专业技能'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.repairQuality), onChange: this.onChange.bind(this, "repairQuality") }))))), _react2['default'].createElement('p', { className: 'tsInfo' }, _react2['default'].createElement('em', { className: 'iconfont' }, ''), '当您完成评价，修理厂才会得到维修费用'), _react2['default'].createElement('div', { className: '' }, _react2['default'].createElement('textarea', { className: 'disscussTextArea', onChange: this.handleChange, name: 'textArea', placeholder: '有什么需要反馈的，可以写在这里。' }))), _react2['default'].createElement('div', { className: 'discussBtn' }, _react2['default'].createElement('button', { className: 'publicBtn', onClick: this.evalClick }, '确认评价')), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.tsmodalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title', onClick: this.modalStateChange })), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.tsmodalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.tsmodalStateChange }, '确定')))), _react2['default'].createElement('div', { id: 'loadingToast', className: 'weui_loading_toast', style: this.state.loadmodalState ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'weui_mask_transparent' }), _react2['default'].createElement('div', { className: 'weui_toast' }, _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('p', { className: 'weui_toast_content' }, '数据加载中'))));
+	        return _react2['default'].createElement('div', { className: 'repairDiscuss Rcontainer' }, _react2['default'].createElement('div', { className: 'Rheader' }, _react2['default'].createElement('span', { className: 'headerBtn', onClick: this.toLogin }, _react2['default'].createElement('em', { className: 'iconfont' }, '')), _react2['default'].createElement('span', null, '发表评论')), _react2['default'].createElement('div', { className: 'discussContext commPadding' }, _react2['default'].createElement('div', { className: 'infoTable detailsArea spanLi' }, _react2['default'].createElement('ul', { className: 'discussList' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', { className: 'bxgs titleImgs' }), _react2['default'].createElement('span', { className: 'liSpan' }, '保险公司服务评价'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.bxEvaluation), onChange: this.onChange.bind(this, "bxEvaluation") }))))), _react2['default'].createElement('div', { className: 'infoTable detailsArea' }, _react2['default'].createElement('ul', { className: 'discussList ' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', { className: 'pjnr titleImgs' }), _react2['default'].createElement('span', { className: 'liSpan' }, '修理厂服务评价'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.xlcEvaluation), onChange: this.onChange.bind(this, "xlcEvaluation") }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '服务体验'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.repairServer), onChange: this.onChange.bind(this, "repairServer") }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '维修速度'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.repairAging), onChange: this.onChange.bind(this, "repairAging") }))), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '专业技能'), _react2['default'].createElement('span', null, _react2['default'].createElement(_rate2['default'], { allowHalf: true, value: parseFloat(this.state.repairQuality), onChange: this.onChange.bind(this, "repairQuality") }))))), _react2['default'].createElement('p', { className: 'tsInfo' }, _react2['default'].createElement('em', { className: 'iconfont' }, ''), '当您完成评价，修理厂才会得到维修费用'), _react2['default'].createElement('div', { className: '' }, _react2['default'].createElement('textarea', { className: 'disscussTextArea', onChange: this.handleChange, name: 'textArea', placeholder: '有什么需要反馈的，可以写在这里。' }))), _react2['default'].createElement('div', { className: 'discussBtn' }, _react2['default'].createElement('button', { className: 'publicBtn', onClick: this.evalClick }, '确认评价')), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.tsmodalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title' }, '提示信息')), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.tsmodalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.tsmodalStateChange }, '确定')))), _react2['default'].createElement('div', { id: 'loadingToast', className: 'weui_loading_toast', style: this.state.loadmodalState ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'weui_mask_transparent' }), _react2['default'].createElement('div', { className: 'weui_toast' }, _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('p', { className: 'weui_toast_content' }, '数据加载中'))));
 	    }
 	});
 	exports['default'] = RepairDiscuss;
