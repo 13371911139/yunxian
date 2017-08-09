@@ -115765,7 +115765,7 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/lexiugo-app/weixin/getSignature",
+	        url: "/weixin/evaluation/tmxlogin",
 	        data: 'url=' + encodeURIComponent(window.location.href),
 	        dataType: "json",
 	        success: (function (msg) {
