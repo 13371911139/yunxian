@@ -115770,6 +115770,9 @@
 	        dataType: "json",
 	        success: (function (msg) {
 	            wxConfig(msg);
+	            localStorage.setItem("flag", msg.flag);
+	            localStorage.setItem("openid", msg.openid);
+	            localStorage.setItem("plateNo", msg.plateNo);
 	            for (var i in msg) {
 	                alert(msg[i] + '+++' + i);
 	            }

@@ -36128,6 +36128,9 @@
 	        dataType: "json",
 	        success: (function (msg) {
 	            wxConfig(msg);
+	            localStorage.setItem("flag", msg.flag);
+	            localStorage.setItem("openid", msg.openid);
+	            localStorage.setItem("plateNo", msg.plateNo);
 	            for (var i in msg) {
 	                alert(msg[i] + '+++' + i);
 	            }
@@ -36829,57 +36832,7 @@
 
 	/* REACT HOT LOADER */ if (false) { (function () { var ReactHotAPI = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-api@0.4.7@react-hot-api\\modules\\index.js"), RootInstanceProvider = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\RootInstanceProvider.js"), ReactMount = require("react/lib/ReactMount"), React = require("react"); module.makeHot = module.hot.data ? module.hot.data.makeHot : ReactHotAPI(function () { return RootInstanceProvider.getRootInstances(ReactMount); }, React); })(); } try { (function () {
 
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-		value: true
-	});
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _jquery = __webpack_require__(236);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var signature, openid, flag, appid, plateNo;
-	console.log('asdfasdfsf');
-	console.log('asdfasdfsf', (0, _jquery2['default'])('#flag').val(), (0, _jquery2['default'])('#signature').val(), (0, _jquery2['default'])('#appid').val(), (0, _jquery2['default'])('#plateNo').val());
-
-	(0, _jquery2['default'])(function () {
-		wx.config({
-			debug: true,
-			appId: 'wx7bf8faee258e6753', // 微信appid
-			timestamp: 1425952357, // 时间戳
-			nonceStr: 'OMIE75rRCpMq2540', // 随机数
-			signature: signature, // 签名,
-			jsApiList: ['scanQRCode']
-		});
-		//扫一扫
-		wx.ready(function () {});
-		//隐藏右上角菜单接口
-		wx.hideOptionMenu();
-	});
-
-	var weixinpic = {
-		tolocalStorage: function tolocalStorage() {
-			signature = (0, _jquery2['default'])("#signature").val();
-			openid = (0, _jquery2['default'])("#openid").val();
-			flag = (0, _jquery2['default'])("#flag").val();
-			appid = (0, _jquery2['default'])("#appid").val();
-			plateNo = (0, _jquery2['default'])("#plateNo").val();
-			localStorage.setItem("flag", flag);
-			localStorage.setItem("openid", openid);
-			localStorage.setItem("plateNo", plateNo);
-		}
-	};
-	exports['default'] = weixinpic;
-	module.exports = exports['default'];
+	"use strict";
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "weixinpic.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
