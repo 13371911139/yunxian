@@ -35248,7 +35248,7 @@
 
 	(0, _jquery2['default'])(function () {
 	    _jquery2['default'].ajax({
-	        url: "/lexiugo-app/weixin/getSignature",
+	        url: "/lexiugo-app/weixin/getSignature" + window.location.search,
 	        data: 'url=' + encodeURIComponent(window.location.href),
 	        dataType: "json",
 	        success: (function (msg) {
