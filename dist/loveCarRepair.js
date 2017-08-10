@@ -36705,17 +36705,17 @@
 		componentWillMount: function componentWillMount() {
 			var locationPathName = this.props.location.pathname;
 			if (locationPathName == "/") {
-				/*weixinpic.tolocalStorage();
-	   var flag = localStorage.getItem("flag");
-	   if(flag == 1){
-	   	var plateNo = localStorage.getItem("plateNo");
-	   	this.props.history.replaceState(plateNo,"/repairRecord");
-	   }*/
-			} else if (locationPathName == "/login") {
-					//console.log("重新登录，请填写账号信息")
-					localStorage.setItem("flag", "0");
-					localStorage.setItem("plateNo", "");
+				//weixinpic.tolocalStorage();
+				var flag = localStorage.getItem("flag");
+				if (flag == 1) {
+					var plateNo = localStorage.getItem("plateNo");
+					this.props.history.replaceState(plateNo, "/repairRecord");
 				}
+			} else if (locationPathName == "/login") {
+				//console.log("重新登录，请填写账号信息")
+				localStorage.setItem("flag", "0");
+				localStorage.setItem("plateNo", "");
+			}
 		},
 		render: function render() {
 			return _react2['default'].createElement('div', { className: 'login Rcontainer' }, _react2['default'].createElement('div', { className: 'Rheader' }, _react2['default'].createElement('span', null, '维修详情')), _react2['default'].createElement('div', { className: 'promptInfo commPadding' }, _react2['default'].createElement('h3', null, ' ', _react2['default'].createElement('span', { className: 'iconfont' }, ''), ' 未绑定提示：'), _react2['default'].createElement('p', null, '您好，您还未绑定爱车信息，绑定后才可准确提供服务！', _react2['default'].createElement('br', null), '绑定方式有：', _react2['default'].createElement('br', null), '1：扫描定损员PAD生成二维码进行绑定', _react2['default'].createElement('br', null), '2：手工录入信息绑定', _react2['default'].createElement('br', null), _react2['default'].createElement('br', null), '主要服务有：', _react2['default'].createElement('br', null), '1：车辆维修历史查看', _react2['default'].createElement('br', null), '2：维修进度实时查看', _react2['default'].createElement('br', null), '3：车辆维修照片查看', _react2['default'].createElement('br', null), '4：车主评价', _react2['default'].createElement('br', null), _react2['default'].createElement('br', null), ' 看完了，还等什么？', _react2['default'].createElement('br', null), ' 赶快给爱车绑定吧，让它享受我们为它制定的服务！')), _react2['default'].createElement('div', { className: 'loginBtnGroup' }, _react2['default'].createElement('button', { className: '', onClick: this.scanQRCode }, _react2['default'].createElement('span', { className: 'iconfont' }, ''), ' 扫一扫绑定'), _react2['default'].createElement('button', { className: '', onClick: this.queryMessage }, '手动输入')), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.modalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title', onClick: this.modalStateChange })), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.modalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.modalStateChange }, '确定')))));
