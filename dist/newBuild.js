@@ -36177,20 +36177,27 @@
 	        this.setState(_defineProperty({}, obj, Object.assign({}, this.state[obj], newState)));
 	    },
 	    newSubmit: function newSubmit() {
-	        _jquery2["default"].ajax({
+	        _jquery2["default"].post("/lexiugo-app/weixin/insurance/basic", this.state.type1, function (data) {
+	            _jquery2["default"].post("/lexiugo-app/weixin/insurance/vehicle", this.state.type2, function (data1) {
+	                _jquery2["default"].post("/lexiugo-app/weixin/insurance/bush", this.state.type3, function (data2) {
+	                    console.log(data);
+	                });
+	            });
+	        });
+	        /*$.ajax({
 	            url: "/lexiugo-app/weixin/insurance/basic",
-	            data: this.state.type1,
+	            data:this.state.type1,
 	            dataType: "json",
 	            type: "post",
-	            success: (function (msg) {
-	                this.setState({ scmodalState: false });debugger;
-	                this.props.history.replaceState(this.state.reInfo, "/vehicleInfo?tmxhavepjType=" + (0, _jquery2["default"])('.tmxhavepjType').val() || 0 + '&tmxCarType=' + (0, _jquery2["default"])('.tmxCarType').val() || 0);
-	            }).bind(this),
-	            error: (function (xhr, status, err) {
-	                this.setState({ scmodalState: false });
-	                this.setState({ modalState: err.toString() });
-	            }).bind(this)
-	        });
+	            success: function(msg) {
+	                this.setState({scmodalState:false});debugger
+	                this.props.history.replaceState(this.state.reInfo,"/vehicleInfo?tmxhavepjType="+$('.tmxhavepjType').val() || 0+'&tmxCarType='+$('.tmxCarType').val() || 0)
+	            }.bind(this),
+	            error: function(xhr, status, err) {
+	                this.setState({scmodalState:false});
+	                this.setState({modalState:err.toString()})
+	            }.bind(this)
+	        });*/
 	    },
 
 	    render: function render() {
