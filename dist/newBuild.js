@@ -36177,9 +36177,10 @@
 	        this.setState(_defineProperty({}, obj, Object.assign({}, this.state[obj], newState)));
 	    },
 	    newSubmit: function newSubmit() {
-	        _jquery2["default"].post("/lexiugo-app/weixin/insurance/basic", this.state.type1, function (data) {
-	            _jquery2["default"].post("/lexiugo-app/weixin/insurance/vehicle", this.state.type2, function (data1) {
-	                _jquery2["default"].post("/lexiugo-app/weixin/insurance/bush", this.state.type3, function (data2) {
+	        var _this = this;
+	        _jquery2["default"].post("/lexiugo-app/weixin/insurance/basic", _this.state.type1, function (data) {
+	            _jquery2["default"].post("/lexiugo-app/weixin/insurance/vehicle", _this.state.type2, function (data1) {
+	                _jquery2["default"].post("/lexiugo-app/weixin/insurance/bush", _this.state.type3, function (data2) {
 	                    console.log(data);
 	                });
 	            });
