@@ -36707,7 +36707,7 @@
 			if (locationPathName == "/") {
 				//weixinpic.tolocalStorage();
 				var flag = localStorage.getItem("flag");
-				if (flag == 1) {
+				if (flag == '1') {
 					var plateNo = localStorage.getItem("plateNo");
 					this.props.history.replaceState(plateNo, "/repairRecord");
 				}
