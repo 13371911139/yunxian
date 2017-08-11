@@ -36271,7 +36271,7 @@
 	                    var setState = {};
 	                    this.setState(setState);
 	                    var Nstate = this.state.imagList;
-	                    Nstate.push(_react2["default"].createElement("li", { key: i }, _react2["default"].createElement("img", { src: localIds, alt: "" })));
+	                    Nstate.push(_react2["default"].createElement("li", { key: Nstate.length }, _react2["default"].createElement("img", { src: localIds, alt: "" })));
 	                    this.setState({ imagList: Nstate });
 	                    alert(localIds);
 	                    this._uploadImage(localIds, bb);
