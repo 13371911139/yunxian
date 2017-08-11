@@ -36257,7 +36257,7 @@
 	                    var setState = {};
 	                    this.setState(setState);
 	                    var Nstate = this.state.imagList;
-	                    Nstate.push(_react2["default"].createElement("li", { key: Nstate.length, onClick: this.imgShow.bind(this, key, index) }, _react2["default"].createElement("img", { src: localIds, alt: "" })));
+	                    Nstate.push(_react2["default"].createElement("li", { key: Nstate.length, onClick: this.imgShow.bind(this, index) }, _react2["default"].createElement("img", { src: localIds, alt: "" })));
 	                    this.setState({ imagList: Nstate });
 	                    alert(localIds);
 	                    this._uploadImage(localIds);
@@ -36277,12 +36277,23 @@
 	                //paramData.push( { "imageType" : photoType, "serverId" : serverId } );
 	                this.setState({ paramData: Object.assign({}, this.state.paramData, urlList) });
 	                var moveData = this.state.type3;
-	                console.log();
+	                moveData.push(['array[1].imageType=imageType', 'array[1].serverId=serverId']);
+	                console.log(this.state.paramData);
 	            }
 	        });
 	    },
-	    imgShow: function imgShow(a, b, e) {
-	        alert(a);alert(b);alert(e);
+	    imgShow: function imgShow() {
+	        var uri = new Array(),
+	            paramData = this.state.paramData;
+	        for (var i in paramData) {
+	            var imageType = paramData[i]['imageType'];
+	            var serverId = paramData[i]['serverId'];
+	            var n = 'array[' + i + '].';
+	            uri.push(n + 'imageType=' + imageType + '&' + n + 'serverId=' + serverId);
+	        }
+	        uri.push('address=' + this.state.address);
+	        ['array[1].imageType=imageType', 'array[1].serverId=serverId'];
+	        return uri.join("&");
 	    },
 	    render: function render() {
 	        var LinkActiveStyle = {
@@ -36571,6 +36582,7 @@
 	            uri.push(n + 'imageType=' + imageType + '&' + n + 'serverId=' + serverId);
 	        }
 	        uri.push('address=' + this.state.address);
+	        ['array[1].imageType=imageType', 'array[1].serverId=serverId'];
 	        return uri.join("&");
 	    }
 	});
