@@ -27,7 +27,7 @@ app.get('/server',(req,res,next)=>{
     console.log(req.query);
     var arr={loveCarRepair:'维修记录',lexiuApp:'修理厂',reportStatistics:'透明修车',newBuild:'案件推修'}
     var dataList={
-        path:ripath+(req.query.action || 'lexiuApp'),
+        path:ripath+('http://qq328532063.6655.la/dist/'+req.query.action || 'lexiuApp'),
         title:arr[req.query.action]
     }
     res.render('index',{dataList:dataList});
