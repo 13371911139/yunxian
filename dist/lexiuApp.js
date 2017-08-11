@@ -115773,10 +115773,6 @@
 	            localStorage.setItem("flag", msg.flag);
 	            localStorage.setItem("openid", msg.openid);
 	            localStorage.setItem("plateNo", msg.plateNo);
-	            for (var i in msg) {
-	                alert(msg[i] + '+++' + i);
-	            }
-	            console.log(msg);
 	        }).bind(this),
 	        error: (function (xhr, status, err) {
 	            //console.error(this.props.url, status, err.toString());
