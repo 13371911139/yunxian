@@ -36269,12 +36269,11 @@
 	                if (res.errMsg == 'ok' || res.errMsg == 'chooseImage:ok') {
 	                    var localIds = res.localIds[0]; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
 	                    var setState = {};
-	                    setState[aa] = localIds;
 	                    this.setState(setState);
 	                    var Nstate = this.state.imagList;
 	                    Nstate.push(_react2["default"].createElement("li", { key: i }, _react2["default"].createElement("img", { src: localIds, alt: "" })));
 	                    this.setState({ imagList: Nstate });
-	                    alert('localIds');
+	                    alert(localIds);
 	                    this._uploadImage(localIds, bb);
 	                } else {
 	                    alert('拍照失败');
