@@ -36274,7 +36274,7 @@
 	                    Nstate.push(_react2["default"].createElement("li", { key: Nstate.length }, _react2["default"].createElement("img", { src: localIds, alt: "" })));
 	                    this.setState({ imagList: Nstate });
 	                    alert(localIds);
-	                    this._uploadImage(localIds, bb);
+	                    this._uploadImage(localIds);
 	                } else {
 	                    alert('拍照失败');
 	                }
