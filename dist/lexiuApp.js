@@ -26930,6 +26930,8 @@
 	            success: (function (msg) {
 	                if (msg.code == '0000') {
 	                    this.props.history.replaceState(data, "/home");
+	                    localStorage.setItem("usernamexlc", this.state.username);
+	                    localStorage.setItem("passwordxlc", this.state.password);
 	                    //cookie.setCookie("userInfo", data.username, data.password, 30);
 	                } else {
 	                        this.setState({ ResponseMessage: msg.mess });
@@ -26939,6 +26941,10 @@
 	        });
 	    },
 	    componentDidMount: function componentDidMount() {
+	        this.setState({ username: localStorage.getItem("usernamexlc") });
+	        this.setState({ password: localStorage.getItem("passwordxlc") });
+	        (0, _jquery2['default'])("input[name=username]").val(localStorage.getItem("usernamexlc"));
+	        (0, _jquery2['default'])("input[name=password]").val(localStorage.getItem("passwordxlc"));
 	        //console.log(this.props.location.pathname)
 	        var locationPathName = this.props.location.pathname;
 	        var flag = (0, _jquery2['default'])("#flag").val();
