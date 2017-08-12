@@ -27006,7 +27006,7 @@
 	                //})
 	                this.props.history.replaceState(null, "/home");
 	            } else if (flag == "0") {
-	                console.log("初次登陆请填写账号信息");
+	                console.log("初次登录请填写账号信息");
 	            }
 	        } else if (locationPathName == "/login") {
 	            console.log("重新登录，请填写账号信息");
