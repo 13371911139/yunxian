@@ -15,9 +15,7 @@ app.use('/server/lexiugo', express.static('dist/server/lexiugo'));
 
 console.log(process.env.NODE_ENV,'nodeserver=jj ');
 if(process.env.NODE_ENV ==='dev'){
-    let webpackconfig = require('./webpack/dev.config');
-    webpackconfig(app)
-    var ripath='/dist/';
+   
 }else{
     var ripath='/server/dist/';
 }
