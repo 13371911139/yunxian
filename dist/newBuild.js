@@ -38388,14 +38388,17 @@
 	    },
 	    submit: function submit() {
 	        var _this = this;
-	        this.setState({ scmodalState: true });
+
 	        var arrs = this.state.data;
 	        var newState = {};
+
 	        for (var i in arrs) {
+	            var $Class = '.' + i;
 	            if (arrs[i] == '') {
-	                (0, _jquery2['default'])('input[type=' + i + ']').css({ border: '1px solid red' }).focus();
+	                (0, _jquery2['default'])($Class).css({ border: '1px solid red' }).focus();
 	                newState[i] = '密码不能为空';
-	                this.setState(newState);
+	                this.setState({ errState: Object.assign({}, this.state.errState, newState) });
+	                return;
 	            } else {
 	                switch (i) {
 	                    case 'oldPassword':
@@ -38403,17 +38406,17 @@
 	                    case 'newPassword':
 	                        var regp = /^(?=.*[a-zA-Z]+)(?=.*[0-9]+)[a-zA-Z0-9]+$/;
 	                        if (!regp.test(arrs.newPassword) || arrs.newPassword.length < 6 || arrs.newPassword.length > 20) {
+	                            (0, _jquery2['default'])($Class).css({ border: '1px solid red' }).focus();
 	                            newState[i] = '密码必须为6-20位的数字和字母的组合';
-	                            this.setState(newState);
-	                            //this.setState({errText:'密码必须为6-20位的数字和字母的组合'})
-	                            //this.state.errState[i]='';
+	                            this.setState({ errState: Object.assign({}, this.state.errState, newState) });
 	                            return;
 	                        }
 	                        break;
 	                    case 'confirmNewPassword':
 	                        if (arrs.newPassword != arrs.confirmNewPassword) {
-	                            newState[i] = '密码必须为6-20位的数字和字母的组合';
-	                            this.setState(newState);
+	                            (0, _jquery2['default'])($Class).css({ border: '1px solid red' }).focus();
+	                            newState[i] = '两次密码不一致';
+	                            this.setState({ errState: Object.assign({}, this.state.errState, newState) });
 	                            return;
 	                        }
 
@@ -38421,6 +38424,7 @@
 	                }
 	            }
 	        }
+	        this.setState({ scmodalState: true });
 	        _jquery2['default'].ajax({
 	            url: "/lexiugo-app/weixin/insurance/changePwd",
 	            data: _this.state.data,
@@ -38430,6 +38434,12 @@
 	                alert(msg);
 	            }).bind(this)
 	        });
+	    },
+	    inputFocus: function inputFocus(e) {
+	        (0, _jquery2['default'])('.' + e.target.name).css({ border: '1px solid #ccc' });
+	        var newState = {};
+	        newState[e.target.name] = '';
+	        this.setState({ errState: Object.assign({}, this.state.errState, newState) });
 	    },
 	    changeText: function changeText(e) {
 	        var newState = {};
@@ -38443,7 +38453,7 @@
 	        this.setState({ modalState: "" });
 	    },
 	    render: function render() {
-	        return _react2['default'].createElement('div', { className: 'changePassword' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement('span', { className: 'newBuildBtn', onClick: this.toRecord }, '返回'), '修改密码'), _react2['default'].createElement('div', { className: 'CPBody caseBox' }, _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text', name: 'oldPassword', placeholder: '请输入旧密码', onChange: this.changeText }), _react2['default'].createElement('p', { className: 'err' }, this.state.errState.oldPassword)), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text', name: 'newPassword', placeholder: '请输入新密码', onChange: this.changeText }), _react2['default'].createElement('p', { className: 'err' }, this.state.errState.newPassword || ' 请输入6-20位字符（不得位纯数字或英文字母）')), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text', name: 'confirmNewPassword', placeholder: '请确认新密码', onChange: this.changeText }), _react2['default'].createElement('p', { className: 'err' }, this.state.errState.confirmNewPassword || '两次输入密码不一致')), _react2['default'].createElement('li', null, _react2['default'].createElement('div', { className: 'bottomSubmit' }, _react2['default'].createElement('button', { className: 'publicBtn', type: 'submit', onClick: this.submit }, '确认修改'))))), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.modalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title', onClick: this.modalStateChange })), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.modalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.modalStateChange }, '确定')))), _react2['default'].createElement('div', { id: 'loadingToast', className: 'weui_loading_toast', style: this.state.scmodalState ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'weui_mask_transparent' }), _react2['default'].createElement('div', { className: 'weui_toast' }, _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('p', { className: 'weui_toast_content' }, '数据上传中'))));
+	        return _react2['default'].createElement('div', { className: 'changePassword' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement('span', { className: 'newBuildBtn', onClick: this.toRecord }, '返回'), '修改密码'), _react2['default'].createElement('div', { className: 'CPBody caseBox' }, _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text', className: 'oldPassword', name: 'oldPassword', placeholder: '请输入旧密码', onChange: this.changeText, onFocus: this.inputFocus }), _react2['default'].createElement('p', { className: 'err' }, this.state.errState.oldPassword)), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text', className: 'newPassword', name: 'newPassword', placeholder: '请输入新密码', onChange: this.changeText, onFocus: this.inputFocus }), _react2['default'].createElement('p', { className: 'err' }, this.state.errState.newPassword || ' 请输入6-20位字符（不得位纯数字或英文字母）')), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text', className: 'confirmNewPassword', name: 'confirmNewPassword', placeholder: '请确认新密码', onChange: this.changeText, onFocus: this.inputFocus }), _react2['default'].createElement('p', { className: 'err' }, this.state.errState.confirmNewPassword || '两次输入密码不一致')), _react2['default'].createElement('li', null, _react2['default'].createElement('div', { className: 'bottomSubmit' }, _react2['default'].createElement('button', { className: 'publicBtn', type: 'submit', onClick: this.submit }, '确认修改'))))), _react2['default'].createElement('div', { className: 'weui_dialog_alert', style: this.state.modalState == "" ? { display: "none" } : { display: "block" } }, _react2['default'].createElement('div', { className: 'weui_mask' }), _react2['default'].createElement('div', { className: 'weui_dialog' }, _react2['default'].createElement('div', { className: 'weui_dialog_hd' }, _react2['default'].createElement('strong', { className: 'weui_dialog_title', onClick: this.modalStateChange })), _react2['default'].createElement('div', { className: 'weui_dialog_bd' }, this.state.modalState), _react2['default'].createElement('div', { className: 'weui_dialog_ft' }, _react2['default'].createElement('a', { className: 'weui_btn_dialog primary', onClick: this.modalStateChange }, '确定')))), _react2['default'].createElement('div', { id: 'loadingToast', className: 'weui_loading_toast', style: this.state.scmodalState ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'weui_mask_transparent' }), _react2['default'].createElement('div', { className: 'weui_toast' }, _react2['default'].createElement('div', { className: 'weui_loading' }, _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_0' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_1' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_2' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_3' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_4' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_5' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_6' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_7' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_8' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_9' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_10' }), _react2['default'].createElement('div', { className: 'weui_loading_leaf weui_loading_leaf_11' })), _react2['default'].createElement('p', { className: 'weui_toast_content' }, '数据上传中'))));
 	    }
 	});
 	exports['default'] = ChangePosword;
