@@ -246,8 +246,10 @@
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
 	            if (nextProps.location.pathname == '/ChangePosword') {
+	                console.log('hide');
 	                (0, _jquery2['default'])('.clearfix').hide();
 	            } else {
+	                console.log('show');
 	                (0, _jquery2['default'])('.clearfix').show();
 	            }
 	        }
@@ -37538,7 +37540,7 @@
 	                name: '接车数量',
 	                type: 'line',
 	                stack: '总量',
-	                data: ["1", "2", "3", "4", "5", "6", "7"],
+	                data: ["", "", "", "", "", "", ""],
 	                itemStyle: {
 	                    normal: {
 	                        lineStyle: {
