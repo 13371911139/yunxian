@@ -36237,6 +36237,9 @@
 	            _jquery2["default"].post("/lexiugo-app/weixin/insurance/vehicle", _this.state.type2, function (data1) {
 	                _jquery2["default"].post("/lexiugo-app/weixin/insurance/push", _this.imgShow(), function (data2) {
 	                    _this.setState({ modalState: data.mess });
+	                    setTimeout(function () {
+	                        _this.props.history.replaceState(null, "/login");
+	                    }, 2000);
 	                });
 	            });
 	        });
