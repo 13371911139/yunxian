@@ -36238,7 +36238,7 @@
 	                _jquery2["default"].post("/lexiugo-app/weixin/insurance/push", _this.imgShow(), function (data2) {
 	                    _this.setState({ modalState: data.mess });
 	                    setTimeout(function () {
-	                        _this.props.history.replaceState(null, "/login");
+	                        _this.props.history.replaceState(null, "/Record");
 	                    }, 2000);
 	                });
 	            });
