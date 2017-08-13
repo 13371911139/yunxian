@@ -114858,10 +114858,11 @@
 		//提交补全信息
 		Infosubmit: function Infosubmit() {
 			var _this = this;
-			_this.setState({ data: Object.assign({}, _this.state.data, { pushTaskId: _this.props.location.state.id }) });
+			var newData = _this.state.data;
+			newData.pushTaskId = _this.props.location.state.id;
 			_jquery2['default'].ajax({
 				url: "/lexiugo-app/weixin/insurance/perfectCarInfo",
-				data: _this.state.data,
+				data: newData,
 				dataType: "json",
 				type: "post",
 				success: function success(msg) {
