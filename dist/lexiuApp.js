@@ -114846,9 +114846,12 @@
 		componentDidUpdate: function componentDidUpdate() {
 			var dataBrand = this.state.dataBrand,
 			    brandData = this.state.brandData,
-			    $brandNameLi = (0, _jquery2['default'])(".brandItem li"),
+			    $brandNameLi = (0, _jquery2['default'])(".datList li"),
 			    this_ = this;
 			$brandNameLi.bind("click", function () {
+				this_.loadSelectServer("/family/getFamilyBrandId/" + brandData[(0, _jquery2['default'])(this).index()].brandId + "", dataBrand, 2);
+				(0, _jquery2['default'])('.datList').hide();
+				return;
 				(0, _jquery2['default'])(".brandName").val(brandData[(0, _jquery2['default'])(this).index()].brandName);
 				(0, _jquery2['default'])(".brandItem").hide();
 				this_.loadSelectServer("/family/getFamilyBrandId/" + brandData[(0, _jquery2['default'])(this).index()].brandId + "", dataBrand, 2);
@@ -114878,10 +114881,8 @@
 		chexiHandleChange: function chexiHandleChange(e) {
 			var dataBrand = this.state.dataBrand;
 			this.loadSelectServer("/group/getGroupFamilyId/" + e.target.value + "", dataBrand, 3);
-			var op = (0, _jquery2['default'])("#family option").not(function () {
-				return !this.selected;
-			});
-			(0, _jquery2['default'])(".familyAbbr").val(op.text());
+			/*const op = $("#family option").not(function(){ return !this.selected });
+	  $(".familyAbbr").val(op.text())*/
 		},
 		chezuHandleChange: function chezuHandleChange(e) {
 			var dataBrand = this.state.dataBrand;
