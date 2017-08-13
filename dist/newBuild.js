@@ -36137,6 +36137,16 @@
 	                    isTrue = false;
 	                }
 	                break;
+	            case 'plateNo':
+	                var express = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+	                if (!express.test(data)) {
+	                    this.setState({ modalState: text + "填写不正确" });
+	                    isTrue = false;
+	                } else if (data == '') {
+	                    this.setState({ modalState: text + "尚未填写" });
+	                    isTrue = false;
+	                }
+	                break;
 	            default:
 	                if (data == '') {
 	                    this.setState({ modalState: text + "尚未填写" });
@@ -36205,7 +36215,7 @@
 	            registPersion: { name: '推修人姓名', type: 'def' },
 	            reportPersonName: { name: '车主姓名', type: 'def' },
 	            reportMoblePhone: { name: '车主电话', type: 'phone' },
-	            plateNo: { name: '车牌号', type: 'def' },
+	            plateNo: { name: '车牌号', type: 'plateNo' },
 	            brandName: { name: '车辆品牌', type: 'def' },
 	            xlcName: { name: '修理厂名称', type: 'def' },
 	            xlcCode: { name: '修理厂id', type: 'def' }
