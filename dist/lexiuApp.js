@@ -114798,19 +114798,23 @@
 		dataPush: function dataPush(data, d, w, e) {
 			var cList = [];
 			for (var i in data) {
-				var text = data.brandName || data.familyAbbr || data.groupName || data.vehicleName;
-				cList.push(_react2['default'].createElement('li', { key: i, onClick: this.brandArr.bind(this, d + 1) }, text));
+				var text = data[i].brandName || data[i].familyAbbr || data[i].groupName || data[i].vehicleName;
+				cList.push(_react2['default'].createElement('li', { key: i, onClick: this.brandArr.bind(this, d + 1, data[i]) }, text));
 			}
 			return cList;
 		},
 		//查询车辆品牌
-		brandArr: function brandArr(d, e) {
+		brandArr: function brandArr(d, c, e) {
 			var _this = this;
+			if (c) {
+				this.setState({ data: Object.assign({}, this.state.data, c) });
+			}
 			var a = {
 				0: '/brand/getBrandCode/' + e.target.value, //获取品牌value
 				1: '/family/getFamilyBrandId/' + this.state.data.brandId, //获取车系brandData[$(this).index()].brandId
 				2: '/group/getGroupFamilyId/' + this.state.data.familyId, //获取车组
 				3: "/vehicle/getVehicleGroupId/" + this.state.data.groupId };
+
 			//+e.target.value+"";//获取车型 vehicleId
 			//$('.brandItem').eq(0).slideDown();
 			_jquery2['default'].ajax({
@@ -114826,7 +114830,7 @@
 					newCarList[d] = _this.dataPush(msg.result, d);
 					_this.setState({ carList: newCarList });
 					d == 0 ? j = d : j = d + 1;
-					(0, _jquery2['default'])('.infoSty li').eq(j).find.find('.datList').show();
+					(0, _jquery2['default'])('.infoSty li').eq(j).find('.datList').show();
 					switch (d) {
 						case 0:
 							//_this.setState({data:Object.assign({},_this.state.data,{brandId:msgg.result[0].brandId})})
