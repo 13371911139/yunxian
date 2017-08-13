@@ -114705,9 +114705,27 @@
 				receGiveUP: "0",
 				phoneType: true,
 				showDio: false,
-				data: {
-					aa: ''
+				type2: {
+					brandName: '',
+					brandId: '',
+					importFlag: '',
+					brandCode: '',
+					brandInitial: '',
+					VehicleModel: '',
+					familyAbbr: '',
+					vin: '',
+					xlcName: '',
+					xlcCode: ''
 				},
+				dataBrand: {
+					userName: "lexiugo",
+					passwd: "n27H3lNGL7wJSePFsrr0g16UTU0+tDfsGHMVZ2pmxsDaFV4cVSzVwQ=="
+				},
+				xlcData: [],
+				brandData: [],
+				chezuData: [],
+				chexiData: [],
+				chexingData: [],
 				err: {
 					aa: '1'
 				}
@@ -114786,9 +114804,104 @@
 				this.setState({ phoneType: false });
 			}
 		},
+
+		loadSelectServer: function loadSelectServer(url, data, stateIndex) {
+			this.setState({ modalState: true });
+			this.serverRequest = _jquery2['default'].ajax({
+				url: "http://assessor.lexiugo.com/assess-api/assess-api" + url,
+				data: data,
+				contentType: "application/javascript",
+				dataType: "jsonp",
+				jsonp: "callback",
+				type: "post",
+				success: (function (msg) {
+					switch (stateIndex) {
+						case 1:
+							this.setState({ brandData: msg.result });
+							if (msg.result == []) {
+								(0, _jquery2['default'])(".brandItem").hide();
+							}
+							//console.log(this.state.brandData);
+							break;
+						case 2:
+							this.setState({ chexiData: msg.result });
+							//console.log(this.state.chexiData);
+							break;
+						case 3:
+							this.setState({ chezuData: msg.result });
+							//console.log(this.state.chezuData);
+							break;
+						case 4:
+							this.setState({ chexingData: msg.result });
+							//console.log(this.state.chexingData);
+							break;
+					}
+					this.setState({ modalState: false });
+				}).bind(this)
+			});
+		},
+		//componentDidMount(){
+		//
+		//},
+		componentDidUpdate: function componentDidUpdate() {
+			var dataBrand = this.state.dataBrand,
+			    brandData = this.state.brandData,
+			    $brandNameLi = (0, _jquery2['default'])(".brandItem li"),
+			    this_ = this;
+			$brandNameLi.bind("click", function () {
+				(0, _jquery2['default'])(".brandName").val(brandData[(0, _jquery2['default'])(this).index()].brandName);
+				(0, _jquery2['default'])(".brandItem").hide();
+				this_.loadSelectServer("/family/getFamilyBrandId/" + brandData[(0, _jquery2['default'])(this).index()].brandId + "", dataBrand, 2);
+				(0, _jquery2['default'])(".brandId").val(brandData[(0, _jquery2['default'])(this).index()].brandId);
+				(0, _jquery2['default'])(".brandCode").val(brandData[(0, _jquery2['default'])(this).index()].brandCode);
+				(0, _jquery2['default'])(".importFlag").val(brandData[(0, _jquery2['default'])(this).index()].importFlag);
+				(0, _jquery2['default'])(".brandInitial").val(brandData[(0, _jquery2['default'])(this).index()].brandInitial);
+			});
+			var xlcData = this.state.xlcData,
+			    $xlcNameLi = (0, _jquery2['default'])(".xlcItem li");
+			$xlcNameLi.bind("click", function () {
+				(0, _jquery2['default'])(".xlcName").val(xlcData[(0, _jquery2['default'])(this).index()].libName);
+				(0, _jquery2['default'])(".xlcItem").hide();
+				(0, _jquery2['default'])(".xlcCode").val(xlcData[(0, _jquery2['default'])(this).index()].zzid);
+			});
+		},
+		brandHandleChange: function brandHandleChange(e) {
+			var dataBrand = this.state.dataBrand;
+			if (!e.target.value == "") {
+				var data = e.target.value;
+			} else {
+				var data = 0;
+			}
+			this.loadSelectServer("/brand/getBrandCode/" + data + "", dataBrand, 1);
+			(0, _jquery2['default'])(".brandItem").show();
+		},
+		chexiHandleChange: function chexiHandleChange(e) {
+			var dataBrand = this.state.dataBrand;
+			this.loadSelectServer("/group/getGroupFamilyId/" + e.target.value + "", dataBrand, 3);
+			var op = (0, _jquery2['default'])("#family option").not(function () {
+				return !this.selected;
+			});
+			(0, _jquery2['default'])(".familyAbbr").val(op.text());
+		},
+		chezuHandleChange: function chezuHandleChange(e) {
+			var dataBrand = this.state.dataBrand;
+			this.loadSelectServer("/vehicle/getVehicleGroupId/" + e.target.value + "", dataBrand, 4);
+			var op = (0, _jquery2['default'])("#group option").not(function () {
+				return !this.selected;
+			});
+			console.log(op.text());
+			(0, _jquery2['default'])(".groupName").val(op.text());
+		},
+		chexingHandleChange: function chexingHandleChange(e) {
+			var op = (0, _jquery2['default'])("#vehicle option").not(function () {
+				return !this.selected;
+			});
+			console.log(op.text());
+			(0, _jquery2['default'])(".vehicleName").val(op.text());
+		},
 		//提交补全信息
 		Infosubmit: function Infosubmit() {
-
+			var _this = this;
 			var arr = {
 				ab: [this.state.aa, 'def']
 			};
@@ -114808,7 +114921,9 @@
 				data: data,
 				dataType: "json",
 				type: "post",
-				success: function success(msg) {}
+				success: function success(msg) {
+					_this.modalState("receive");
+				}
 			});
 		},
 		//控制模态框
@@ -114832,7 +114947,32 @@
 			} else {}
 		},
 		render: function render() {
-			var _this = this;
+			var _this2 = this;
+
+			var brandArr = [],
+			    brandData = this.state.brandData,
+			    chezuArr = [],
+			    chezuData = this.state.chezuData,
+			    chexiArr = [],
+			    chexiData = this.state.chexiData,
+			    chexingArr = [],
+			    chexingData = this.state.chexingData;
+			for (var i = 0; i < brandData.length; i++) {
+				var item = brandData[i];
+				brandArr.push(_react2['default'].createElement('li', { key: i }, item.brandName));
+			}
+			for (var i = 0; i < chexiData.length; i++) {
+				var item = chexiData[i];
+				chexiArr.push(_react2['default'].createElement('option', { key: i, value: item.familyId }, item.familyAbbr));
+			}
+			for (var i = 0; i < chezuData.length; i++) {
+				var item = chezuData[i];
+				chezuArr.push(_react2['default'].createElement('option', { key: i, value: item.groupId }, item.groupName));
+			}
+			for (var i = 0; i < chexingData.length; i++) {
+				var item = chexingData[i];
+				chexingArr.push(_react2['default'].createElement('option', { key: i, value: item.vehicleId }, item.vehicleName));
+			}
 
 			var idata = this.props.location.state;
 			console.log(idata);
@@ -114860,14 +115000,10 @@
 					insuranceLogoBg = "";
 			}
 			return _react2['default'].createElement('div', { className: 'item_survey_single' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.returnreceiveClick }), _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: '', name: '接车信息' })), _react2['default'].createElement('p', { className: 'insurceInfo clearfix' }, _react2['default'].createElement('span', { className: 'insurceLogo', id: insuranceLogoBg }), _react2['default'].createElement('span', { className: '' }, comname), _react2['default'].createElement('span', { className: 'detail', onClick: this.receiveClick }, '详情 >')), _react2['default'].createElement('div', { className: 'detailLabel listContainer' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车主 :'), cname), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '联系电话 :'), idata.telephone), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车牌号 :'), idata.plateno), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车辆描述 :'), idata.cximc)), _react2['default'].createElement('div', { className: 'telSms' }, _react2['default'].createElement('a', { href: "tel:" + idata.telephone }, _react2['default'].createElement('span', { className: 'takePhone' }), '打电话'), _react2['default'].createElement('a', { className: 'androidSms', style: this.state.phoneType ? { display: "inline-block" } : { display: "none" }, href: "sms:" + idata.telephone + '?body=尊敬的' + idata.customername + '您好！您的车牌号为' + idata.plateno + '的车辆已经接车。请继续关注维修状态。' }, _react2['default'].createElement('span', { className: 'shortMessage' }), '发短信'), _react2['default'].createElement('a', { className: 'iPhoneSms', style: this.state.phoneType ? { display: "none" } : { display: "inline-block" }, href: "sms:" + idata.telephone + '&body=尊敬的' + idata.customername + '您好！您的车牌号为' + idata.plateno + '的车辆已经接车。请继续关注维修状态。' }, _react2['default'].createElement('span', { className: 'shortMessage' }), '发短信')), _react2['default'].createElement('div', { className: 'btnGroup' }, _react2['default'].createElement('button', { type: 'button', className: 'deflBtn', onClick: function onClick() {
-					return _this.modalState("giveUp");
+					return _this2.modalState("giveUp");
 				} }, '放弃'), _react2['default'].createElement('button', { type: 'button', className: 'blueBtn', onClick: function onClick() {
-					return _this.modalState("receiveDio");
-				} }, '接车')), _react2['default'].createElement('div', { className: 'modalBox', style: this.state.dis ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'receiveCar', style: this.state.receGiveUP == "1" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '确定接车吗？'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { classID: 'btnSure', className: 'btn btnS', onClick: this.PickClick }, '确认'))), _react2['default'].createElement('div', { className: 'giveUpCar', style: this.state.receGiveUP == "2" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '放弃接车'), _react2['default'].createElement('div', null, '你确定要放弃接车吗？请选择放弃原因'), _react2['default'].createElement('div', null, _react2['default'].createElement('form', { className: 'giveUpForm', onChange: this.handleChange }, _react2['default'].createElement('input', { type: 'radio', id: 'rad1', name: 'val', value: '1' }), _react2['default'].createElement('label', { htmlFor: 'rad1' }, '撤案'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad2', name: 'val', value: '2' }), _react2['default'].createElement('label', { htmlFor: 'rad2' }, '无法修理'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad3', name: 'val', value: '3' }), _react2['default'].createElement('label', { htmlFor: 'rad3' }, '电话错误'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad4', name: 'val', value: '4' }), _react2['default'].createElement('label', { htmlFor: 'rad4' }, '他厂修理'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad5', name: 'val', value: '5' }), _react2['default'].createElement('label', { htmlFor: 'rad5' }, '其他'), _react2['default'].createElement('br', null))), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.giveClick }, '确认'))), _react2['default'].createElement('div', { className: 'sucOrfai', style: this.state.receGiveUP == "3" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, this.state.ResponseMessage), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.returnreceiveClick }, '确认')))), _react2['default'].createElement(_commonComponentCommon.ModalBg, { dis: this.state.dis }), _react2['default'].createElement('div', { className: 'addInfo', style: this.state.showDio ? { display: 'flex' } : { display: 'none' } }, _react2['default'].createElement('div', { className: 'InfoBox' }, _react2['default'].createElement('div', { className: 'infoSty' }, _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text' }), _react2['default'].createElement('div', null, _react2['default'].createElement('span', null))), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text' }), _react2['default'].createElement('div', null, _react2['default'].createElement('span', null))), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { className: 'aa', type: 'text', onBlur: function onBlur(e) {
-					(0, _jquery2['default'])('.aa').next().hide();
-				} }), _react2['default'].createElement('div', { className: 'datList' }, _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111'), _react2['default'].createElement('li', null, '11111')))), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'button', onClick: function onClick() {
-					return _this.modalState("receive");
-				}, value: '确定' })))))));
+					return _this2.modalState("receiveDio");
+				} }, '接车')), _react2['default'].createElement('div', { className: 'modalBox', style: this.state.dis ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'receiveCar', style: this.state.receGiveUP == "1" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '确定接车吗？'), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { classID: 'btnCancle', className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { classID: 'btnSure', className: 'btn btnS', onClick: this.PickClick }, '确认'))), _react2['default'].createElement('div', { className: 'giveUpCar', style: this.state.receGiveUP == "2" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, '放弃接车'), _react2['default'].createElement('div', null, '你确定要放弃接车吗？请选择放弃原因'), _react2['default'].createElement('div', null, _react2['default'].createElement('form', { className: 'giveUpForm', onChange: this.handleChange }, _react2['default'].createElement('input', { type: 'radio', id: 'rad1', name: 'val', value: '1' }), _react2['default'].createElement('label', { htmlFor: 'rad1' }, '撤案'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad2', name: 'val', value: '2' }), _react2['default'].createElement('label', { htmlFor: 'rad2' }, '无法修理'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad3', name: 'val', value: '3' }), _react2['default'].createElement('label', { htmlFor: 'rad3' }, '电话错误'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad4', name: 'val', value: '4' }), _react2['default'].createElement('label', { htmlFor: 'rad4' }, '他厂修理'), _react2['default'].createElement('br', null), _react2['default'].createElement('input', { type: 'radio', id: 'rad5', name: 'val', value: '5' }), _react2['default'].createElement('label', { htmlFor: 'rad5' }, '其他'), _react2['default'].createElement('br', null))), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnC', onClick: this.modalState }, '取消'), _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.giveClick }, '确认'))), _react2['default'].createElement('div', { className: 'sucOrfai', style: this.state.receGiveUP == "3" ? { display: "block" } : { display: "none" } }, _react2['default'].createElement('div', { className: 'modalContent' }, this.state.ResponseMessage), _react2['default'].createElement('div', { className: 'modalBtn' }, _react2['default'].createElement('button', { className: 'btn btnS', onClick: this.returnreceiveClick }, '确认')))), _react2['default'].createElement(_commonComponentCommon.ModalBg, { dis: this.state.dis }), _react2['default'].createElement('div', { className: 'addInfo', style: this.state.showDio ? { display: 'flex' } : { display: 'none' } }, _react2['default'].createElement('div', { className: 'InfoBox' }, _react2['default'].createElement('div', { className: 'infoSty' }, _react2['default'].createElement('ul', null, _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text', name: 'brandName', onChange: this.brandHandleChange, placeholder: '必填*品牌（请输入品牌拼音首字母进行查询）' }), _react2['default'].createElement('div', { className: 'datList' }, _react2['default'].createElement('ul', null, brandArr))), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'text', id: 'family', name: 'familyId', onChange: this.chexiHandleChange, placeholder: '车系' }), _react2['default'].createElement('div', { className: 'datList' }, _react2['default'].createElement('ul', null, chexiArr))), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { className: 'aa', type: 'text', id: 'group', name: 'groupId', onChange: this.chezuHandleChange, placeholder: '车组' }), _react2['default'].createElement('div', { className: 'datList' }, _react2['default'].createElement('ul', null, chezuArr))), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { className: 'aa', type: 'text', id: 'vehicle', name: 'vehicleId', onChange: this.chexingHandleChange, placeholder: '车型' }), _react2['default'].createElement('div', { className: 'datList' }, _react2['default'].createElement('ul', null, chexingArr))), _react2['default'].createElement('li', null, _react2['default'].createElement('input', { type: 'button', onClick: this.Infosubmit, value: '确定' })))))));
 		}
 	});
 	exports['default'] = Receive_detail;
