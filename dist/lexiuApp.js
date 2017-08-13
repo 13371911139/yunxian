@@ -114799,6 +114799,7 @@
 			var cList = [];
 			for (var i in data) {
 				var text = data[i].brandName || data[i].familyAbbr || data[i].groupName || data[i].vehicleName;
+				data[i].textValue = text;
 				cList.push(_react2['default'].createElement('li', { key: i, onClick: this.brandArr.bind(this, d + 1, data[i]) }, text));
 			}
 			return cList;
@@ -114809,6 +114810,7 @@
 			if (c) {
 				this.setState({ data: Object.assign({}, this.state.data, c) });
 				(0, _jquery2['default'])('.infoSty li').eq(d - 1).find('.datList').hide();
+				(0, _jquery2['default'])('.infoSty li').eq(d - 1).find('input').val(c.textValue);
 			}
 			var a = {
 				0: '/brand/getBrandCode/' + e.target.value, //获取品牌value
