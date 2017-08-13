@@ -116061,18 +116061,15 @@
 	    });
 
 	    function wxConfig(obj) {
-	        console.log('开始执行');
 	        wx.config({
-	            debug: true,
+	            debug: false,
 	            appId: obj.appid, // 微信appid
 	            timestamp: obj.timestamp, // 时间戳
 	            nonceStr: obj.noncestr, // 随机数
 	            signature: obj.signature, // 签名,
 	            jsApiList: ['chooseImage', 'uploadImage', 'getLocation', 'openLocation', 'checkJsApi', 'checkJsApi', 'previewImage', 'scanQRCode']
 	        });
-	        wx.ready(function () {
-	            alert('当前版本：c3');
-	        });
+	        wx.ready(function () {});
 	        //隐藏右上角菜单接 口
 	        wx.hideOptionMenu();
 	    }
