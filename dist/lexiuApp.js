@@ -114858,26 +114858,13 @@
 		//提交补全信息
 		Infosubmit: function Infosubmit() {
 			var _this = this;
-			var arr = {
-				ab: [this.state.aa, 'def']
-			};
-			for (var i in arr) {
-				var key = arr[i],
-				    value = arr[i][1];
-				switch (arr[i][1]) {
-					default:
-						if (!value) {
-							alert();
-							return;
-						}
-				}
-			}
 			_jquery2['default'].ajax({
-				url: "",
-				data: data,
+				url: "/lexiugo-app/weixin/insurance/perfectCarInfo",
+				data: _this.state.data,
 				dataType: "json",
 				type: "post",
 				success: function success(msg) {
+					console.log(msg);
 					_this.modalState("receive");
 				}
 			});
