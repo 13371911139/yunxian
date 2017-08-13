@@ -114809,8 +114809,8 @@
 			var _this = this;
 			if (c) {
 				this.setState({ data: Object.assign({}, this.state.data, c) });
-				(0, _jquery2['default'])('.infoSty li').eq(d - 1).find('.datList').hide();
-				(0, _jquery2['default'])('.infoSty li').eq(d - 1).find('input').val(c.textValue);
+				(0, _jquery2['default'])('.infoSty li.jt').eq(d - 1).find('.datList').hide();
+				(0, _jquery2['default'])('.infoSty li.jt').eq(d - 1).find('input').val(c.textValue);
 			}
 			var a = {
 				0: '/brand/getBrandCode/' + e.target.value, //获取品牌value
@@ -114833,7 +114833,7 @@
 					newCarList[d] = _this.dataPush(msg.result, d);
 					_this.setState({ carList: newCarList });
 					d == 0 ? j = d : j = d + 1;
-					(0, _jquery2['default'])('.infoSty li').eq(d).find('.datList').show();
+					(0, _jquery2['default'])('.infoSty li.jt').eq(d).find('.datList').show();
 					switch (d) {
 						case 0:
 							//_this.setState({data:Object.assign({},_this.state.data,{brandId:msgg.result[0].brandId})})
