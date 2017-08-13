@@ -113026,7 +113026,7 @@
 					cname = item_survey.customername;
 				}
 
-				item_surveyNodes.push(_react2['default'].createElement('div', { className: 'listContainer clearfix', style: i % 2 == 0 ? odd : eve, key: item_survey.id }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车牌号 :'), item_survey.plateno), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车 主 :'), cname), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '保险公司 :'), item_survey.createTimeString), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车型 :'), item_survey.cxmc), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '接车时间 :'), cname)));
+				item_surveyNodes.push(_react2['default'].createElement('div', { className: 'listContainer clearfix', style: i % 2 == 0 ? odd : eve, key: item_survey.id }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车牌号 :'), item_survey.plateno), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车 主 :'), cname), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '保险公司 :'), item_survey.inscompanyname), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车型 :'), item_survey.cxmc), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '接车时间 :'), item_survey.createTimeString)));
 			}
 			return _react2['default'].createElement('div', { className: 'item_survey_list clearfix' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: this.state.rectotal, name: '接车' }), _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.cheClick })), _react2['default'].createElement('div', { className: 'hiddenDiv', id: 'sou' }, _react2['default'].createElement('form', { onSubmit: this.handleSubmit }, _react2['default'].createElement('input', { type: 'text', id: 'queryInput', required: 'required', name: 'plateNo',
 				onChange: this.handleChange, focus: this.souFocus, placeholder: '请输入车牌号' }))), _react2['default'].createElement('div', { className: 'listContainer clearfix' }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车牌号 :'), '11车牌号1'), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车主 :'), '车主'), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '保险公司 :'), '保险公司'), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车型 :'), '车型'), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '接车时间 :'), '接车时间')), item_surveyNodes, _react2['default'].createElement('div', null, _react2['default'].createElement('section', { id: 'Loading', className: 'Loading', value: this.state.pageNo, onClick: this.aClick }, '点击加载更多...')));
@@ -113234,7 +113234,7 @@
 				var eve = {
 					backgroundColor: "#f0f0f0"
 				};
-				item_checkNodes.push(_react2['default'].createElement('div', { className: 'listContainer clearfix', style: i % 2 == 0 ? odd : eve, key: item_survey.id }, _react2['default'].createElement('div', { className: 'clearfix' }, _react2['default'].createElement('label', { className: 'plateno' }, item_survey.plateno), _react2['default'].createElement('label', { className: 'customerName' }, cname), _react2['default'].createElement('label', { className: 'updatetime' }, item_survey.inRepairTimeString)), _react2['default'].createElement('div', { className: 'vehicleDescription' }, item_survey.cxmc), _react2['default'].createElement('div', { className: 'insurceInfo' }, _react2['default'].createElement('span', { className: 'insurceLogo', id: insuranceLogoBg }), _react2['default'].createElement('span', { className: '' }, comname), _react2['default'].createElement('span', { className: 'repairState' }, progress))));
+				item_checkNodes.push(_react2['default'].createElement('div', { className: 'listContainer clearfix', style: i % 2 == 0 ? odd : eve, key: item_survey.id }, _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车牌号 :'), item_survey.plateno), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车 主 :'), cname), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '保险公司 :'), item_survey.inscompanyname), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '车型 :'), item_survey.cxmc), _react2['default'].createElement('li', null, _react2['default'].createElement('span', null, '接车时间 :'), item_survey.inRepairTimeString)));
 			}
 			return _react2['default'].createElement('div', { className: 'item_survey_list clearfix' }, _react2['default'].createElement('div', { className: 'headerInfo' }, _react2['default'].createElement(_commonComponentCommon.HeaderIf, { numBer: this.state.rectotal, name: '查勘' }), _react2['default'].createElement(_commonComponentCommon.IconFont, { name: '', onClick: this.cheClick })), _react2['default'].createElement('div', { className: 'hiddenDiv', id: 'sou' }, _react2['default'].createElement('form', { onSubmit: this.handleSubmit }, _react2['default'].createElement('input', { type: 'text', id: 'queryInput', required: 'required', name: 'plateNo',
 				onChange: this.handleChange, placeholder: '请输入车牌号' }))), item_checkNodes, _react2['default'].createElement('div', null, _react2['default'].createElement('section', { id: 'Loading', className: 'Loading', value: this.state.pageNo, onClick: this.aClick }, '点击加载更多...')));
@@ -113243,6 +113243,19 @@
 
 	exports['default'] = Check;
 	module.exports = exports['default'];
+	/*<div className="clearfix">
+	<label className="plateno">{item_survey.plateno}</label>
+	<label className="customerName">{cname}</label>
+	<label className="updatetime">{item_survey.inRepairTimeString}</label>
+	</div>
+	<div className="vehicleDescription">
+	{item_survey.cxmc}
+	</div>
+	<div className="insurceInfo">
+	<span className="insurceLogo" id={insuranceLogoBg}></span>
+	<span className="">{comname}</span>
+	<span className="repairState">{progress}</span>
+	</div>*/
 
 	/* REACT HOT LOADER */ }).call(this); } finally { if (false) { (function () { var foundReactClasses = module.hot.data && module.hot.data.foundReactClasses || false; if (module.exports && module.makeHot) { var makeExportsHot = require("C:\\Users\\feiqu\\Desktop\\leXiu\\node_modules\\_react-hot-loader@1.3.1@react-hot-loader\\makeExportsHot.js"); if (makeExportsHot(module, require("react"))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot apply hot update to " + "check.js" + ": " + err.message); } }); } } module.hot.dispose(function (data) { data.makeHot = module.makeHot; data.foundReactClasses = foundReactClasses; }); })(); } }
 
