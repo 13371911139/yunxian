@@ -114808,12 +114808,13 @@
 			var _this = this;
 			if (c) {
 				this.setState({ data: Object.assign({}, this.state.data, c) });
+				(0, _jquery2['default'])('.infoSty li').eq(d - 1).find('.datList').hide();
 			}
 			var a = {
 				0: '/brand/getBrandCode/' + e.target.value, //获取品牌value
-				1: '/family/getFamilyBrandId/' + this.state.data.brandId, //获取车系brandData[$(this).index()].brandId
-				2: '/group/getGroupFamilyId/' + this.state.data.familyId, //获取车组
-				3: "/vehicle/getVehicleGroupId/" + this.state.data.groupId };
+				1: '/family/getFamilyBrandId/' + c.brandId, //获取车系brandData[$(this).index()].brandId
+				2: '/group/getGroupFamilyId/' + c.familyId, //获取车组
+				3: "/vehicle/getVehicleGroupId/" + c.groupId };
 
 			//+e.target.value+"";//获取车型 vehicleId
 			//$('.brandItem').eq(0).slideDown();
