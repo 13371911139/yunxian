@@ -114793,15 +114793,14 @@
 		},
 		//查询车辆品牌
 		brandArr: function brandArr(d, e) {
+			var _this = this;
 			var a = {
-				0: '/brand/getBrandCode/' + this.state.data.brandName, //获取品牌value
+				0: '/brand/getBrandCode/' + e.target.value, //获取品牌value
 				1: '/family/getFamilyBrandId/' + this.state.data.brandId, //获取车系brandData[$(this).index()].brandId
 				2: '/group/getGroupFamilyId/' + this.state.data.familyId, //获取车组
 				3: "/vehicle/getVehicleGroupId/" + this.state.data.groupId };
 			//+e.target.value+"";//获取车型 vehicleId
-			this.state.type2.brandName = e.target.value;
-			var _this = this;
-			(0, _jquery2['default'])('.brandItem').eq(0).slideDown();
+			//$('.brandItem').eq(0).slideDown();
 			_jquery2['default'].ajax({
 				url: "http://assessor.lexiugo.com/assess-api/assess-api" + a[d],
 				data: this.state.dataBrand,
@@ -114810,6 +114809,19 @@
 				jsonp: "callback",
 				type: "post",
 				success: function success(msg) {
+					switch (d) {
+						case 0:
+							_this.setState({ data: Object.assign({}, _this.state.data, { brandId: msgg.result[0].brandId }) });
+							break;
+						case 1:
+							break;
+						case 2:
+							break;
+						case 3:
+							break;
+						default:
+
+					}
 					var carList = [];
 					for (var i in msg.result) {
 						carList.push(_react2['default'].createElement('li', { key: i, onClick: _this.xCar.bind(_this, msg.result[i], 'brand') }, msg.result[i].brandName));
