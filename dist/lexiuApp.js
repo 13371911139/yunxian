@@ -114864,6 +114864,7 @@
 		modalState: function modalState(a) {
 			if (a == 'receiveDio') {
 				this.setState({ showDio: !this.state.showDio });
+				(0, _jquery2['default'])('.infoSty li.jt').eq(0).find('.datList').hide();
 				return;
 			}
 			//修改this.state.dis控制模态框出现消失
