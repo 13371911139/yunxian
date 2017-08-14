@@ -114846,6 +114846,7 @@
 			for (var i in arr) {
 				if (!newData[i] || newData[i] == '') {
 					this.setState({ receGiveUP: '911' });
+					this.setState({ dis: !_this.state.dis });
 					if (newData.vin == '') {
 						this.setState({ ResponseMessage: "VIN码必填" });
 					} else {
@@ -114865,6 +114866,7 @@
 						_this.modalState("receive");
 					} else {
 						this.setState({ receGiveUP: '911' });
+						this.setState({ dis: !_this.state.dis });
 						this.setState({ ResponseMessage: "信息补全失败" });
 					}
 				}
