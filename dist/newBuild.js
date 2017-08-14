@@ -36239,10 +36239,12 @@
 	        _jquery2["default"].post("/lexiugo-app/weixin/insurance/basic", _this.state.type1, function (data) {
 	            _jquery2["default"].post("/lexiugo-app/weixin/insurance/vehicle", _this.state.type2, function (data1) {
 	                _jquery2["default"].post("/lexiugo-app/weixin/insurance/push", _this.imgShow(), function (data2) {
-	                    console.log(data);
-	                    _this.setState({ modalState: data.mess });
+	                    console.log(data2);
+	                    _this.setState({ modalState: data2.mess });
 	                    setTimeout(function () {
-	                        _this.props.history.replaceState(null, "/Record");
+	                        if (data2.mess == '推修成功|图片下载失败' || data2.mess == '推修成功') {
+	                            _this.props.history.replaceState(null, "/Record");
+	                        }
 	                    }, 2000);
 	                });
 	            });
