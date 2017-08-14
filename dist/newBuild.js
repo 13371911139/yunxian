@@ -35917,9 +35917,12 @@
 	        this.setState({ password: localStorage.getItem("password") });
 	        (0, _jquery2["default"])("input[name=username]").val(localStorage.getItem("username"));
 	        (0, _jquery2["default"])("input[name=password]").val(localStorage.getItem("password"));
-	        if (localStorage.getItem("username") && localStorage.getItem("username")) {
-	            (0, _jquery2["default"])('button.submits').trigger("click");
-	        }
+
+	        setTimeout(function () {
+	            if (localStorage.getItem("username") && localStorage.getItem("username")) {
+	                (0, _jquery2["default"])('button.submits').trigger("click");
+	            }
+	        }, 1300);
 	    },
 	    render: function render() {
 	        return _react2["default"].createElement("div", { className: "loginForm appRouter" }, _react2["default"].createElement("div", { className: "logoItem" }), _react2["default"].createElement("form", { onSubmit: this.handleSubmit }, _react2["default"].createElement("div", { className: "eleItem" }, _react2["default"].createElement("label", null, _react2["default"].createElement("span", { className: "iconfont" }, "")), _react2["default"].createElement("input", { type: "text", className: "username", name: "username",
