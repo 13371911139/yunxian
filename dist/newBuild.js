@@ -36215,8 +36215,8 @@
 	        var arr = {
 	            reportNo: { name: '报案号', type: 'def' },
 	            lossNo: { name: '定损单号', type: 'def' },
-	            registPersion: { name: '推修人姓名', type: 'def' },
-	            //reportPersonName:{name:'车主姓名',type:'def'},
+	            //registPersion:{name:'推修人姓名',type:'def'},
+	            reportPersonName: { name: '车主姓名', type: 'def' },
 	            reportMoblePhone: { name: '车主电话', type: 'phone' },
 	            plateNo: { name: '车牌号', type: 'plateNo' },
 	            brandName: { name: '车辆品牌', type: 'def' },
