@@ -36242,7 +36242,7 @@
 	                    console.log(data2);
 	                    _this.setState({ modalState: data2.mess });
 	                    setTimeout(function () {
-	                        if (data2.mess == '推修成功|图片下载失败' || data2.mess == '推修成功') {
+	                        if (data2.mess == '推修成功|图片下载失败' || data2.mess == '推修成功' || data2.mess == '推修请求成功') {
 	                            _this.props.history.replaceState(null, "/Record");
 	                        }
 	                    }, 2000);
