@@ -35918,7 +35918,7 @@
 	        (0, _jquery2["default"])("input[name=username]").val(localStorage.getItem("username"));
 	        (0, _jquery2["default"])("input[name=password]").val(localStorage.getItem("password"));
 	        if (localStorage.getItem("username") && localStorage.getItem("username")) {
-	            this.handleSubmit();
+	            this.handleSubmit.bind(this);
 	        }
 	    },
 	    render: function render() {
