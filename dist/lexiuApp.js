@@ -114709,13 +114709,7 @@
 					userName: "lexiugo",
 					passwd: "n27H3lNGL7wJSePFsrr0g16UTU0+tDfsGHMVZ2pmxsDaFV4cVSzVwQ=="
 				},
-				data: {
-					brandName: '',
-					brandId: '',
-					familyId: '',
-					groupId: '',
-					vehicleId: ''
-				},
+				data: {},
 				carList: [],
 				err: {
 					aa: '1'
