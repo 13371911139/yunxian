@@ -114845,7 +114845,13 @@
 			var arr = ['brandId', 'familyId', 'groupId', 'vehicleId', 'pushTaskId', 'vin'];
 			for (var i in arr) {
 				if (!newData[i] || newData[i] == '') {
-					this.setState({ ResponseMessage: "请点选车辆信息" });
+					this.setState({ receGiveUP: '911' });
+					if (newData.vin == '') {
+						this.setState({ ResponseMessage: "VIN码必填" });
+					} else {
+						this.setState({ ResponseMessage: "请点选车辆信息" });
+					}
+
 					return;
 				}
 			}
