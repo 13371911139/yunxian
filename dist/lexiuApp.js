@@ -114843,8 +114843,9 @@
 			newData.pushTaskId = _this.props.location.state.id;
 			var arr = ['brandId', 'familyId', 'groupId', 'vehicleId', 'pushTaskId'];
 			for (var i in arr) {
-				if (newData[i] || newData[i] == '') {
+				if (!newData[i] || newData[i] == '') {
 					this.setState({ ResponseMessage: "请点选车辆信息" });
+					return;
 				}
 			}
 			_jquery2['default'].ajax({
@@ -114868,7 +114869,7 @@
 				(0, _jquery2['default'])('.infoSty li.jt').hide().find('.datList').hide();
 				(0, _jquery2['default'])('.infoSty li.jt').eq(0).show();
 				(0, _jquery2['default'])('.infoSty li.jt').find('input').val('');
-				_this.setState({ data: {} });
+				this.setState({ data: {} });
 				return;
 			}
 			//修改this.state.dis控制模态框出现消失
