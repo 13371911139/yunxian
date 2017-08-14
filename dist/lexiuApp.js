@@ -114841,6 +114841,12 @@
 			var _this = this;
 			var newData = _this.state.data;
 			newData.pushTaskId = _this.props.location.state.id;
+			var arr = ['brandId', 'familyId', 'groupId', 'vehicleId', 'pushTaskId'];
+			for (var i in arr) {
+				if (newData[i] || newData[i] == '') {
+					this.setState({ ResponseMessage: "请点选车辆信息" });
+				}
+			}
 			_jquery2['default'].ajax({
 				url: "/lexiugo-app/weixin/insurance/perfectCarInfo",
 				data: newData,
