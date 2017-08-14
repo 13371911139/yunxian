@@ -35917,6 +35917,9 @@
 	        this.setState({ password: localStorage.getItem("password") });
 	        (0, _jquery2["default"])("input[name=username]").val(localStorage.getItem("username"));
 	        (0, _jquery2["default"])("input[name=password]").val(localStorage.getItem("password"));
+	        if (localStorage.getItem("username") && localStorage.getItem("username")) {
+	            this.handleSubmit();
+	        }
 	    },
 	    render: function render() {
 	        return _react2["default"].createElement("div", { className: "loginForm appRouter" }, _react2["default"].createElement("div", { className: "logoItem" }), _react2["default"].createElement("form", { onSubmit: this.handleSubmit }, _react2["default"].createElement("div", { className: "eleItem" }, _react2["default"].createElement("label", null, _react2["default"].createElement("span", { className: "iconfont" }, "")), _react2["default"].createElement("input", { type: "text", className: "username", name: "username",
@@ -36995,6 +36998,7 @@
 	            type: "post",
 	            success: (function (msg) {
 	                if (msg.flag == "0") {
+	                    localStorage.setItem("password", '');
 	                    this.props.history.replaceState(null, "/login");
 	                } else if (msg.flag == "1") {
 	                    alert("退出失败");
