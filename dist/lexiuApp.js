@@ -114837,7 +114837,7 @@
 					newCarList[d] = _this.dataPush(msg.result, d);
 					_this.setState({ carList: newCarList });
 					d == 0 ? j = d : j = d + 1;
-					(0, _jquery2['default'])('.infoSty li.jt').eq(d).show().find('.datList').show();
+					(0, _jquery2['default'])('.infoSty li.jt').eq(d).fideIn().find('.datList').show();
 				}
 			});
 		},
@@ -114864,7 +114864,8 @@
 		modalState: function modalState(a) {
 			if (a == 'receiveDio') {
 				this.setState({ showDio: !this.state.showDio });
-				(0, _jquery2['default'])('.infoSty li.jt').eq(0).find('.datList').hide();
+				(0, _jquery2['default'])('.infoSty li.jt').find('.datList').hide();
+				(0, _jquery2['default'])('.infoSty li.jt').find('input').val('');
 				return;
 			}
 			//修改this.state.dis控制模态框出现消失
