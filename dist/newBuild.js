@@ -36233,6 +36233,7 @@
 	        _jquery2["default"].post("/lexiugo-app/weixin/insurance/basic", _this.state.type1, function (data) {
 	            _jquery2["default"].post("/lexiugo-app/weixin/insurance/vehicle", _this.state.type2, function (data1) {
 	                _jquery2["default"].post("/lexiugo-app/weixin/insurance/push", _this.imgShow(), function (data2) {
+	                    console.log(data);
 	                    _this.setState({ modalState: data.mess });
 	                    setTimeout(function () {
 	                        _this.props.history.replaceState(null, "/Record");
@@ -36337,7 +36338,6 @@
 	        });
 	    },
 	    showImg: function showImg(type, obj, e) {
-	        alert(obj);
 	        wx.previewImage({
 	            current: obj,
 	            urls: [obj]
@@ -36354,9 +36354,6 @@
 	            uri.push(n + 'imageType=survey_5&' + n + 'serverId=' + serverId);
 	        }
 	        uri.push('address=' + this.state.address);
-	        for (var j in uri) {
-	            alert(uri[i]);
-	        }
 	        return uri.join("&");
 	    },
 	    render: function render() {
