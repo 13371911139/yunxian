@@ -114815,6 +114815,7 @@
 				(0, _jquery2['default'])('.infoSty li.jt').eq(1).hide().find('input').val('');
 				(0, _jquery2['default'])('.infoSty li.jt').eq(2).hide().find('input').val('');
 				(0, _jquery2['default'])('.infoSty li.jt').eq(3).hide().find('input').val('');
+				_this.setState({ data: {} });
 			}
 			var a = {
 				0: '/brand/getBrandCode/' + e.target.value, //获取品牌value
@@ -114867,6 +114868,7 @@
 				(0, _jquery2['default'])('.infoSty li.jt').hide().find('.datList').hide();
 				(0, _jquery2['default'])('.infoSty li.jt').eq(0).show();
 				(0, _jquery2['default'])('.infoSty li.jt').find('input').val('');
+				_this.setState({ data: {} });
 				return;
 			}
 			//修改this.state.dis控制模态框出现消失
