@@ -114837,7 +114837,7 @@
 					newCarList[d] = _this.dataPush(msg.result, d);
 					_this.setState({ carList: newCarList });
 					d == 0 ? j = d : j = d + 1;
-					(0, _jquery2['default'])('.infoSty li.jt').eq(d).fadeIn().find('.datList').fadeIn();
+					(0, _jquery2['default'])('.infoSty li.jt').eq(d).slideDown().find('.datList').fadeIn();
 				}
 			});
 		},
