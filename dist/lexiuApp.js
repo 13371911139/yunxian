@@ -114864,7 +114864,8 @@
 		modalState: function modalState(a) {
 			if (a == 'receiveDio') {
 				this.setState({ showDio: !this.state.showDio });
-				(0, _jquery2['default'])('.infoSty li.jt').find('.datList').hide();
+				(0, _jquery2['default'])('.infoSty li.jt').hide().find('.datList').hide();
+				(0, _jquery2['default'])('.infoSty li.jt').eq(0).show();
 				(0, _jquery2['default'])('.infoSty li.jt').find('input').val('');
 				return;
 			}
