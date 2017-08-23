@@ -6,7 +6,7 @@ router.post('/*',(req,res,next)=>{
     const data=req.body;
     var projjj=false;
     if(projjj){
-        var apiURL = 'http://www.toumingxiuche.cn'+req.originalUrl;
+        var apiURL = 'https://www.toumingxiuche.cn'+req.originalUrl;
     }else{
         var apiURL = '192.168.0.117:8080'+req.originalUrl;
     }
@@ -24,7 +24,7 @@ router.post('/*',(req,res,next)=>{
 });
 router.get('/*',(req,res,next)=>{
     console.log(typeof(data));
-    r.post({url:'http://www.toumingxiuche.cn'+req.originalUrl,form:req.body}).pipe(res);
+    r.post({url:'https://www.toumingxiuche.cn'+req.originalUrl,form:req.body}).pipe(res);
 
 });
 module.exports = router;
