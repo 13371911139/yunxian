@@ -141,21 +141,26 @@ router.get('/',(req,res,next)=>{
     res.render('index',{dataList:dataList});
 });
 router.post('/BQXX',(req,res,next)=>{
-    console.log(req.body.data);
-    var url="http://assess-api.lexiugo.com/assess-api/assess-api"+encodeURIComponent(req.body.data)+"?callback=__callback&userName=lexiugo&passwd=n27H3lNGL7wJSePFsrr0g16UTU0%2BtDfsGHMVZ2pmxsDaFV4cVSzVwQ%3D%3D&_=1510119995854"
-    http.get(url,(r)=>{
-        var html = '';
-        // 绑定data事件 回调函数 累加html片段
-        r.on('data',(data)=>{
-            html += data;
+    var keys=req.body.data.split("/")[1];
+    var dats=req.body.data.split("/").pop();
+    var arrs={
+        brand:{url:'queryBrandApp',keys:'brandId'},
+        family:{url:'queryFamilyApp',keys:'brandId'},
+        group:{url:'queryGroupApp',keys:'familyId'},
+        vehicle:{url:'queryVehicleApp',keys:'groupId'}
+    }
+    var data={}
+    data[arrs[keys].keys]=dats
+    console.log(data,arrs[keys].url)
+    var urlse='http://localhost:8888/toumingxiu/app/'+arrs[keys].url+'.do'
+    superagent
+        .post(urlse)
+        .type('form')
+        .accept('json')
+        .send(data)
+        .end((reqe,rese)=>{
+            res.json(rese.body)
         });
-        r.on('end',()=>{
-            console.log(eval(''+html.split('__callback')[1]+''))
-            res.json(eval(''+html.split('__callback')[1]+''))
-        });
-    }).on('error',()=>{
-        console.log('获取数据错误');
-    });
 })
 
 router.get('/getMapList',(req,res,next)=>{
