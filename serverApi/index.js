@@ -300,6 +300,70 @@ router.get('/down',(req,res,next)=>{
     res.end();
 })
 
+
+
+//**字体**//
+var Fontmin = require('fontmin');
+router.post('/fonts',(req,res,next)=>{
+    var textData=req.query.data || req.body.data;
+    var fontStyle=req.query.fontStyle || req.body.fontStyle
+    var nowTime=Date.now();
+    var srcPath = '/usr/local/server/ceshi/common/fonts/'+fontStyle+'.ttf'; // 字体源文件
+    var destPath = '/usr/local/server/ceshi/common/fonts/'+nowTime;    // 输出路径
+    var fontmin=new Fontmin()
+        .src(srcPath)               // 输入配置
+        .use(Fontmin.glyph({        // 字型提取插件
+            text: textData.replace(/\s+/g,"")             // 所需文字
+        }))
+        .use(Fontmin.ttf2eot())     // eot 转换插件
+        .use(Fontmin.ttf2woff())    // woff 转换插件
+        .use(Fontmin.ttf2svg())     // svg 转换插件
+        .use(Fontmin.css())         // css 生成插件
+        .dest(destPath);
+    // 执行
+    fontmin.run(function (err, files, stream) {
+        console.log(textData )
+        if (err) {                  // 异常捕捉
+            console.error(err);
+        }
+        res.json({
+            path:nowTime,
+            font:fontStyle,
+            fontFamily:fontStyle+nowTime,
+        })
+        console.log('done');        // 成功
+    });
+})
+/**定时任务 4小时**/
+var schedule = require("node-schedule");
+var rule3     = new schedule.RecurrenceRule();
+var times3    = [1,5,9,13,17,21];
+rule3.hour  = times3;
+var j = schedule.scheduleJob(rule3, ()=>{
+    var nowTime=Date.now();
+    var newpath='/usr/local/server/ceshi/common/fonts'
+    var files = fs.readdirSync(newpath);
+    files.forEach((file,index)=>{
+        console.log(nowTime-file)
+        try{
+            if(nowTime-file>=3600000){
+                var newFiles = fs.readdirSync(newpath+'/'+file);
+                newFiles.forEach((files,index)=>{
+                    var curPath = newpath+'/'+file + "/" + files;
+                    if(fs.statSync(curPath).isDirectory()) { // recurse
+                        deleteFolderRecursive(curPath);
+                    } else { // delete file
+                        fs.unlinkSync(curPath);
+                    }
+                })
+                fs.rmdirSync(newpath+'/'+file);
+            }
+        }catch (e){
+
+        }
+    })
+});
+
 //2018/1/16
 router.post('/pcMapXlc',(req,res,next)=>{
     var jsons={htmls:
