@@ -150,7 +150,7 @@ router.post('/BQXX',(req,res,next)=>{
         vehicle:{url:'queryVehicleApp',keys:'groupId'}
     }
     var data={}
-    data[arrs[keys].keys]=dats
+    data[arrs[keys].keys]=dats.replace(/\s+/g,"") || 'a'
     console.log(data,arrs[keys].url)
     var urlse='http://toumingxiuche.cn/toumingxiu/app/'+arrs[keys].url+'.do'
     superagent
