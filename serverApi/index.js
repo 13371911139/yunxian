@@ -407,7 +407,7 @@ router.post('/pcMapXlc',(req,res,next)=>{
     "<input type='hidden' id='brandCodeNode' value='"+req.body.brandCode+"'>" +
     "<input type='hidden' id='MapUseUserId' value='"+req.body.userId+"'>" +
     "<input type='hidden' id='cityName' value='"+req.body.cityName+"'>" +
-    "<script src='http://116.62.162.134:8090/server/dist/pcSelectMap.js'></script>" +
+    "<script src='/server/dist/pcSelectMap.js'></script>" +
     "</div>"
     })
 })
